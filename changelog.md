@@ -20,18 +20,14 @@
   - `src/content/config.ts`: Zod schemas (posts, services, cases) — Astro v5 API
   - `src/layouts/BaseLayout.astro`: ISO-compliant root layout (SEO + RTL/LTR + Fonts)
   - `src/components/content/GentleNote.astro`: Knowledge-first soft CTA component
-
-### Added
-- 
-
-### Changed
-- 
+- **Phase 1.3 — Page Templates (2026-02-19)**
+  - `src/pages/index.astro`: Homepage Arabic (RTL, 8 emoji cards, brand-only data)
+  - `src/pages/en/index.astro`: Homepage English (LTR mirror)
+  - `src/pages/contact.astro`: Contact page (WhatsApp + Location from currentLocation)
+  - `src/pages/404.astro`: Bilingual 404 page (brand-only, no location data)
 
 ### Fixed
-- 
-
-### Removed
-- 
+- `.coderabbit.yaml`: Fixed YAML schema parsing error — moved `knowledge_base` rules to `reviews.instructions`, moved `path_instructions` under `reviews`, restructured `knowledge_base` as proper object (2026-02-19)
 
 ---
 
