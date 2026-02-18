@@ -446,8 +446,8 @@ Rules: Bilingual. No location data. Branded colors. Logical CSS.
 
 | Execute | Review | Gate |
 | :---: | :---: | :--- |
-| `[ ]` | `[ ]` | Commit all Phase D changes and push to `main` |
-| `[ ]` | `[ ]` | Open PR (or push triggers CodeRabbit auto-review on `main`) |
+| `[x]` | `[x]` | Commit all Phase D changes and push to `main` |
+| `[x]` | `[x]` | Open PR (or push triggers CodeRabbit auto-review on `main`) |
 | `[ ]` | `[ ]` | Review CodeRabbit feedback on all 4 page files |
 | `[ ]` | `[ ]` | Fix any critical issues raised by CodeRabbit |
 | `[ ]` | `[ ]` | Final approval from developer |
