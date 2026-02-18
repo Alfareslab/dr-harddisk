@@ -235,9 +235,9 @@ export const currentLocation: Location = {
 
 | Run | Review | Task |
 | :-: | :----: | :--- |
-| `[ ]` | `[ ]` | Write `src/config/location.ts` with exact content above |
-| `[ ]` | `[ ]` | Verify TypeScript types compile: `cmd /c pnpm astro check` |
-| `[ ]` | `[ ]` | Verify no hardcoded location names in other files |
+| `[x]` | `[x]` | Write `src/config/location.ts` with exact content above |
+| `[x]` | `[x]` | Verify TypeScript types compile: `cmd /c pnpm astro check` |
+| `[x]` | `[x]` | Verify no hardcoded location names in other files |
 
 #### 🔒 Checkpoint A:
 ```bash
@@ -411,10 +411,10 @@ export const collections = { posts, services, cases };
 
 | Run | Review | Task |
 | :-: | :----: | :--- |
-| `[ ]` | `[ ]` | Replace `src/content/config.ts` with exact content above |
-| `[ ]` | `[ ]` | Verify TypeScript compiles: `cmd /c pnpm astro check` |
-| `[ ]` | `[ ]` | Verify build succeeds: `cmd /c pnpm build` |
-| `[ ]` | `[ ]` | Confirm no v4 syntax (`getEntryBySlug`, `entry.render()`) |
+| `[x]` | `[x]` | Replace `src/content/config.ts` with exact content above |
+| `[x]` | `[x]` | Verify TypeScript compiles: `cmd /c pnpm astro check` |
+| `[x]` | `[x]` | Verify build succeeds: `cmd /c pnpm build` |
+| `[x]` | `[x]` | Confirm no v4 syntax (`getEntryBySlug`, `entry.render()`) |
 
 #### 🔒 Checkpoint B:
 ```bash
@@ -533,10 +533,10 @@ const ogImage = heroImage
 
 | Run | Review | Task |
 | :-: | :----: | :--- |
-| `[ ]` | `[ ]` | Replace `src/layouts/BaseLayout.astro` with exact content above |
-| `[ ]` | `[ ]` | Verify build: `cmd /c pnpm astro check` |
-| `[ ]` | `[ ]` | Verify `brand` import resolves correctly |
-| `[ ]` | `[ ]` | Verify RTL/LTR switching works for both `lang` values |
+| `[x]` | `[x]` | Replace `src/layouts/BaseLayout.astro` with exact content above |
+| `[x]` | `[x]` | Verify build: `cmd /c pnpm astro check` |
+| `[x]` | `[x]` | Verify `brand` import resolves correctly |
+| `[x]` | `[x]` | Verify RTL/LTR switching works for both `lang` values |
 
 #### 🔒 Checkpoint C:
 ```bash
@@ -685,11 +685,11 @@ const mapsLabel = isArabic ? "الموقع على الخريطة" : "View on Map
 
 | Run | Review | Task |
 | :-: | :----: | :--- |
-| `[ ]` | `[ ]` | Create `src/components/content/GentleNote.astro` with exact content above |
-| `[ ]` | `[ ]` | Verify: no hardcoded location names in component |
-| `[ ]` | `[ ]` | Verify: CSS uses logical properties only (no `left`/`right`) |
-| `[ ]` | `[ ]` | Verify build: `cmd /c pnpm astro check` |
-| `[ ]` | `[ ]` | Verify build: `cmd /c pnpm build` |
+| `[x]` | `[x]` | Create `src/components/content/GentleNote.astro` with exact content above |
+| `[x]` | `[x]` | Verify: no hardcoded location names in component |
+| `[x]` | `[x]` | Verify: CSS uses logical properties only (no `left`/`right`) |
+| `[x]` | `[x]` | Verify build: `cmd /c pnpm astro check` |
+| `[x]` | `[x]` | Verify build: `cmd /c pnpm build` |
 
 #### 🔒 Checkpoint D:
 ```bash
@@ -717,14 +717,14 @@ cmd /c git push origin main
 
 | Run | Review | Task |
 | :-: | :----: | :--- |
-| `[ ]` | `[ ]` | Run full type check: `cmd /c pnpm astro check` |
-| `[ ]` | `[ ]` | Run full build: `cmd /c pnpm build` |
-| `[ ]` | `[ ]` | Verify `dist/` output exists |
-| `[ ]` | `[ ]` | Grep entire `src/` for hardcoded "جدة" or "Jeddah" outside `location.ts` |
-| `[ ]` | `[ ]` | Grep entire `src/` for hardcoded "الفارس" or "Alfares" outside `location.ts` |
-| `[ ]` | `[ ]` | Update `project-context.md` with Phase 1.2 status |
-| `[ ]` | `[ ]` | Update `project-key.md` if new files added |
-| `[ ]` | `[ ]` | Update `changelog.md` with Phase 1.2 entry |
+| `[x]` | `[x]` | Run full type check: `cmd /c pnpm astro check` |
+| `[x]` | `[x]` | Run full build: `cmd /c pnpm build` |
+| `[x]` | `[x]` | Verify `dist/` output exists |
+| `[x]` | `[x]` | Grep entire `src/` for hardcoded "جدة" or "Jeddah" outside `location.ts` |
+| `[x]` | `[x]` | Grep entire `src/` for hardcoded "الفارس" or "Alfares" outside `location.ts` |
+| `[x]` | `[x]` | Update `project-context.md` with Phase 1.2 status |
+| `[x]` | `[x]` | Update `project-key.md` if new files added |
+| `[x]` | `[x]` | Update `changelog.md` with Phase 1.2 entry |
 
 #### 🔒 Checkpoint E (Final):
 ```bash

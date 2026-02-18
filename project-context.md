@@ -29,13 +29,14 @@
 ## 3. الحالة الحالية (Current Status)
 
 ### ✅ تم:
-- `[completed_item]`
+- **Phase 1.1: Project Skeleton** (Astro v5 + Tailwind v4)
+- **Phase 1.2: Core Components** (Location, Content Schemas, BaseLayout, GentleNote)
 
 ### 🔄 قيد العمل:
-- `[in_progress_item]`
+- **Phase 1.3: Page Templates** (Homepage, Contact, Error Pages)
 
 ### ⏭️ الخطوة التالية:
-- `[next_step]`
+- تنفيذ صفحة الاستقبال (Homepage) بناءً على `BaseLayout` وتصميم `Blueprint`.
 
 ---
 

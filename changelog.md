@@ -15,6 +15,13 @@
 ## [Unreleased]
 
 ### Added
+- **Phase 1.2 — Core Components (2026-02-18)**
+  - `src/config/location.ts`: Brand/Location separation (Atomic Core)
+  - `src/content/config.ts`: Zod schemas (posts, services, cases) — Astro v5 API
+  - `src/layouts/BaseLayout.astro`: ISO-compliant root layout (SEO + RTL/LTR + Fonts)
+  - `src/components/content/GentleNote.astro`: Knowledge-first soft CTA component
+
+### Added
 - 
 
 ### Changed
