@@ -185,7 +185,7 @@ export const brand: Brand = {
     en: "Knowledge Base Specialized in Data Recovery",
   },
 
-  siteUrl: "", // Placeholder — domain not chosen yet
+  siteUrl: process.env.PUBLIC_SITE_URL ?? "", // From .env — domain not chosen yet
 
   // Personal contact (Dr. Hard Disk — stable)
   contact: {
@@ -462,10 +462,7 @@ cmd /c git push origin main
 import { brand } from "../config/location";
 import "../styles/global.css";
 
-// Fonts (self-hosted — no external requests)
-import "@fontsource/tajawal/400.css";
-import "@fontsource/tajawal/700.css";
-import "@fontsource-variable/inter";
+
 
 interface Props {
   title?: string;
