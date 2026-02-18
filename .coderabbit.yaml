@@ -2,70 +2,77 @@
 # Dr. Hard Disk — CodeRabbit Configuration
 # Source: master-constitution.md v3.2.0
 
-language: "en"
+language: "en-US"
 early_access: false
+
 reviews:
   profile: "chill"
   request_changes_workflow: false
   high_level_summary: true
   poem: false
   review_status: true
-  collapse_walkthrough: false
   auto_review:
     enabled: true
     drafts: false
 
+  # Path-specific instructions
+  path_instructions:
+    - path: "**/*"
+      instructions: |
+        Project follows master-constitution.md v3.2.0 strictly.
+        Astro v5 with output: 'static' is MANDATORY.
+        Tailwind v4 CSS-first only — tailwind.config.js is FORBIDDEN.
+        RTL-first design — use logical properties (start/end, not left/right).
+        No hardcoded location data in content files — use GentleNote component.
+        Twin-File Strategy: Every Arabic file needs English twin with same translationID.
+
+    - path: "astro.config.mjs"
+      instructions: |
+        CRITICAL CONSTRAINTS:
+        - output: 'static' is MANDATORY (hybrid is FORBIDDEN)
+        - imageService: 'compile' is MANDATORY (for Cloudflare Edge V8 Isolates)
+        - Reject any PR that changes these
+
+    - path: "src/config/location.ts"
+      instructions: |
+        This is the ATOMIC CORE of Portable Brand.
+        - All location data MUST be here
+        - Check for Arabic/English consistency
+        - Validate all required fields
+
+    - path: "src/content/config.ts"
+      instructions: |
+        No-AI-First-Draft Rule applies.
+        - Zod schemas must include: heroImage, translationID, slug
+        - Validate schema matches master-constitution.md §9.2
+
+    - path: "src/content/**/*.mdx"
+      instructions: |
+        Content files rules:
+        - Check for hardcoded location names
+        - Verify heroImage path exists
+        - Check translationID matches twin file
+
+    - path: "**/*.css"
+      instructions: |
+        RTL Support (master-constitution.md §13.4):
+        - Use logical properties: margin-inline-start/end (not left/right)
+        - Use border-inline-start/end (not left/right)
+        - Use padding-inline-start/end (not left/right)
+
+    - path: "**/*.astro"
+      instructions: |
+        Astro v5 Breaking Changes:
+        - Use getEntry() not getEntryBySlug()
+        - Use render(entry) not entry.render()
+        - getStaticPaths params must be strings only
+
 chat:
   auto_reply: true
 
-# Critical Rules from master-constitution.md
 knowledge_base:
-  - "**Project follows master-constitution.md v3.2.0 strictly**"
-  - "**Astro v5 with output: 'static' is MANDATORY**"
-  - "**Tailwind v4 CSS-first only — tailwind.config.js is FORBIDDEN**"
-  - "**RTL-first design — use logical properties (start/end, not left/right)**"
-  - "**No hardcoded location data in content files — use GentleNote component**"
-  - "**Twin-File Strategy: Every Arabic file needs English twin with same translationID**"
-
-# Path-specific instructions
-path_instructions:
-  - path: "astro.config.mjs"
-    instructions: |
-      CRITICAL CONSTRAINTS:
-      - output: 'static' is MANDATORY (hybrid is FORBIDDEN)
-      - imageService: 'compile' is MANDATORY (for Cloudflare Edge V8 Isolates)
-      - Reject any PR that changes these
-  
-  - path: "src/config/location.ts"
-    instructions: |
-      This is the ATOMIC CORE of Portable Brand.
-      - All location data MUST be here
-      - Check for Arabic/English consistency
-      - Validate all required fields
-  
-  - path: "src/content/config.ts"
-    instructions: |
-      No-AI-First-Draft Rule applies.
-      - Zod schemas must include: heroImage, translationID, slug
-      - Validate schema matches master-constitution.md §9.2
-  
-  - path: "src/content/**/*.mdx"
-    instructions: |
-      Content files rules:
-      - Check for hardcoded location names (جدة/Jeddah/الفارس/Alfares)
-      - Verify heroImage path exists
-      - Check translationID matches twin file
-  
-  - path: "**/*.css"
-    instructions: |
-      RTL Support (master-constitution.md §13.4):
-      - Use logical properties: margin-start/end (not left/right)
-      - Use border-start/end (not left/right)
-      - Use padding-start/end (not left/right)
-  
-  - path: "**/*.astro"
-    instructions: |
-      Astro v5 Breaking Changes:
-      - Use getEntry() not getEntryBySlug()
-      - Use render(entry) not entry.render()
-      - getStaticPaths params must be strings only
+  opt_out: false
+  learnings:
+    scope: local
+  issues:
+    scope: local
