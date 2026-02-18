@@ -1,20 +1,73 @@
 ---
-// src/layouts/BaseLayout.astro — PLACEHOLDER
-// Full implementation in Phase 1.2
+// src/layouts/BaseLayout.astro
+// ══════════════════════════════════════════════════════════════
+// Root Layout — Dr. Hard Disk
+// Source: TAD v4.2 §4.2 | Constitution §10.3
+// ══════════════════════════════════════════════════════════════
+
+import { brand } from "../config/location";
+import "../styles/global.css";
+
+
+
 interface Props {
-  title: string;
-  description: string;
-  lang?: 'ar' | 'en';
+  title?: string;
+  description?: string;
+  lang?: "ar" | "en";
+  heroImage?: string;
+  canonicalUrl?: string;
 }
-const { title, description, lang = 'ar' } = Astro.props;
+
+const {
+  title = brand.title,
+  description = brand.tagline.ar,
+  lang = "ar",
+  heroImage,
+  canonicalUrl,
+} = Astro.props;
+
+const isRTL = lang === "ar";
+const dir = isRTL ? "rtl" : "ltr";
+const pageTitle = title.includes(brand.nameEn)
+  ? title
+  : `${title} | ${lang === "ar" ? brand.name : brand.nameEn}`;
+const canonical = canonicalUrl || new URL(Astro.url.pathname, brand.siteUrl).href;
+const ogImage = heroImage
+  ? new URL(heroImage, brand.siteUrl).href
+  : undefined;
 ---
-<!DOCTYPE html>
-<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+
+<!doctype html>
+<html lang={lang} dir={dir}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO Core -->
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "ar" ? "ar_SA" : "en_US"} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
   </head>
   <body>
     <slot />
