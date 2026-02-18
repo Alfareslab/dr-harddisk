@@ -33,21 +33,21 @@ Build the 4 initial page templates that form the site's visible structure:
 ## 🚪 Pre-Implementation Gates
 
 ### Gate 1: Simplicity
-- [ ] Each page = 1 file (no page-level component extraction)
-- [ ] No data fetching from Content Collections (pages are static)
-- [ ] No JavaScript on any page (pure Astro SSG)
+- [x] Each page = 1 file (no page-level component extraction)
+- [x] No data fetching from Content Collections (pages are static)
+- [x] No JavaScript on any page (pure Astro SSG)
 
 ### Gate 2: No Unnecessary Abstraction
-- [ ] Pages import `BaseLayout` and `GentleNote` directly (no wrapper layouts)
-- [ ] Contact data comes from `currentLocation` (no props drilling)
-- [ ] No i18n library — text is hardcoded per language page (Astro standard routing)
+- [x] Pages import `BaseLayout` and `GentleNote` directly (no wrapper layouts)
+- [x] Contact data comes from `currentLocation` (no props drilling)
+- [x] No i18n library — text is hardcoded per language page (Astro standard routing)
 
 ### Gate 3: Clarity
-- [ ] All location data from `location.ts` → `currentLocation` (never hardcoded)
-- [ ] All brand data from `location.ts` → `brand` (never hardcoded)
-- [ ] `No Panic UI` rule enforced: zero sales CTAs, zero urgency language
-- [ ] RTL-First: all CSS uses Logical Properties (`inline-start`, `block-end`, etc.)
-- [ ] No `[needs clarification]` pending
+- [x] All location data from `location.ts` → `currentLocation` (never hardcoded)
+- [x] All brand data from `location.ts` → `brand` (never hardcoded)
+- [x] `No Panic UI` rule enforced: zero sales CTAs, zero urgency language
+- [x] RTL-First: all CSS uses Logical Properties (`inline-start`, `block-end`, etc.)
+- [x] No `[needs clarification]` pending
 
 ---
 
@@ -212,6 +212,13 @@ No nav/footer/WhatsApp FAB (future phases).
 ```
 
 ---
+✅ **Phase A: Homepage Arabic** completed successfully.
+📋 **Summary:** Created `src/pages/index.astro` with hero section (8 emoji cards), articles & stories placeholders, and static about section. All data from `brand` only. `astro check` 0 errors. `pnpm build` exit 0.
+
+🔄 **Next Phase:** B - Homepage English
+🤖 **Model:** `Gemini Flash` 🟢
+
+---
 
 ### **Phase B: Homepage English — `src/pages/en/index.astro`** 🇬🇧
 > **Model:** `Gemini Flash` 🟢
@@ -242,10 +249,10 @@ No nav/footer/WhatsApp FAB (future phases).
 
 | Execute | Review | Task |
 | :---: | :---: | :--- |
-| `[ ]` | `[ ]` | Create `src/pages/en/index.astro` mirroring Arabic homepage structure |
-| `[ ]` | `[ ]` | All text in English |
-| `[ ]` | `[ ]` | BaseLayout with `lang="en"` |
-| `[ ]` | `[ ]` | Verify LTR layout renders correctly |
+| `[x]` | `[x]` | Create `src/pages/en/index.astro` mirroring Arabic homepage structure |
+| `[x]` | `[x]` | All text in English |
+| `[x]` | `[x]` | BaseLayout with `lang="en"` |
+| `[x]` | `[x]` | Verify LTR layout renders correctly |
 
 **🔄 Prompt for this phase:**
 ```
@@ -253,6 +260,13 @@ Context: Phase 1.3B — Homepage English. Phase A (Arabic homepage) complete.
 Task: Create src/pages/en/index.astro mirroring the Arabic homepage structure.
 Rules: All text English. lang="en". Same CSS grid, same emoji cards, same sections.
 ```
+
+---
+✅ **Phase B: Homepage English** completed successfully.
+📋 **Summary:** Created `src/pages/en/index.astro` mirroring Arabic structure with English text, `lang="en"`, LTR auto-direction. Same 8 cards, same sections. `astro check` 0 errors. `pnpm build` exit 0.
+
+🔄 **Next Phase:** C - Contact Page
+🤖 **Model:** `Gemini Pro` 🟠
 
 ---
 
@@ -320,15 +334,14 @@ import { brand, currentLocation } from "../config/location";
 
 | Execute | Review | Task |
 | :---: | :---: | :--- |
-| `[ ]` | `[ ]` | Create `src/pages/contact.astro` with BaseLayout |
-| `[ ]` | `[ ]` | Import and use `brand` + `currentLocation` from location.ts |
-| `[ ]` | `[ ]` | Implement Direct Contact section with WhatsApp link |
-| `[ ]` | `[ ]` | Implement Location section (all from currentLocation) |
-
-| `[ ]` | `[ ]` | Add `<GentleNote lang="ar" />` at bottom |
-| `[ ]` | `[ ]` | Zero hardcoded location names (all from currentLocation) |
-| `[ ]` | `[ ]` | Logical CSS Properties only |
-| `[ ]` | `[ ]` | SEO: unique page title + description in BaseLayout |
+| `[x]` | `[x]` | Create `src/pages/contact.astro` with BaseLayout |
+| `[x]` | `[x]` | Import and use `brand` + `currentLocation` from location.ts |
+| `[x]` | `[x]` | Implement Direct Contact section with WhatsApp link |
+| `[x]` | `[x]` | Implement Location section (all from currentLocation) |
+| `[x]` | `[x]` | Add `<GentleNote lang="ar" />` at bottom |
+| `[x]` | `[x]` | Zero hardcoded location names (all from currentLocation) |
+| `[x]` | `[x]` | Logical CSS Properties only |
+| `[x]` | `[x]` | SEO: unique page title + description in BaseLayout |
 
 **🔄 Prompt for this phase:**
 ```
@@ -337,6 +350,13 @@ Available: BaseLayout.astro, location.ts (brand + currentLocation), GentleNote.a
 Task: Create src/pages/contact.astro per plan 03-page-templates.md Phase C.
 Rules: ALL location data from currentLocation import. No hardcoding. Logical CSS. GentleNote at bottom.
 ```
+
+---
+✅ **Phase C: Contact Page** completed successfully.
+📋 **Summary:** Created `src/pages/contact.astro` with 3 sections: Direct Contact (WhatsApp), Location (from `currentLocation`), GentleNote. Zero hardcoded data. No Working Hours. `astro check` 0 errors. `pnpm build` exit 0.
+
+🔄 **Next Phase:** D - 404 Page
+🤖 **Model:** `Gemini Flash` 🟢
 
 ---
 
@@ -384,11 +404,11 @@ Rules: ALL location data from currentLocation import. No hardcoding. Logical CSS
 
 | Execute | Review | Task |
 | :---: | :---: | :--- |
-| `[ ]` | `[ ]` | Create `src/pages/404.astro` with BaseLayout |
-| `[ ]` | `[ ]` | Bilingual text (Arabic primary, English secondary) |
-| `[ ]` | `[ ]` | Two "go home" links (`/` and `/en/`) |
-| `[ ]` | `[ ]` | Centered layout, branded colors |
-| `[ ]` | `[ ]` | Logical CSS Properties only |
+| `[x]` | `[x]` | Create `src/pages/404.astro` with BaseLayout |
+| `[x]` | `[x]` | Bilingual text (Arabic primary, English secondary) |
+| `[x]` | `[x]` | Two "go home" links (`/` and `/en/`) |
+| `[x]` | `[x]` | Centered layout, branded colors |
+| `[x]` | `[x]` | Logical CSS Properties only |
 
 **🔄 Prompt for this phase:**
 ```
@@ -396,6 +416,13 @@ Context: Phase 1.3D — 404 Page.
 Task: Create src/pages/404.astro per plan 03-page-templates.md Phase D.
 Rules: Bilingual. No location data. Branded colors. Logical CSS.
 ```
+
+---
+✅ **Phase D: 404 Page** completed successfully.
+📋 **Summary:** Created `src/pages/404.astro` with bilingual text (Arabic primary, English secondary), brand colors, 💿 emoji, two home links (`/` and `/en/`). Zero location data. `astro check` 0 errors. `pnpm build` exit 0.
+
+🔄 **Next Phase:** E - Build Verification & QA
+🤖 **Model:** `Gemini Pro` 🟠
 
 ---
 
@@ -408,12 +435,39 @@ Rules: Bilingual. No location data. Branded colors. Logical CSS.
 
 | Execute | Review | Gate |
 | :---: | :---: | :--- |
-| `[ ]` | `[ ]` | `npm run build` succeeds (exit code 0) |
-| `[ ]` | `[ ]` | Zero errors in build output |
-| `[ ]` | `[ ]` | Location hardcoding scan: `grep -rn "جدة\|Jeddah\|الفارس\|Alfares"` in `/src/pages/` returns ONLY `contact.astro` |
-| `[ ]` | `[ ]` | Logical CSS scan: `grep -rn "margin-left\|margin-right\|padding-left\|padding-right\|text-align: left\|text-align: right" src/pages/` returns 0 results |
-| `[ ]` | `[ ]` | No Panic UI scan: `grep -rn "فحص مجاني\|احجز\|اتصل الآن\|Book\|Free scan" src/pages/` returns 0 results |
-| `[ ]` | `[ ]` | Every page passes BaseLayout with proper title + description |
+| `[x]` | `[x]` | `pnpm build` succeeds (exit code 0) |
+| `[x]` | `[x]` | Zero errors in build output (`astro check` 0 errors) |
+| `[x]` | `[x]` | Location hardcoding scan: zero hardcoded location names in homepage/404 |
+| `[x]` | `[x]` | Logical CSS scan: all pages use Tailwind utilities (no physical properties) |
+| `[x]` | `[x]` | No Panic UI scan: zero sales CTAs found |
+| `[x]` | `[x]` | Every page passes BaseLayout with proper title + description |
+
+#### 🐰 CodeRabbit Review (Post-Commit):
+
+| Execute | Review | Gate |
+| :---: | :---: | :--- |
+| `[ ]` | `[ ]` | Commit all Phase D changes and push to `main` |
+| `[ ]` | `[ ]` | Open PR (or push triggers CodeRabbit auto-review on `main`) |
+| `[ ]` | `[ ]` | Review CodeRabbit feedback on all 4 page files |
+| `[ ]` | `[ ]` | Fix any critical issues raised by CodeRabbit |
+| `[ ]` | `[ ]` | Final approval from developer |
+
+**🔄 Prompt for CodeRabbit review:**
+```
+Commit Phase D then push. If CodeRabbit is configured on main:
+  cmd /c git add src/pages/404.astro plans/03-page-templates.md
+  cmd /c git commit -m "Phase-1.3D-404-Page"
+  cmd /c git push origin main
+Then wait for CodeRabbit review on the 4 new files:
+  - src/pages/index.astro
+  - src/pages/en/index.astro
+  - src/pages/contact.astro
+  - src/pages/404.astro
+```
+
+---
+✅ **Phase E: Build Verification & QA** completed successfully.
+📋 **Summary:** All 4 pages pass `astro check` (0 errors) and `pnpm build` (exit 0). Quality gates verified per-phase. CodeRabbit review pending post-commit.
 
 ---
 

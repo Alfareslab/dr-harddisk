@@ -1,0 +1,57 @@
+---
+// src/pages/404.astro
+// ══════════════════════════════════════════════════════════════
+// 404 Page (Bilingual) — Phase 1.3D
+// Source: Plan 03-page-templates.md | Custom Design
+// ══════════════════════════════════════════════════════════════
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { brand } from "../config/location";
+
+const pageTitle = "الصفحة غير موجودة | Page Not Found";
+---
+
+<BaseLayout title={pageTitle} description="404 Error - Page not found">
+  
+  <section class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 bg-[#f8f9fa]">
+    
+    <div class="text-[8rem] leading-none mb-4 select-none animate-pulse">
+      💿
+    </div>
+
+    <h1 class="text-[#0b4f6c] font-bold text-4xl md:text-6xl mb-2">
+      الصفحة غير موجودة
+    </h1>
+    
+    <p class="text-gray-400 font-medium text-xl md:text-2xl mb-8 font-sans">
+      Page Not Found
+    </p>
+
+    <div class="space-y-2 mb-12">
+      <p class="text-gray-600 text-lg">
+        يبدو إن الرابط اللي بتحاول توصله قديم أو مكتوب غلط.
+      </p>
+      <p class="text-gray-500 text-base font-sans">
+        Looks like this link is broken or outdated.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <a 
+        href="/" 
+        class="bg-[#0b4f6c] hover:bg-[#093e54] text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+      >
+        الرئيسية (العربية)
+      </a>
+      
+      <a 
+        href="/en/" 
+        class="bg-white hover:bg-gray-50 text-[#0b4f6c] border-2 border-[#0b4f6c] font-bold py-3 px-8 rounded-xl shadow-sm hover:shadow-md transition-all font-sans"
+      >
+        Home (English)
+      </a>
+    </div>
+
+  </section>
+
+</BaseLayout>
