@@ -1,0 +1,2 @@
+# Location Migration Guide
+Placeholder.
