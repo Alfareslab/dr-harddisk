@@ -15,17 +15,17 @@ reviews:
     enabled: true
     drafts: false
 
-  # Project-wide review instructions (replaces invalid knowledge_base)
-  instructions: |
-    Project follows master-constitution.md v3.2.0 strictly.
-    Astro v5 with output: 'static' is MANDATORY.
-    Tailwind v4 CSS-first only — tailwind.config.js is FORBIDDEN.
-    RTL-first design — use logical properties (start/end, not left/right).
-    No hardcoded location data in content files — use GentleNote component.
-    Twin-File Strategy: Every Arabic file needs English twin with same translationID.
-
   # Path-specific instructions
   path_instructions:
+    - path: "**/*"
+      instructions: |
+        Project follows master-constitution.md v3.2.0 strictly.
+        Astro v5 with output: 'static' is MANDATORY.
+        Tailwind v4 CSS-first only — tailwind.config.js is FORBIDDEN.
+        RTL-first design — use logical properties (start/end, not left/right).
+        No hardcoded location data in content files — use GentleNote component.
+        Twin-File Strategy: Every Arabic file needs English twin with same translationID.
+
     - path: "astro.config.mjs"
       instructions: |
         CRITICAL CONSTRAINTS:

@@ -71,7 +71,7 @@ export const brand: Brand = {
     en: "Knowledge Base Specialized in Data Recovery",
   },
 
-  siteUrl: process.env.PUBLIC_SITE_URL ?? "", // From .env — domain not chosen yet
+  siteUrl: import.meta.env.PUBLIC_SITE_URL ?? "", // From .env — domain not chosen yet
 
   // Personal contact (Dr. Hard Disk — stable)
   contact: {
