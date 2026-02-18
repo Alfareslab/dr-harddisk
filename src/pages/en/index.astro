@@ -1,7 +1,125 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+// src/pages/en/index.astro
+// ══════════════════════════════════════════════════════════════
+// Homepage (English) — Phase 1.3B
+// Source: Plan 03-page-templates.md | Blueprint §3
+// ══════════════════════════════════════════════════════════════
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { brand } from "../../config/location";
+
+const cards = [
+  { emoji: "💿", name: "HDD", sub: "Hard Disk Drive", href: "/posts/?category=hdd" },
+  { emoji: "💾", name: "SSD", sub: "Solid State Drive", href: "/posts/?category=ssd" },
+  { emoji: "⚡", name: "NVMe", sub: "NVMe Drive", href: "/posts/?category=ssd" },
+  { emoji: "🃏", name: "SD Card", sub: "Camera Card", href: "/posts/?category=flash" },
+  { emoji: "🔌", name: "USB Drive", sub: "Flash Memory", href: "/posts/?category=flash" },
+  { emoji: "📹", name: "CCTV/DVR", sub: "Surveillance", href: "/posts/?category=dvr" },
+  { emoji: "🖥️", name: "RAID Server", sub: "Enterprise Storage", href: "/posts/?category=raid" },
+  { emoji: "💬", name: "Need Help?", sub: "Contact Us", href: "/contact/", isContact: true },
+];
 ---
-<BaseLayout title="Dr. Hard Disk" description="Data Recovery Services" lang="en">
-  <h1>Welcome to Dr. Hard Disk (English)</h1>
-  <p>Placeholder Page</p>
+
+<BaseLayout title={brand.titleEn} description={brand.tagline.en} lang="en">
+  
+  {/* ─── Hero Section ─── */}
+  <section data-section="hero" class="relative overflow-hidden bg-gradient-to-b from-surface to-[#eff1f3] py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      
+      <h1 class="text-[#0b4f6c] font-bold text-4xl md:text-6xl mb-6 leading-tight">
+        What's wrong with your device?
+      </h1>
+      
+      <p class="text-gray-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+        {brand.nameEn} — Your tech encyclopedia to understand storage problems and data recovery
+      </p>
+
+      {/* Cards Grid */}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {cards.map((card) => (
+          <a
+            href={card.href}
+            class:list={[
+              "group block p-6 rounded-xl border transition-all duration-300 transform hover:scale-[1.02] hover:shadow-md",
+              card.isContact 
+                ? "bg-[#f0fdf4] border-[#bbf7d0] hover:border-primary-500" 
+                : "bg-white border-border hover:border-[#0b4f6c]/30"
+            ]}
+          >
+            <span class="block text-4xl mb-3 filter grayscale-[0.2] group-hover:grayscale-0 transition-all">
+              {card.emoji}
+            </span>
+            <span class="block font-bold text-gray-800 text-lg group-hover:text-[#0b4f6c] transition-colors">
+              {card.name}
+            </span>
+            <span class="block text-xs text-gray-400 mt-1 font-sans group-hover:text-gray-600 transition-colors">
+              {card.sub}
+            </span>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  {/* ─── Latest Articles (Placeholder) ─── */}
+  <section class="py-16 md:py-24 bg-white px-4 border-t border-border">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-[#0b4f6c] font-bold text-3xl mb-4">Latest Technical Guides</h2>
+      <p class="text-gray-500 mb-8">Articles from the lab — far from myths and misinformation</p>
+      
+      <div class="p-8 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50">
+        <p class="text-gray-400">Content coming soon — stay tuned for expert articles.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── Success Stories (Placeholder) ─── */}
+  <section class="py-16 md:py-24 bg-[#f1f5f9] px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-[#0b4f6c] font-bold text-3xl mb-4">Real Stories from the Lab</h2>
+      <p class="text-gray-500 mb-8">Every case is a challenge, and every success is a lesson</p>
+      
+      <div class="p-8 border-2 border-dashed border-gray-300 rounded-xl bg-white/50">
+        <p class="text-gray-400">Content coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── About Section (Static Brand) ─── */}
+  <section class="py-20 bg-gradient-to-br from-[#0b4f6c] to-[#07364a] text-white px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-bold text-3xl md:text-4xl mb-6">Dr. Hard Disk</h2>
+      
+      <div class="space-y-4 text-gray-200 text-lg leading-relaxed mb-10">
+        <p>
+          Over 8 years of experience in handling the most complex data recovery cases.
+          We do not use free software; instead, we handle storage media in a specialized laboratory environment.
+        </p>
+        <p>
+          Our goal is to spread correct technical awareness and protect you from exploitation or wrong experiments that might destroy your data forever.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10">
+        <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-sm backdrop-blur-sm border border-white/10">
+          PC-3000 Certified
+        </span>
+        <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-sm backdrop-blur-sm border border-white/10">
+          MRT Ultra Lab
+        </span>
+        <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-sm backdrop-blur-sm border border-white/10">
+          Clean Room Class 100
+        </span>
+      </div>
+
+      <a 
+        href="/about/" 
+        class="inline-block text-white font-bold border-b-2 border-primary-500 pb-1 hover:text-primary-400 hover:border-primary-400 transition-colors"
+      >
+        Learn more about Dr. Hard Disk →
+      </a>
+    </div>
+  </section>
+
 </BaseLayout>
