@@ -1,0 +1,87 @@
+---
+// src/pages/contact.astro
+// ══════════════════════════════════════════════════════════════
+// Contact Page — Phase 1.3C
+// Source: Plan 03-page-templates.md | Blueprint §8
+// ══════════════════════════════════════════════════════════════
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GentleNote from "../components/content/GentleNote.astro";
+import { brand, currentLocation } from "../config/location";
+
+const fullAddress = `${currentLocation.city.ar} — ${currentLocation.district.ar} — ${currentLocation.street.ar}`;
+const whatsappMessage = "مرحباً، عندي استفسار عن استعادة البيانات";
+const whatsappLink = `https://wa.me/${currentLocation.contact.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<BaseLayout 
+  title={`تواصل مع ${brand.name}`} 
+  description={`تواصل مع ${brand.name} في ${currentLocation.city.ar} لاستعادة بياناتك.`}
+>
+  
+  <div class="max-w-4xl mx-auto px-4 py-16 md:py-24">
+    
+    {/* ─── Header ─── */}
+    <header class="text-center mb-16">
+      <h1 class="text-[#0b4f6c] font-bold text-4xl md:text-5xl mb-4">
+        تواصل مع {brand.name}
+      </h1>
+      <p class="text-gray-600 text-lg">
+        نحن هنا لمساعدتك في استعادة بياناتك بأمان وموثوقية
+      </p>
+    </header>
+
+    {/* ─── 1. Direct Contact (WhatsApp) ─── */}
+    <section class="mb-16 text-center">
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1da851] text-white font-bold text-xl px-8 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+      >
+        <span class="text-2xl">💬</span>
+        تواصل الآن عبر واتساب
+      </a>
+      <p class="mt-4 text-sm text-gray-500 bg-gray-50 inline-block px-4 py-2 rounded-lg border border-gray-200">
+        📌 للحالات الطارئة (سيرفرات شركات)، يرجى ذكر كلمة "طوارئ" في رسالتك
+      </p>
+    </section>
+
+    {/* ─── 2. Location Section ─── */}
+    <section class="bg-white border border-gray-200 rounded-2xl p-8 md:p-12 shadow-sm text-center mb-16">
+      <h2 class="text-[#0b4f6c] font-bold text-2xl mb-6">
+        موقع المختبر الحالي
+      </h2>
+
+      <div class="mb-8">
+        <p class="font-bold text-gray-900 text-lg mb-2">
+          {currentLocation.facilityName.ar}
+        </p>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          {fullAddress}
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          (الرمز البريدي: {currentLocation.postalCode})
+        </p>
+      </div>
+
+      <a
+        href={currentLocation.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block border-2 border-[#0b4f6c] text-[#0b4f6c] hover:bg-[#0b4f6c] hover:text-white font-bold px-6 py-3 rounded-xl transition-colors"
+      >
+        📍 فتح الموقع على خرائط جوجل
+      </a>
+
+      <p class="mt-8 text-gray-600 border-t border-gray-100 pt-6">
+        نستقبلكم شخصياً في المختبر. <span class="font-bold text-[#0b4f6c]">الفحص والتشخيص المبدئي مجاني.</span>
+      </p>
+    </section>
+
+    {/* ─── 3. GentleNote ─── */}
+    <GentleNote lang="ar" />
+
+  </div>
+
+</BaseLayout>
