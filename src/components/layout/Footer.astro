@@ -1,0 +1,98 @@
+---
+// src/components/layout/Footer.astro
+// Phase 1.4B: Global UI — Footer
+// Brand Zone Only (Logo, Tagline, Social, Copyright)
+// Note: importing currentLocation ONLY for socialMedia links as they are currently facility-specific.
+
+import { brand, currentLocation } from '../../config/location';
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = 'ar' } = Astro.props;
+
+const isAr = lang === 'ar';
+const dir = isAr ? 'rtl' : 'ltr';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-primary-900 border-t border-primary-800" dir={dir}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    
+    <!-- Brand Zone -->
+    <div class="flex flex-col items-center justify-center text-center space-y-6">
+      
+      <!-- Logo + Name -->
+      <div class="group flex flex-col items-center gap-2">
+        <span class="text-4xl filter drop-shadow-md grayscale group-hover:grayscale-0 transition-all duration-300">💿</span>
+        <div class="flex flex-col">
+          <h2 class="font-heading font-bold text-2xl text-white tracking-wide">
+            {isAr ? brand.name : brand.nameEn}
+          </h2>
+          <span class="text-primary-400 text-sm">
+            {isAr ? brand.nameEn : brand.name}
+          </span>
+        </div>
+      </div>
+
+      <!-- Tagline -->
+      <p class="text-primary-300 text-base max-w-md mx-auto leading-relaxed">
+        {isAr ? brand.tagline.ar : brand.tagline.en}
+      </p>
+
+      <!-- Social Media Links (Text-based) -->
+      <div class="flex flex-wrap justify-center gap-6 pt-2">
+        {currentLocation.socialMedia.tiktok && (
+          <a 
+            href={currentLocation.socialMedia.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-400 hover:text-white transition-colors text-sm font-medium hover:underline decoration-primary-500 underline-offset-4"
+          >
+            TikTok
+          </a>
+        )}
+        
+        {currentLocation.socialMedia.snapchat && (
+          <a 
+            href={currentLocation.socialMedia.snapchat}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-400 hover:text-white transition-colors text-sm font-medium hover:underline decoration-primary-500 underline-offset-4"
+          >
+            Snapchat
+          </a>
+        )}
+
+        {currentLocation.socialMedia.linktree && (
+          <a 
+            href={currentLocation.socialMedia.linktree}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary-400 hover:text-white transition-colors text-sm font-medium hover:underline decoration-primary-500 underline-offset-4"
+          >
+            Linktree
+          </a>
+        )}
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-primary-800 to-transparent my-10 w-full max-w-2xl mx-auto"></div>
+
+    <!-- Copyright -->
+    <div class="text-center">
+      <p class="text-primary-500 text-sm dir-ltr">
+        &copy; {year} {brand.nameEn}.
+        <span class="mx-1 hidden sm:inline">&middot;</span>
+        <span class="block sm:inline mt-1 sm:mt-0">
+          {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}
+        </span>
+      </p>
+    </div>
+
+  </div>
+</footer>
