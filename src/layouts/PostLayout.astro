@@ -2,27 +2,16 @@
 // src/layouts/PostLayout.astro
 import BaseLayout from "./BaseLayout.astro";
 import { Image } from "astro:assets";
-import { type CollectionEntry } from "astro:content";
-import { brand } from "../config/location";
 
-// Props from Schema (src/content/config.ts)
+// Props matching posts schema (src/content/config.ts)
 interface Props {
   title: string;
   description: string;
   pubDate: Date;
-  heroImage?: string; // Schema says string, but Astro loader might transform it? No, schema says string.
-                      // Wait, glob loader with schema image() helper transforms it.
-                      // But here manual schema uses z.string().startsWith().
-                      // So it is a string path. We need to import it dynamically or use a known set.
-                      // Actually, with standard glob loader in v5, if we use image() helper it works best.
-                      // But the current config uses z.string().
-                      // Let's assume we pass the string path to <Image src={...} /> which requires an import glob result or explicit import.
-                      // THIS IS A KNOWN ISSUE in Astro dynamic images.
-                      // We will try dynamic import for now: const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
+  heroImage?: string; // String path resolved via import.meta.glob at runtime
   lang: "ar" | "en";
   category: "hdd" | "ssd" | "raid" | "flash" | "mobile" | "nas" | "general";
   difficulty: "simple" | "moderate" | "critical";
-  // We might need brands/symptoms if we want to show them
 }
 
 const { title, description, pubDate, heroImage, lang, category, difficulty } = Astro.props;
