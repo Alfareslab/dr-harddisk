@@ -1,6 +1,6 @@
 # 🧠 ذاكرة المشروع (Project Context)
-> **آخر تحديث:** [DATE]
-> **الإصدار الحالي:** [VERSION]
+> **آخر تحديث:** 2026-02-19
+> **الإصدار الحالي:** 0.0.1
 
 ---
 
@@ -31,12 +31,15 @@
 ### ✅ تم:
 - **Phase 1.1: Project Skeleton** (Astro v5 + Tailwind v4)
 - **Phase 1.2: Core Components** (Location, Content Schemas, BaseLayout, GentleNote)
+- **Phase 1.3: Page Templates** (Homepage AR/EN, Contact, 404)
+- **Phase 1.4: Global UI** (NavBar, Footer, FloatingWhatsApp + BaseLayout integration)
+  - PR: `feature/phase-1.4-global-ui` — CodeRabbit cleared ✅
 
 ### 🔄 قيد العمل:
-- **Phase 1.3: Page Templates** (Homepage, Contact, Error Pages)
+- (none — Phase 1.4 complete, Phase 1.5 not started)
 
 ### ⏭️ الخطوة التالية:
-- تنفيذ صفحة الاستقبال (Homepage) بناءً على `BaseLayout` وتصميم `Blueprint`.
+- **Phase 1.5: Article Template** — Single article page rendering MDX content from Content Collections.
 
 ---
 
@@ -52,7 +55,10 @@
 
 | المشكلة | الحل المطبّق | التاريخ |
 |---------|-------------|---------|
-| `[issue]` | `[solution]` | `[date]` |
+| `.coderabbit.yaml` parsing errors (twice) | Fixed with `path_instructions` `**/*` pattern | 2026-02-19 |
+| `process.env` instead of `import.meta.env` in `location.ts` | Switched to `import.meta.env.PUBLIC_SITE_URL` | 2026-02-19 |
+| `brand.siteUrl` empty causing TypeError in `BaseLayout.astro` | Added `siteBase = brand.siteUrl \|\| Astro.url.origin` guard | 2026-02-19 |
+| `dir-ltr` invalid Tailwind class in `Footer.astro` | Replaced with `dir="ltr"` HTML attribute | 2026-02-19 |
 
 ---
 
