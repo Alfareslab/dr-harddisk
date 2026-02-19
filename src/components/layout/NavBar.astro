@@ -1,0 +1,130 @@
+---
+// src/components/layout/NavBar.astro
+// Phase 1.4A: Global UI — Navigation Bar
+// Uses Brand data only (no location data)
+// Bilingual (AR/EN) + CSS-only mobile toggle
+
+import { brand } from '../../config/location';
+
+interface Props {
+  lang?: "ar" | "en";
+}
+
+const { lang = 'ar' } = Astro.props;
+
+const isAr = lang === 'ar';
+
+// Links Configuration
+const navLinks = [
+  { label: isAr ? 'الرئيسية' : 'Home', href: isAr ? '/' : '/en/' },
+  { label: isAr ? 'المقالات' : 'Articles', href: isAr ? '/posts/' : '/en/posts/' },
+  { label: isAr ? 'تواصل' : 'Contact', href: '/contact/' }, // Contact page handles its own lang
+  { label: isAr ? 'عن Dr. Hard Disk' : 'About', href: isAr ? '/about/' : '/en/about/' },
+];
+---
+
+<header 
+  class="sticky top-0 z-50 w-full transition-all duration-300 group/header"
+  id="main-nav"
+>
+  <!-- Background backdrop (applied via script on scroll) -->
+  <div class="absolute inset-0 bg-white/95 backdrop-blur-sm shadow-sm opacity-0 transition-opacity duration-300" id="nav-bg"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    
+    <!-- Logo Section -->
+    <a href={isAr ? '/' : '/en/'} class="flex items-center gap-2 z-50 group hover:opacity-90 transition-opacity">
+      <span class="text-2xl filter drop-shadow-sm">💿</span>
+      <div class="flex flex-col">
+        <span class="font-heading font-bold text-lg leading-none text-primary-900">
+          {brand.nameEn}
+        </span>
+        <span class="font-heading text-xs text-primary-600">
+          {brand.name}
+        </span>
+      </div>
+    </a>
+
+    <!-- Mobile Menu Toggle (CSS-Only) -->
+    <input type="checkbox" id="nav-toggle" class="peer hidden" aria-label="Toggle Navigation" />
+    
+    <label 
+      for="nav-toggle" 
+      class="sm:hidden cursor-pointer z-50 p-2 text-primary-900 hover:bg-primary-50 rounded-md transition-colors"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
+
+    <!-- Navigation Links & Language Switcher -->
+    <nav class="
+      fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8
+      translate-x-full transition-transform duration-300 peer-checked:translate-x-0
+      sm:static sm:bg-transparent sm:flex-row sm:translate-x-0 sm:h-auto sm:w-auto sm:gap-6
+      text-center sm:text-start shadow-xl sm:shadow-none
+    ">
+      <!-- Close Button (Mobile Only) -->
+      <label for="nav-toggle" class="absolute top-4 inset-inline-end-4 p-2 sm:hidden cursor-pointer text-primary-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </label>
+
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class="text-primary-700 hover:text-primary-900 font-medium text-lg sm:text-sm transition-colors py-2"
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <!-- Separator (Desktop) -->
+      <div class="hidden sm:block w-px h-4 bg-primary-200"></div>
+
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-2">
+        <a 
+          href="/" 
+          class:list={[
+            "px-2 py-1 text-xs rounded border transition-colors",
+            isAr 
+              ? "bg-primary-900 text-white border-primary-900 font-bold" 
+              : "bg-transparent text-primary-600 border-primary-200 hover:border-primary-900"
+          ]}
+        >
+          AR
+        </a>
+        <a 
+          href="/en/" 
+          class:list={[
+            "px-2 py-1 text-xs rounded border transition-colors",
+            !isAr 
+              ? "bg-primary-900 text-white border-primary-900 font-bold" 
+              : "bg-transparent text-primary-600 border-primary-200 hover:border-primary-900"
+          ]}
+        >
+          EN
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Simple scroll observer to toggle background opacity
+  const navBg = document.getElementById('nav-bg');
+  
+  if (navBg) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navBg.classList.remove('opacity-0');
+        navBg.classList.add('opacity-100');
+      } else {
+        navBg.classList.remove('opacity-100');
+        navBg.classList.add('opacity-0');
+      }
+    }, { passive: true });
+  }
+</script>
