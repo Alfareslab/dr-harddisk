@@ -34,10 +34,9 @@ const dir = isRTL ? "rtl" : "ltr";
 const pageTitle = title.includes(brand.nameEn)
   ? title
   : `${title} | ${lang === "ar" ? brand.name : brand.nameEn}`;
-const canonical = canonicalUrl || new URL(Astro.url.pathname, brand.siteUrl).href;
-const ogImage = heroImage
-  ? new URL(heroImage, brand.siteUrl).href
-  : undefined;
+const siteBase = brand.siteUrl || Astro.url.origin;
+const canonical = canonicalUrl ?? new URL(Astro.url.pathname, siteBase).href;
+const ogImage = heroImage ? new URL(heroImage, siteBase).href : undefined;
 ---
 
 <!doctype html>

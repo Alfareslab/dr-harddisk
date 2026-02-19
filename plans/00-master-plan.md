@@ -190,7 +190,7 @@ The platform delivers:
 
 ### Gate Pass/Fail Rules:
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │  CodeRabbit Severity → Action                            │
 │                                                          │
@@ -209,7 +209,7 @@ The platform delivers:
 
 ### Correct Workflow (NEVER skip for src/ files):
 
-```
+```text
 1. Create feature branch from main
    cmd /c git checkout -b feature/phase-X.X-name
 

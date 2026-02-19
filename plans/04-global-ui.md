@@ -56,7 +56,7 @@ Build the 3 global UI elements missing from all pages, then integrate them into 
 ## ⚠️ Critical Constraints
 
 ### C-1: No Panic UI (Constitution / UX v3.2 §1.1)
-```
+```text
 FORBIDDEN on ALL components:
   ❌ "Book appointment" / "Start free scan" / "Call now"
   ❌ Pulse animations or attention-grabbing effects on NavBar/Footer
@@ -72,8 +72,7 @@ ALLOWED:
 ```
 
 ### C-2: RTL-First + Logical CSS (Constitution)
-```
-FORBIDDEN:
+```text
   ❌ margin-left / margin-right / padding-left / padding-right
   ❌ text-align: left / text-align: right
   ❌ border-left / border-right
@@ -89,7 +88,7 @@ USE INSTEAD:
 ```
 
 ### C-3: Brand ≠ Location Separation (Vision v2.0)
-```
+```text
 NavBar           → brand data only (logo, name)
 Footer           → brand data only (description, social links, copyright)
 FloatingWhatsApp → currentLocation.contact.whatsappUrl ONLY
@@ -97,7 +96,7 @@ FloatingWhatsApp → currentLocation.contact.whatsappUrl ONLY
 ```
 
 ### C-4: BaseLayout Modification Rule
-```
+```text
 ⚠️ BaseLayout.astro is a Phase 1.2 file.
 Modification is REQUIRED in this phase (adding NavBar, Footer, FloatingWhatsApp).
 This must be:
@@ -116,13 +115,12 @@ This must be:
 > **Model:** `Gemini Pro` 🟠
 > **Goal:** Build a minimal, bilingual navigation bar with logo and language links
 > **Depends On:** Phase 1.2 ✅
-
 > **⚠️  IMPORTANT:** All code must be committed to branch `feature/phase-1.4-global-ui`,
 > NOT to `main`. Create the branch BEFORE writing any code.
 
 #### What This Component Contains (Blueprint §2.1 — Simplified):
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │  NAVBAR (Sticky Top — transparent → white on scroll)     │
 │                                                          │
@@ -209,7 +207,7 @@ interface Props {
 | `[ ]` | `[ ]` | Verify: zero sales CTAs or urgency language |
 
 **🔄 Prompt for Phase A:**
-```
+```text
 Context: Dr. Hard Disk — Astro v5 + Tailwind v4 + Cloudflare SSG.
 Branch: feature/phase-1.4-global-ui (create from main FIRST).
 Read: plans/04-global-ui.md Phase A.
@@ -239,7 +237,7 @@ After implementation:
 
 #### What This Component Contains (UX v3.2 §5.6 — Brand Zone Only):
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │  FOOTER (Dark theme — primary-900)                       │
 │                                                          │
@@ -314,7 +312,7 @@ interface Props {
 | `[ ]` | `[ ]` | Verify: zero physical CSS properties (RTL scan) |
 
 **🔄 Prompt for Phase B:**
-```
+```text
 Context: Dr. Hard Disk — Astro v5 + Tailwind v4.
 Branch: feature/phase-1.4-global-ui (already exists from Phase A).
 Read: plans/04-global-ui.md Phase B.
@@ -337,7 +335,7 @@ After implementation:
 
 ---
 ✏️ **Handoff A → B:**
-```
+```text
 ---
 ✅ Phase A: NavBar completed successfully.
 📋 Summary: [fill after execution]

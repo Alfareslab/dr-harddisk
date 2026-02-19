@@ -166,7 +166,7 @@ Read the updated plan and confirm it matches the Footer code.
 
 ## Execution Prompt (Claude Sonnet 4.6)
 
-```
+```text
 Context: Dr. Hard Disk — Astro v5 + Tailwind v4 + Cloudflare SSG.
 Branch: feature/phase-1.4-global-ui
 Task Type: Fix (per protocols/03-fix-rules.md)

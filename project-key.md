@@ -50,7 +50,8 @@ Dr.Harddisk/
 │   │   ├── layout/
 │   │   │   ├── NavBar.astro    ← شريط التنقل (Phase 1.4A)
 │   │   │   └── Footer.astro   ← التذييل (Phase 1.4B)
-│   │   └── ui/                ← (قادم: FloatingWhatsApp — Phase 1.4C)
+│   │   └── ui/
+│   │       └── FloatingWhatsApp.astro ← زر واتساب عائم (Phase 1.4C)
 │   ├── config/
 │   │   └── location.ts         ← النواة الذرية (بيانات الهوية والموقع)
 │   ├── content/
