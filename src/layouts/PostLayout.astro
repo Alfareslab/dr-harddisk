@@ -1,0 +1,117 @@
+---
+// src/layouts/PostLayout.astro
+import BaseLayout from "./BaseLayout.astro";
+import { Image } from "astro:assets";
+import { type CollectionEntry } from "astro:content";
+import { brand } from "../config/location";
+
+// Props from Schema (src/content/config.ts)
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: string; // Schema says string, but Astro loader might transform it? No, schema says string.
+                      // Wait, glob loader with schema image() helper transforms it.
+                      // But here manual schema uses z.string().startsWith().
+                      // So it is a string path. We need to import it dynamically or use a known set.
+                      // Actually, with standard glob loader in v5, if we use image() helper it works best.
+                      // But the current config uses z.string().
+                      // Let's assume we pass the string path to <Image src={...} /> which requires an import glob result or explicit import.
+                      // THIS IS A KNOWN ISSUE in Astro dynamic images.
+                      // We will try dynamic import for now: const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
+  lang: "ar" | "en";
+  category: "hdd" | "ssd" | "raid" | "flash" | "mobile" | "nas" | "general";
+  difficulty: "simple" | "moderate" | "critical";
+  // We might need brands/symptoms if we want to show them
+}
+
+const { title, description, pubDate, heroImage, lang, category, difficulty } = Astro.props;
+
+const isRTL = lang === "ar";
+
+const dateFormatted = new Date(pubDate).toLocaleDateString(lang, {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+// Dynamic Image Loading Logic (Standard Astro Pattern for dynamic strings)
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
+// Clean up path to match glob key. Schema enforces "../../assets/images/..."
+// glob keys are like "/src/assets/images/..."
+// So we need to resolve it.
+// Input: "../../assets/images/placeholder.svg"
+// Target: "/src/assets/images/placeholder.svg"
+const imagePath = heroImage ? heroImage.replace("../../", "/src/") : null;
+const heroImageMetadata = imagePath && images[imagePath] ? await images[imagePath]() : null;
+
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  heroImage={heroImage} 
+>
+  <article class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    {/* Header Section */}
+    <header class="mb-10 text-center">
+      {/* Meta Badges */}
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+          {category.toUpperCase()}
+        </span>
+        <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+          difficulty === 'critical' ? 'bg-red-100 text-red-800' :
+          difficulty === 'moderate' ? 'bg-yellow-100 text-yellow-800' :
+          'bg-green-100 text-green-800'
+        }`}>
+          {difficulty}
+        </span>
+      </div>
+
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+        {title}
+      </h1>
+
+      <div class="text-sm text-gray-500">
+        <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
+      </div>
+    </header>
+
+    {/* Hero Image */}
+    {heroImageMetadata && (
+      <div class="mb-12 rounded-xl overflow-hidden shadow-sm aspect-video relative bg-gray-100">
+        <Image
+          src={heroImageMetadata.default}
+          alt={title}
+          class="w-full h-full object-cover"
+          width={1200}
+          height={630}
+          loading="eager"
+        />
+      </div>
+    )}
+
+    {/* Content Body */}
+    {/* 
+      Prose Configuration:
+      - prose: default typography styles
+      - prose-lg: larger font size for better readability
+      - prose-slate: slate gray color scale (neutral, no panic)
+      - rtl:text-right: ensure alignment for Arabic
+      - max-w-none: allow full width of container
+    */}
+    <div class={`
+      prose prose-lg prose-slate max-w-none
+      ${isRTL ? 'rtl:text-right' : 'text-left'}
+      prose-headings:font-bold prose-headings:text-gray-900
+      prose-p:text-gray-700 prose-p:leading-relaxed
+      prose-li:text-gray-700
+      prose-img:rounded-lg prose-img:shadow-md
+      prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
+    `}>
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

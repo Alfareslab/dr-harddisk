@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import mdx from '@astrojs/mdx';
 
 // Domain from environment variable (Risk B-3)
 const siteURL = process.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
@@ -51,5 +52,6 @@ export default defineConfig({
         return !excludePatterns.some((pattern) => page.includes(pattern));
       },
     }),
+    mdx(),
   ],
 });
