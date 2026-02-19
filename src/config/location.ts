@@ -26,6 +26,7 @@ export interface Brand {
     titleEn: string;
     specialty: { ar: string; en: string };
     siteUrl: string;
+    version: string;
     contact: {
         whatsapp: string;
         whatsappUrl: string;
@@ -72,6 +73,7 @@ export const brand: Brand = {
     },
 
     siteUrl: import.meta.env.PUBLIC_SITE_URL ?? "", // Fixed: use import.meta.env
+    version: "0.0.1",
 
     // Personal contact (Dr. Hard Disk — stable)
     contact: {

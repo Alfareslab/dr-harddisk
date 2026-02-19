@@ -85,13 +85,14 @@ const year = new Date().getFullYear();
 
     <!-- Copyright -->
     <div class="text-center">
-      <p class="text-primary-500 text-sm dir-ltr">
+      <p class="text-primary-500 text-sm" dir="ltr">
         &copy; {year} {brand.nameEn}.
         <span class="mx-1 hidden sm:inline">&middot;</span>
         <span class="block sm:inline mt-1 sm:mt-0">
           {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}
         </span>
       </p>
+      <span class="text-primary-600 text-xs block mt-2">v{brand.version}</span>
     </div>
 
   </div>
