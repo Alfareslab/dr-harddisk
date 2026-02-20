@@ -42,7 +42,7 @@
 
 ### 4.1 هيكلية الملفات (File Architecture)
 
-```
+```text
 src/
 ├── layouts/
 │   └── PostLayout.astro       ← [NEW] القالب الموحد للمقالات (يغلف المحتوى)
