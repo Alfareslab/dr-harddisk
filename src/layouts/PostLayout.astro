@@ -18,7 +18,8 @@ const { title, description, pubDate, heroImage, lang, category, difficulty } = A
 
 const isRTL = lang === "ar";
 
-const dateFormatted = new Date(pubDate).toLocaleDateString(lang, {
+const dateLocale = lang === "ar" ? "ar-SA" : "en-US";
+const dateFormatted = new Date(pubDate).toLocaleDateString(dateLocale, {
   year: "numeric",
   month: "long",
   day: "numeric",
@@ -28,10 +29,14 @@ const dateFormatted = new Date(pubDate).toLocaleDateString(lang, {
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
 // Clean up path to match glob key. Schema enforces "../../assets/images/..."
 // glob keys are like "/src/assets/images/..."
-// So we need to resolve it.
-// Input: "../../assets/images/placeholder.svg"
-// Target: "/src/assets/images/placeholder.svg"
-const imagePath = heroImage ? heroImage.replace("../../", "/src/") : null;
+// Input: "../../assets/images/placeholder.svg" → Target: "/src/assets/images/placeholder.svg"
+const imagePath = heroImage?.startsWith("../../assets/images/")
+  ? heroImage.replace("../../", "/src/")
+  : null;
+
+if (heroImage && !imagePath) {
+  console.warn(`[PostLayout] heroImage path "${heroImage}" does not match expected format "../../assets/images/...". Image will not be displayed.`);
+}
 const heroImageMetadata = imagePath && images[imagePath] ? await images[imagePath]() : null;
 
 ---

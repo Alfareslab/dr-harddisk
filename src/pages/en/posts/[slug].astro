@@ -5,9 +5,9 @@ import PostLayout from "../../../layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  // Filter for English posts only
+  // Filter for English posts only, exclude drafts
   return posts
-    .filter((post) => post.data.lang === "en")
+    .filter((post) => post.data.lang === "en" && !post.data.draft)
     .map((post) => ({
       params: { slug: post.id },
       props: { entry: post },
