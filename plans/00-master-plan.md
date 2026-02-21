@@ -32,9 +32,10 @@ The platform delivers:
 | 1.1 | Project Scaffolding | Astro v5 + Tailwind v4 + Cloudflare setup | `astro.config.mjs`, `package.json`, `app.css` | ✅ | Yes |
 | 1.2 | Core Components | Brand/Location config, Schemas, BaseLayout, GentleNote | `location.ts`, `config.ts`, `BaseLayout.astro`, `GentleNote.astro` | ✅ | Yes |
 | 1.3 | Page Templates | Homepage (AR/EN), Contact, 404 pages | `index.astro`, `en/index.astro`, `contact.astro`, `404.astro` | ✅ | Yes |
-| 1.4 | Global UI | NavBar, Footer, FloatingWhatsApp + BaseLayout integration | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` | 🔄 | Yes |
-| 1.5 | Article Template | Single article page template + Content Collection rendering | `[slug].astro`, `PostLayout.astro` | ⏳ | Yes |
-| 1.6 | Article Listing | Articles index page with filtering/categorization | `posts/index.astro`, `en/posts/index.astro` | ⏳ | Yes |
+| 1.4 | Global UI | NavBar, Footer, FloatingWhatsApp + BaseLayout integration | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` | ✅ | Yes |
+| 1.5 | Article Template | Single article page template + Content Collection rendering | `[slug].astro`, `PostLayout.astro` | ✅ | Yes |
+| 1.6 | Install Spec-Kit | Setup GitHub spec-kit for Spec-Driven Development | `.specify/` | ✅ | No |
+| 1.7 | Article Listing | Articles index page with filtering/categorization | `posts/index.astro`, `en/posts/index.astro` | ⏳ | Yes |
 | 2.1 | Content: First 5 Articles | Write and publish initial knowledge articles (Arabic) | `content/posts/*.mdx` (5 files) | ⏳ | No |
 | 2.2 | Content: English Twins | English translations of the first 5 articles | `content/posts/en/*.mdx` (5 files) | ⏳ | No |
 | 2.3 | About Page | "About Dr. Hard Disk" brand story page | `about.astro`, `en/about.astro` | ⏳ | Yes |
@@ -83,16 +84,18 @@ The platform delivers:
 
 | Phase | Description | Status |
 |:------|:------------|:------:|
-| 1.4 | Global UI (NavBar + Footer + FloatingWhatsApp) | 🔄 |
-| 1.5 | Article Template (single post page) | ⏳ |
-| 1.6 | Article Listing (posts index page) | ⏳ |
+| 1.4 | Global UI (NavBar + Footer + FloatingWhatsApp) | ✅ |
+| 1.5 | Article Template (single post page) | ✅ |
+| 1.6 | Install Spec-Kit | ✅ |
+| 1.7 | Article Listing (posts index page) | ✅ |
 
-**CodeRabbit Gate:** One PR per phase (1.4, 1.5, 1.6 = 3 PRs)
+**CodeRabbit Gate:** One PR per phase.
 
 **Definition of Done:**
-- [ ] Every page has NavBar + Footer
-- [ ] FloatingWhatsApp appears globally after hero scroll
-- [ ] Article template renders MDX content with proper typography
+- [x] Every page has NavBar + Footer
+- [x] FloatingWhatsApp appears globally after hero scroll
+- [x] Article template renders MDX content with proper typography
+- [x] Spec-Kit tools installed and configured
 - [ ] Articles index page lists all posts with bilingual support
 - [ ] Language switcher works across all pages
 - [ ] Mobile hamburger menu functions correctly
@@ -105,8 +108,8 @@ The platform delivers:
 
 | Phase | Description | Status |
 |:------|:------------|:------:|
-| 2.1 | First 5 Articles (Arabic) | ⏳ |
-| 2.2 | English Twins (translations) | ⏳ |
+| 2.1 | First 5 Articles (Arabic) | ✅ Built |
+| 2.2 | English Twins (translations) | ✅ Built |
 | 2.3 | About Page | ⏳ |
 | 2.4 | Case Studies Template | ⏳ |
 | 2.5 | First 3 Case Studies | ⏳ |
@@ -114,8 +117,8 @@ The platform delivers:
 **CodeRabbit Gate:** PRs for 2.3 and 2.4 (templates). Content-only PRs (2.1, 2.2, 2.5) are optional.
 
 **Definition of Done:**
-- [ ] 5 Arabic articles published and rendering correctly
-- [ ] 5 English twin articles with matching `translationID`
+- [x] 5 Arabic articles published and rendering correctly
+- [x] 5 English twin articles with matching `translationID`
 - [ ] About page tells the brand story (not a service pitch)
 - [ ] Case studies template supports before/after narratives
 - [ ] All content follows No Panic UI philosophy
@@ -253,9 +256,10 @@ The platform delivers:
 | 1.1 Scaffolding | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
 | 1.2 Core Components | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
 | 1.3 Page Templates | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
-| **1.4 Global UI** | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
+| 1.4 Global UI | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
 | 1.5 Article Template | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
-| 1.6 Article Listing | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
+| 1.6 Install Spec-Kit | — | 🟠 Gemini Pro | Developer |
+| 1.7 Article Listing | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
 | 2.1 First 5 Articles | 🔴 Claude | 🟠 Gemini Pro | 🟣 Perplexity |
 | 2.2 English Twins | — | 🟢 Gemini Flash | 🟣 Perplexity |
 | 2.3 About Page | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
@@ -264,15 +268,20 @@ The platform delivers:
 | 3.1–3.4 SEO + Performance | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
 | 4.1–4.3 Deployment + Launch | 🔴 Claude | 🟠 Gemini Pro | Developer |
 
-### Model Usage Rules:
+### Model Usage Rules (Spec-Kit Workflow):
 
-| Rule | Details |
-|:-----|:--------|
-| Claude writes plans ONLY | Claude never implements code — only plans, audits, fix strategies |
-| Gemini Pro gets detailed prompts | Every prompt includes: context, branch, rules, exact file paths, verification steps |
-| Gemini Flash gets mirror tasks | EN twins, simple components, CSS tweaks — always one file at a time |
-| CodeRabbit reviews all `src/` PRs | No merge without CodeRabbit pass on code changes |
-| Developer has final merge authority | No AI merges PRs — developer approves and merges |
+> **ملاحظة (2026-02-21):** تم دمج نظام `Spec-Kit`.
+> سير العمل الجديد يعتمد على الأوامر بدلاً من الخطة الحرة.
+
+| محطة Spec-Kit | الأمر المستخدم | النموذج (Model) | الوظيفة |
+|:--------------|:---------------|:----------------|:--------|
+| **1. التوصيف (Specify)** | `@/speckit.specify` | 🔴 Claude Opus | كتابة المواصفات وقصص المستخدم (`spec.md`). |
+| **2. التخطيط (Plan)** | `@/speckit.plan` | 🔴 Claude Opus | كتابة الخطة التقنية والمعمارية (`plan.md`). |
+| **3. المهام (Tasks)** | `@/speckit.tasks` | 🔴 Claude Opus / 🟠 Gemini | تقسيم الخطة إلى مهام قابلة للتنفيذ (`tasks.md`). |
+| **4. التنفيذ (Implement)** | `@/speckit.implement` | 🟠 Gemini Pro | قراءة `tasks.md` وكتابة الكود الفعلي خطوة بخطوة. |
+
+*   **CodeRabbit** يظل مسؤولاً عن مراجعة أي PR يمس مجلد `src/`.
+*   **المطور (Developer)** له السلطة النهائية في قبول أي محطة من محطات Spec-Kit قبل الانتقال للمحطة التالية.
 
 ---
 
@@ -287,26 +296,26 @@ The platform delivers:
 | 1.1 | 2026-02-18 | PR #1 | Astro v5 + Tailwind v4 project initialized |
 | 1.2 | 2026-02-18 | PR #1 | `location.ts` (brand ≠ location), `BaseLayout`, `GentleNote`, Content Schemas |
 | 1.3 | 2026-02-18 | PR #1 | 4 page templates (Homepage AR/EN, Contact, 404) |
+| 1.4 | 2026-02-19 | PR #2 | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` |
+| 1.5 | 2026-02-19 | PR #3 | `[slug].astro`, `PostLayout.astro` (Article Template) |
+| 1.6 | 2026-02-21 | N/A | Spec-Kit tooling installed and integrated |
 
 ### 🔄 What's In Progress:
 
-| Phase | Status | Branch |
-|:------|:-------|:-------|
-| 1.4 — Global UI | Plan written ✅, waiting for execution | `feature/phase-1.4-global-ui` (to be created) |
+- None currently.
 
-### ⏭️ What's Next After 1.4:
+### ⏭️ What's Next After 1.6:
 
-Phase 1.5 — Article Template: Build the single article page that renders MDX content
-from Content Collections. This is the first phase that depends on the Content Layer API.
+Phase 1.7 — Article Listing: Build the articles index page with filtering/categorization capability, acting as the hub for all MDX content.
 
 ### ⚠️ Known Issues:
 
 | Issue | Status | Date |
 |:------|:-------|:-----|
-| `.coderabbit.yaml` had parsing errors (twice) | Fixed — using `path_instructions` with `**/*` pattern | 2026-02-19 |
-| `process.env` used instead of `import.meta.env` in `location.ts` | Fixed — switched to `import.meta.env.PUBLIC_SITE_URL` | 2026-02-19 |
-| PR #1 had all 3 phases in one PR | Not ideal — future phases will have 1 PR per phase | 2026-02-18 |
-| `project-context.md` has placeholder fields | Needs update after Phase 1.4 | — |
+| `.coderabbit.yaml` had parsing errors (twice) | Fixed | 2026-02-19 |
+| `.coderabbit.yaml` knowledge_base array error | Fixed | 2026-02-21 |
+| Content collection posts empty during build | Fixed — Added `@astrojs/mdx` integration | 2026-02-19 |
+| Draft posts being built to static routes | Fixed — Filtered during `getStaticPaths` | 2026-02-21 |
 
 ---
 
@@ -348,6 +357,12 @@ from Content Collections. This is the first phase that depends on the Content La
 
 ## 📋 Plan Files Index
 
+> **ملاحظة هامة (2026-02-21):** تم الانتقال إلى أداة `Spec-Kit`.
+> المجلد القديم `plans/` سيظل كأرشيف للمراحل السابقة.
+> جميع الخطط المستقبلية ستتم عبر مسار `specs/[feature-name]/`.
+
+### أرشيف الخطط القديمة (Legacy Plans):
+
 | # | Plan File | Phase | Status |
 |:--|:----------|:------|:------:|
 | 00 | `plans/00-master-plan.md` | Master Roadmap | 📄 This file |
@@ -356,4 +371,22 @@ from Content Collections. This is the first phase that depends on the Content La
 | 03 | `plans/03-page-templates.md` | Phase 1.3 | ✅ |
 | 04 | `plans/04-global-ui.md` | Phase 1.4 | 🔄 |
 | 05 | `plans/05-article-template.md` | Phase 1.5 | ⏳ Not written |
-| 06 | `plans/06-article-listing.md` | Phase 1.6 | ⏳ Not written |
+| 06 | `plans/06-install-speckit.md` | Phase 1.6 | ✅ |
+
+### خطط Spec-Kit الحالية (Current Specs):
+
+| الميزة / المرحلة | المحطة الحالية (Gate) | مسار المواصفات (Spec Path) |
+|------------------|-----------------------|----------------------------|
+| Phase 1.7 (Article Listing)| ✅ Built | `specs/001-article-listing/` (Active) |
+| Phase 2.1 (First 5 Articles)| ⏳ Pending Spec | `specs/002-five-articles/` (Planned) |
+| Phase 2.2 (English Twins)| ⏳ Pending Spec | `specs/003-english-twins/` (Planned) |
+| Phase 2.3 (About Page)| ⏳ Pending Spec | `specs/004-about-page/` (Planned) |
+| Phase 2.4 (Case Studies Template)| ⏳ Pending Spec | `specs/005-case-studies-template/` (Planned) |
+| Phase 2.5 (First 3 Cases)| ⏳ Pending Spec | `specs/006-three-cases/` (Planned) |
+| Phase 3.1 (SEO: Technical)| ⏳ Pending Spec | `specs/007-seo-technical/` (Planned) |
+| Phase 3.2 (SEO: On-Page)| ⏳ Pending Spec | `specs/008-seo-onpage/` (Planned) |
+| Phase 3.3 (SEO: Local)| ⏳ Pending Spec | `specs/009-seo-local/` (Planned) |
+| Phase 3.4 (Performance)| ⏳ Pending Spec | `specs/010-performance/` (Planned) |
+| Phase 4.1 (Deployment: Staging)| ⏳ Pending Spec | `specs/011-deploy-staging/` (Planned) |
+| Phase 4.2 (Deployment: Production)| ⏳ Pending Spec | `specs/012-deploy-production/` (Planned) |
+| Phase 4.3 (Launch Checklist)| ⏳ Pending Spec | `specs/013-launch-checklist/` (Planned) |

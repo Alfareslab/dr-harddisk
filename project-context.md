@@ -33,16 +33,20 @@
 - **Phase 1.2: Core Components** (Location, Content Schemas, BaseLayout, GentleNote)
 - **Phase 1.3: Page Templates** (Homepage AR/EN, Contact, 404)
 - **Phase 1.4: Global UI** (NavBar, Footer, FloatingWhatsApp + BaseLayout integration)
-  - PR: `feature/phase-1.4-global-ui` — CodeRabbit cleared ✅
+- **Phase 1.5: Article Template** (PostLayout, MDX support, Bilingual routes)
+  - PR: `feature/phase-1.5-article-template` — Merged ✅
+- **Phase 1.6: Install Spec-Kit** — Setting up GitHub spec-kit for Spec-Driven Development.
+- **Phase 1.7: Article Listing** — Built the bilingual index pages and integrated vanilla JS CategoryFilter.
+- **Phase 2.1: Arabic Articles** — Wrote and published the first 5 Arabic articles with metadata.
+- **Phase 2.2: English Twins** — Translated the 5 articles to English and ensured seamless language switching.
 
 ### 🔄 قيد العمل:
-- **Phase 1.5: Article Template** — Code complete, PR pending CodeRabbit review.
-  - Branch: `feature/phase-1.5-article-template`
-  - Commit: `4d77c45`
-  - Added: `PostLayout.astro`, bilingual routes, test MDX, `@astrojs/mdx`, `sharp`
+- تجهيز الكود للرفع ومراجعة (CodeRabbit Review) لكل التعديلات المتراكمة (Phases 1.5 → 2.2).
 
 ### ⏭️ الخطوة التالية:
-- **Phase 1.6: Article Listing** — Posts index page with filtering/categorization.
+- بدء Phase 3.1 (Service Details Pages).
+
+✅ **تم الانتهاء للتو من:** Phase 2.1 (First 5 Arabic Articles) وتم رفع المقالات الخمسة بنجاح مع الصور.
 
 ---
 
@@ -59,10 +63,12 @@
 | المشكلة | الحل المطبّق | التاريخ |
 |---------|-------------|---------|
 | `.coderabbit.yaml` parsing errors (twice) | Fixed with `path_instructions` `**/*` pattern | 2026-02-19 |
+| `.coderabbit.yaml` knowledge_base array error | Fixed by moving rules to `reviews.instructions` | 2026-02-21 |
 | `process.env` instead of `import.meta.env` in `location.ts` | Switched to `import.meta.env.PUBLIC_SITE_URL` | 2026-02-19 |
 | `brand.siteUrl` empty causing TypeError in `BaseLayout.astro` | Added `siteBase = brand.siteUrl \|\| Astro.url.origin` guard | 2026-02-19 |
 | `dir-ltr` invalid Tailwind class in `Footer.astro` | Replaced with `dir="ltr"` HTML attribute | 2026-02-19 |
 | Content collection posts empty during build | Added `@astrojs/mdx` integration + `sharp` for image optimization | 2026-02-19 |
+| Draft posts being built to static routes | Added `!post.data.draft` filter to `getStaticPaths` | 2026-02-21 |
 
 ---
 
