@@ -63,7 +63,7 @@ const langEnum = z.enum(["ar", "en"]);
 // ─── Posts Collection ───
 
 const posts = defineCollection({
-    loader: glob({ pattern: "**/*.mdx", base: "./src/content/posts" }),
+    loader: glob({ pattern: "**/*.mdx", base: "src/content/posts" }),
     schema: z.object({
         // Core Identity
         title: z.string().min(10).max(120),
@@ -88,7 +88,7 @@ const posts = defineCollection({
 // ─── Services Collection ───
 
 const services = defineCollection({
-    loader: glob({ pattern: "**/*.mdx", base: "./src/content/services" }),
+    loader: glob({ pattern: "**/*.mdx", base: "src/content/services" }),
     schema: z.object({
         title: z.string().min(10).max(120),
         description: z.string().min(50).max(160),
@@ -110,7 +110,7 @@ const services = defineCollection({
 // ─── Cases Collection (Success Stories) — NEW v4.2 ───
 
 const cases = defineCollection({
-    loader: glob({ pattern: "**/*.mdx", base: "./src/content/cases" }),
+    loader: glob({ pattern: "**/*.mdx", base: "src/content/cases" }),
     schema: z.object({
         // Case Study Identity
         title: z.string(),

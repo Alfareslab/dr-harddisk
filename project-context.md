@@ -36,10 +36,13 @@
   - PR: `feature/phase-1.4-global-ui` — CodeRabbit cleared ✅
 
 ### 🔄 قيد العمل:
-- (none — Phase 1.4 complete, Phase 1.5 not started)
+- **Phase 1.5: Article Template** — Code complete, PR pending CodeRabbit review.
+  - Branch: `feature/phase-1.5-article-template`
+  - Commit: `4d77c45`
+  - Added: `PostLayout.astro`, bilingual routes, test MDX, `@astrojs/mdx`, `sharp`
 
 ### ⏭️ الخطوة التالية:
-- **Phase 1.5: Article Template** — Single article page rendering MDX content from Content Collections.
+- **Phase 1.6: Article Listing** — Posts index page with filtering/categorization.
 
 ---
 
@@ -59,6 +62,7 @@
 | `process.env` instead of `import.meta.env` in `location.ts` | Switched to `import.meta.env.PUBLIC_SITE_URL` | 2026-02-19 |
 | `brand.siteUrl` empty causing TypeError in `BaseLayout.astro` | Added `siteBase = brand.siteUrl \|\| Astro.url.origin` guard | 2026-02-19 |
 | `dir-ltr` invalid Tailwind class in `Footer.astro` | Replaced with `dir="ltr"` HTML attribute | 2026-02-19 |
+| Content collection posts empty during build | Added `@astrojs/mdx` integration + `sharp` for image optimization | 2026-02-19 |
 
 ---
 

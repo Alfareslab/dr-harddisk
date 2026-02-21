@@ -38,6 +38,18 @@
 - `src/config/location.ts`: Added `version: string` to Brand interface + `version: "0.0.1"` value
 - `project-key.md`: Updated file tree to list FloatingWhatsApp.astro under `ui/`
 
+### Added (Phase 1.5 — 2026-02-19)
+- `src/layouts/PostLayout.astro`: Article layout with RTL/LTR, Hero Image, Prose typography
+- `src/pages/posts/[slug].astro`: Dynamic route for Arabic articles (lang filter)
+- `src/pages/en/posts/[slug].astro`: Dynamic route for English articles (lang filter)
+- `src/content/posts/ar-test-hdd-clicking.mdx`: Arabic test article with GentleNote
+- `src/content/posts/en-test-hdd-clicking.mdx`: English test article with GentleNote
+- `src/assets/images/placeholder.svg`: Placeholder hero image for testing
+
+### Changed (Phase 1.5 — 2026-02-19)
+- `astro.config.mjs`: Added `@astrojs/mdx` integration
+- `package.json`: Added `sharp` and `@astrojs/mdx` dependencies
+
 ### Fixed (Phase 1.4E — 2026-02-19)
 - `src/layouts/BaseLayout.astro`: TypeError: Invalid URL when `brand.siteUrl` is empty (added `siteBase` fallback to `Astro.url.origin`)
 

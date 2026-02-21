@@ -17,15 +17,13 @@ reviews:
 
 chat:
   auto_reply: true
-
-# Critical Rules from master-constitution.md
-knowledge_base:
-  - "**Project follows master-constitution.md v3.2.0 strictly**"
-  - "**Astro v5 with output: 'static' is MANDATORY**"
-  - "**Tailwind v4 CSS-first only — tailwind.config.js is FORBIDDEN**"
-  - "**RTL-first design — use logical properties (start/end, not left/right)**"
-  - "**No hardcoded location data in content files — use GentleNote component**"
-  - "**Twin-File Strategy: Every Arabic file needs English twin with same translationID**"
+  instructions: |
+    - **Project follows master-constitution.md v3.2.0 strictly**
+    - **Astro v5 with output: 'static' is MANDATORY**
+    - **Tailwind v4 CSS-first only — tailwind.config.js is FORBIDDEN**
+    - **RTL-first design — use logical properties (start/end, not left/right)**
+    - **No hardcoded location data in content files — use GentleNote component**
+    - **Twin-File Strategy: Every Arabic file needs English twin with same translationID**
 
 # Path-specific instructions
 path_instructions:

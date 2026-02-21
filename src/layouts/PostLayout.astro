@@ -1,0 +1,111 @@
+---
+// src/layouts/PostLayout.astro
+import BaseLayout from "./BaseLayout.astro";
+import { Image } from "astro:assets";
+
+// Props matching posts schema (src/content/config.ts)
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: string; // String path resolved via import.meta.glob at runtime
+  lang: "ar" | "en";
+  category: "hdd" | "ssd" | "raid" | "flash" | "mobile" | "nas" | "general";
+  difficulty: "simple" | "moderate" | "critical";
+}
+
+const { title, description, pubDate, heroImage, lang, category, difficulty } = Astro.props;
+
+const isRTL = lang === "ar";
+
+const dateLocale = lang === "ar" ? "ar-SA" : "en-US";
+const dateFormatted = new Date(pubDate).toLocaleDateString(dateLocale, {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+// Dynamic Image Loading Logic (Standard Astro Pattern for dynamic strings)
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
+// Clean up path to match glob key. Schema enforces "../../assets/images/..."
+// glob keys are like "/src/assets/images/..."
+// Input: "../../assets/images/placeholder.svg" → Target: "/src/assets/images/placeholder.svg"
+const imagePath = heroImage?.startsWith("../../assets/images/")
+  ? heroImage.replace("../../", "/src/")
+  : null;
+
+if (heroImage && !imagePath) {
+  console.warn(`[PostLayout] heroImage path "${heroImage}" does not match expected format "../../assets/images/...". Image will not be displayed.`);
+}
+const heroImageMetadata = imagePath && images[imagePath] ? await images[imagePath]() : null;
+
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  heroImage={heroImage} 
+>
+  <article class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    {/* Header Section */}
+    <header class="mb-10 text-center">
+      {/* Meta Badges */}
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+          {category.toUpperCase()}
+        </span>
+        <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+          difficulty === 'critical' ? 'bg-red-100 text-red-800' :
+          difficulty === 'moderate' ? 'bg-yellow-100 text-yellow-800' :
+          'bg-green-100 text-green-800'
+        }`}>
+          {difficulty}
+        </span>
+      </div>
+
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
+        {title}
+      </h1>
+
+      <div class="text-sm text-gray-500">
+        <time datetime={pubDate.toISOString()}>{dateFormatted}</time>
+      </div>
+    </header>
+
+    {/* Hero Image */}
+    {heroImageMetadata && (
+      <div class="mb-12 rounded-xl overflow-hidden shadow-sm aspect-video relative bg-gray-100">
+        <Image
+          src={heroImageMetadata.default}
+          alt={title}
+          class="w-full h-full object-cover"
+          width={1200}
+          height={630}
+          loading="eager"
+        />
+      </div>
+    )}
+
+    {/* Content Body */}
+    {/* 
+      Prose Configuration:
+      - prose: default typography styles
+      - prose-lg: larger font size for better readability
+      - prose-slate: slate gray color scale (neutral, no panic)
+      - rtl:text-right: ensure alignment for Arabic
+      - max-w-none: allow full width of container
+    */}
+    <div class={`
+      prose prose-lg prose-slate max-w-none
+      ${isRTL ? 'rtl:text-right' : 'text-left'}
+      prose-headings:font-bold prose-headings:text-gray-900
+      prose-p:text-gray-700 prose-p:leading-relaxed
+      prose-li:text-gray-700
+      prose-img:rounded-lg prose-img:shadow-md
+      prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
+    `}>
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
