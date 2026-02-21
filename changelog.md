@@ -15,6 +15,17 @@
 ## [Unreleased]
 
 ### Added
+- **Phase 2.2 — First 5 English Articles (2026-02-22)**
+  - Translated all 5 Arabic articles to English (`en-hdd-clicking`, `en-ssd-not-detected`, `en-usb-format`, `en-mobile-recovery`, `en-ransomware-recovery`).
+  - Implemented bilingual mapping using the `translationID` frontmatter.
+- **Phase 2.1 — First 5 Arabic Articles (2026-02-21)**
+  - `src/content/posts/hdd-clicking-sound.mdx` (Moderate, HDD category)
+  - `src/content/posts/ssd-not-detected.mdx` (Moderate, SSD category)
+  - `src/content/posts/usb-format-error.mdx` (Simple, Flash category)
+  - `src/content/posts/mobile-data-recovery.mdx` (Critical, Mobile category)
+  - `src/content/posts/ransomware-recovery.mdx` (Critical, General category)
+  - Generated dummy hero images for the new articles inside `src/assets/images/posts/`.
+
 - **Phase 1.2 — Core Components (2026-02-18)**
   - `src/config/location.ts`: Brand/Location separation (Atomic Core)
   - `src/content/config.ts`: Zod schemas (posts, services, cases) — Astro v5 API
@@ -46,12 +57,25 @@
 - `src/content/posts/en-test-hdd-clicking.mdx`: English test article with GentleNote
 - `src/assets/images/placeholder.svg`: Placeholder hero image for testing
 
+### Added (Phase 1.6 — 2026-02-21)
+- `.specify/`: Directory for GitHub Spec-Kit tooling (Templates and Core logic)
+- Intialized Spec-Kit for Spec-Driven Development.
+
+### Changed (Phase 1.6 — 2026-02-21)
+- `project-context.md`: Updated project memory for Phase 1.6 completion.
+- `project-key.md`: Added `.specify/` dir to project tree index.
+
 ### Changed (Phase 1.5 — 2026-02-19)
 - `astro.config.mjs`: Added `@astrojs/mdx` integration
 - `package.json`: Added `sharp` and `@astrojs/mdx` dependencies
 
 ### Fixed (Phase 1.4E — 2026-02-19)
 - `src/layouts/BaseLayout.astro`: TypeError: Invalid URL when `brand.siteUrl` is empty (added `siteBase` fallback to `Astro.url.origin`)
+
+### Fixed (Phase 1.5 — 2026-02-21)
+- `src/pages/*/posts/[slug].astro`: Excluded draft posts from build step.
+- `src/layouts/PostLayout.astro`: Improved `heroImage` path validation with console warning, and refined `pubDate` locale string (`ar-SA`/`en-US`).
+- `.coderabbit.yaml`: Moved `knowledge_base` custom rules to `reviews.instructions` to fix parsing error.
 
 ### Removed
 - 

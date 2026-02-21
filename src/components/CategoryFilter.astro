@@ -1,0 +1,70 @@
+---
+interface Props {
+  categories: string[];
+  locale: string;
+}
+
+const { categories, locale } = Astro.props;
+const allLabel = locale === 'ar' ? 'الكل' : 'All';
+---
+
+<div class="flex flex-wrap gap-2 mb-8" data-category-filter>
+  <button
+    class="category-btn active px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-800 text-white shadow-sm transition-all duration-200 hover:bg-slate-700 hover:-translate-y-0.5"
+    data-filter="all"
+  >
+    {allLabel}
+  </button>
+  {categories.map((category) => (
+    <button
+      class="category-btn px-5 py-2.5 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-slate-800 hover:text-slate-800 transition-all duration-200 hover:-translate-y-0.5"
+      data-filter={category}
+    >
+      {category.toUpperCase()}
+    </button>
+  ))}
+</div>
+
+<script>
+  function initCategoryFilters() {
+    const filterContainer = document.querySelector('[data-category-filter]');
+    if (!filterContainer) return;
+
+    const filterBtns = filterContainer.querySelectorAll('.category-btn');
+    const articles = document.querySelectorAll('[data-article-card]');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset all buttons
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-slate-800', 'text-white', 'shadow-sm', 'active', 'font-semibold');
+          b.classList.add('bg-white', 'text-slate-600', 'border-slate-200', 'font-medium');
+        });
+
+        // Activate clicked button
+        btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200', 'font-medium');
+        btn.classList.add('bg-slate-800', 'text-white', 'shadow-sm', 'active', 'font-semibold');
+
+        // Filter articles
+        const filterValue = btn.getAttribute('data-filter');
+
+        articles.forEach(article => {
+          if (filterValue === 'all' || article.getAttribute('data-category') === filterValue) {
+            article.classList.remove('hidden');
+            // Adding a small animation class if desired, but hidden toggle is enough for MVP
+          } else {
+            article.classList.add('hidden');
+          }
+        });
+      });
+    });
+  }
+
+  // Run on load
+  document.addEventListener('astro:page-load', initCategoryFilters);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCategoryFilters);
+  } else {
+    initCategoryFilters();
+  }
+</script>
