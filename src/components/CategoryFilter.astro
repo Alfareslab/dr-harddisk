@@ -28,7 +28,8 @@ const allLabel = locale === 'ar' ? 'الكل' : 'All';
 <script>
   function initCategoryFilters() {
     const filterContainer = document.querySelector('[data-category-filter]');
-    if (!filterContainer) return;
+    if (!filterContainer || filterContainer.hasAttribute('data-initialized')) return;
+    filterContainer.setAttribute('data-initialized', 'true');
 
     const filterBtns = filterContainer.querySelectorAll('.category-btn');
     const articles = document.querySelectorAll('[data-article-card]');

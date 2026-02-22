@@ -32,8 +32,8 @@ As a bilingual user, I want the article listings to respect my current language 
 
 **Acceptance Scenarios**:
 
-1. **Given** the user is on the Arabic index (`/posts`), **When** the list is generated, **Then** only Arabic `.mdx` content from `src/content/posts` should be shown.
-2. **Given** the user is on the English index (`/en/posts`), **When** the list is generated, **Then** only English `.mdx` content from `src/content/posts/en` should be shown.
+1. **Given** the user is on the Arabic index (`/posts`), **When** the list is generated, **Then** only Arabic `.mdx` content from `src/content/posts` with `lang: 'ar'` or no lang parameter should be shown.
+2. **Given** the user is on the English index (`/en/posts`), **When** the list is generated, **Then** only English `.mdx` content from `src/content/posts` with `lang: 'en'` should be shown.
 
 ---
 

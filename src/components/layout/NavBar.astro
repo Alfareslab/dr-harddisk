@@ -8,11 +8,21 @@ import { brand } from '../../config/location';
 
 interface Props {
   lang?: "ar" | "en";
+  alternateUrlAr?: string;
+  alternateUrlEn?: string;
 }
 
-const { lang = 'ar' } = Astro.props;
+const { lang = 'ar', alternateUrlAr, alternateUrlEn } = Astro.props;
 
 const isAr = lang === 'ar';
+
+// Default basic logic fallback:
+const currentPath = Astro.url.pathname;
+const defaultArUrl = currentPath.startsWith('/en/') ? currentPath.replace(/^\/en\//, '/') : currentPath;
+const defaultEnUrl = currentPath.startsWith('/en/') ? currentPath : '/en/' + currentPath.replace(/^\//, '');
+
+const finalArUrl = alternateUrlAr || defaultArUrl;
+const finalEnUrl = alternateUrlEn || defaultEnUrl;
 
 // Links Configuration
 const navLinks = [
@@ -86,7 +96,7 @@ const navLinks = [
       <!-- Language Switcher -->
       <div class="flex items-center gap-2">
         <a 
-          href="/" 
+          href={finalArUrl} 
           class:list={[
             "px-2 py-1 text-xs rounded border transition-colors",
             isAr 
@@ -97,7 +107,7 @@ const navLinks = [
           AR
         </a>
         <a 
-          href="/en/" 
+          href={finalEnUrl} 
           class:list={[
             "px-2 py-1 text-xs rounded border transition-colors",
             !isAr 

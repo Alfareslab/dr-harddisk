@@ -35,7 +35,7 @@ The platform delivers:
 | 1.4 | Global UI | NavBar, Footer, FloatingWhatsApp + BaseLayout integration | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` | ✅ | Yes |
 | 1.5 | Article Template | Single article page template + Content Collection rendering | `[slug].astro`, `PostLayout.astro` | ✅ | Yes |
 | 1.6 | Install Spec-Kit | Setup GitHub spec-kit for Spec-Driven Development | `.specify/` | ✅ | No |
-| 1.7 | Article Listing | Articles index page with filtering/categorization | `posts/index.astro`, `en/posts/index.astro` | ⏳ | Yes |
+| 1.7 | Article Listing | Articles index page with filtering/categorization | `posts/index.astro`, `en/posts/index.astro` | ✅ | Yes |
 | 2.1 | Content: First 5 Articles | Write and publish initial knowledge articles (Arabic) | `content/posts/*.mdx` (5 files) | ⏳ | No |
 | 2.2 | Content: English Twins | English translations of the first 5 articles | `content/posts/en/*.mdx` (5 files) | ⏳ | No |
 | 2.3 | About Page | "About Dr. Hard Disk" brand story page | `about.astro`, `en/about.astro` | ⏳ | Yes |

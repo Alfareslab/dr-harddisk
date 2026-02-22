@@ -7,6 +7,11 @@
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { brand } from "../../config/location";
+import { getPublishedPosts } from "../../utils/content";
+import ArticleCard from "../../components/ArticleCard.astro";
+
+const allPosts = await getPublishedPosts();
+const latestPosts = allPosts.filter(post => post.data.lang === 'en').slice(0, 3);
 
 const cards = [
   { emoji: "💿", name: "HDD", sub: "Hard Disk Drive", href: "/posts/?category=hdd" },
@@ -62,14 +67,33 @@ const cards = [
     </div>
   </section>
 
-  {/* ─── Latest Articles (Placeholder) ─── */}
+  {/* ─── Latest Articles ─── */}
   <section class="py-16 md:py-24 bg-white px-4 border-t border-border">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-[#0b4f6c] font-bold text-3xl mb-4">Latest Technical Guides</h2>
-      <p class="text-gray-500 mb-8">Articles from the lab — far from myths and misinformation</p>
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-[#0b4f6c] font-bold text-3xl mb-4">Latest Technical Guides</h2>
+        <p class="text-gray-500">Articles from the lab — far from myths and misinformation</p>
+      </div>
       
-      <div class="p-8 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50">
-        <p class="text-gray-400">Content coming soon — stay tuned for expert articles.</p>
+      {latestPosts.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {latestPosts.map(post => (
+            <ArticleCard post={post} locale="en" />
+          ))}
+        </div>
+      ) : (
+        <div class="p-8 border-2 border-dashed border-gray-200 rounded-xl bg-gray-50 text-center">
+          <p class="text-gray-400">Content coming soon — stay tuned for expert articles.</p>
+        </div>
+      )}
+
+      <div class="text-center mt-12">
+        <a 
+          href="/en/posts/" 
+          class="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-primary-600 text-primary-600 font-bold rounded-lg hover:bg-primary-50 transition-colors"
+        >
+          View All Articles →
+        </a>
       </div>
     </div>
   </section>

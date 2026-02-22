@@ -41,7 +41,7 @@ const articleUrl = locale === 'ar' ? `/posts/${post.id}` : `/en/posts/${post.id}
       />
     ) : (
       <img
-        src={heroImage.replace('../../assets/', '/assets/')}
+        src={heroImage.startsWith('../../assets/') ? heroImage.replace('../../assets/', '/assets/') : heroImage}
         alt={title}
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"

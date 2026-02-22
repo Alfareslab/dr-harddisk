@@ -1,5 +1,5 @@
 # 🧠 ذاكرة المشروع (Project Context)
-> **آخر تحديث:** 2026-02-19
+> **آخر تحديث:** 2026-02-22
 > **الإصدار الحالي:** 0.0.1
 
 ---
@@ -39,14 +39,15 @@
 - **Phase 1.7: Article Listing** — Built the bilingual index pages and integrated vanilla JS CategoryFilter.
 - **Phase 2.1: Arabic Articles** — Wrote and published the first 5 Arabic articles with metadata.
 - **Phase 2.2: English Twins** — Translated the 5 articles to English and ensured seamless language switching.
+- **CodeRabbit PR #4 Fixes** — Addressed all minor issues, nitpicks, and fixed the language switcher mapping & homepage placeholders.
 
 ### 🔄 قيد العمل:
-- تجهيز الكود للرفع ومراجعة (CodeRabbit Review) لكل التعديلات المتراكمة (Phases 1.5 → 2.2).
+- لا يوجد حالياً.
 
 ### ⏭️ الخطوة التالية:
 - بدء Phase 3.1 (Service Details Pages).
 
-✅ **تم الانتهاء للتو من:** Phase 2.1 (First 5 Arabic Articles) وتم رفع المقالات الخمسة بنجاح مع الصور.
+✅ **تم الانتهاء للتو من:** إصلاحات CodeRabbit لـ PR #4 وتفعيل مبدل اللغات (Language Switcher) بين المقالات المترجمة بدقة، بالإضافة لإظهار المقالات ديناميكياً في الصفحة الرئيسية العربية والإنجليزية.
 
 ---
 

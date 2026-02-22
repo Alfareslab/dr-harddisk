@@ -19,6 +19,8 @@ interface Props {
   lang?: "ar" | "en";
   heroImage?: string;
   canonicalUrl?: string;
+  alternateUrlAr?: string;
+  alternateUrlEn?: string;
 }
 
 const {
@@ -27,6 +29,8 @@ const {
   lang = "ar",
   heroImage,
   canonicalUrl,
+  alternateUrlAr,
+  alternateUrlEn,
 } = Astro.props;
 
 const isRTL = lang === "ar";
@@ -72,7 +76,7 @@ const ogImage = heroImage ? new URL(heroImage, siteBase).href : undefined;
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <NavBar lang={lang} />
+    <NavBar lang={lang} alternateUrlAr={alternateUrlAr} alternateUrlEn={alternateUrlEn} />
     <main>
       <slot />
     </main>

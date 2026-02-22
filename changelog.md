@@ -14,6 +14,17 @@
 
 ## [Unreleased]
 
+### Fixed
+- **CodeRabbit PR #4 Review (2026-02-22)**
+  - Fixed typo in frontmatter description of `en-mobile-data-recovery.mdx`.
+  - Fixed grammatical typo in `en-usb-format-error.mdx`.
+  - Standardized Arabic tanween formatting in `usb-format-error.mdx` and `mobile-data-recovery.mdx`.
+  - Removed stray Hebrew characters from `hdd-clicking-sound.mdx` and `ssd-not-detected.mdx`.
+  - Prevented double initialization of JavaScript in `CategoryFilter.astro` using `data-initialized` attribute.
+  - Hardened image pathing logic with `.startsWith()` in `ArticleCard.astro`.
+  - Fixed bilingual toggle in `NavBar.astro` by querying Astro Content API in `PostLayout.astro` via `translationID` for precise `alternateUrl` redirection.
+  - Dynamically populated top 3 latest articles on both Arabic (`/`) and English (`/en/`) homepages, replacing placeholders.
+
 ### Added
 - **Phase 2.2 — First 5 English Articles (2026-02-22)**
   - Translated all 5 Arabic articles to English (`en-hdd-clicking`, `en-ssd-not-detected`, `en-usb-format`, `en-mobile-recovery`, `en-ransomware-recovery`).
