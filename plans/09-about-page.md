@@ -65,22 +65,25 @@ import { brand, currentLocation } from "../config/location";
 
 #### Schema.org JSON-LD (in `<head>` via `<script type="application/ld+json">`):
 
-```json
-{
+```astro
+---
+const schema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Datacodex",
-  "alternateName": "Datacodex",
+  "name": brand.name,
+  "alternateName": brand.nameEn,
   "jobTitle": "Data Recovery Specialist",
   "description": "Arabic knowledge base specialized in data recovery",
   "knowsAbout": ["Data Recovery", "HDD Repair", "RAID Recovery", "SSD Recovery"],
-  "url": "https://datacodex.com/about/",
+  "url": `${brand.siteUrl}/about/`,
   "worksFor": {
     "@type": "LocalBusiness",
-    "name": "FACILITY_NAME from location.ts",
-    "address": "ADDRESS from location.ts"
+    "name": currentLocation.facilityName.en,
+    "address": `${currentLocation.street.en}, ${currentLocation.district.en}, ${currentLocation.city.en}`
   }
-}
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 ```
 
 > ⚠️ **Important:** All Schema values (worksFor name, address) MUST be read from

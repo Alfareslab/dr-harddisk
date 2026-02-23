@@ -4,7 +4,7 @@
 **Goal**: Prepare the Astro project for the Article Listing feature.
 
 - [x] T001 Initialize the feature branch (`001-article-listing`) if not already active.
-- [x] T002 Update `src/content/config.ts` to ensure the `posts` collection schema defines `title`, `description`, `pubDate`, `heroImage`, `category`, `draft`, and `translationID`.
+- [x] T002 Update `src/content.config.ts` to ensure the `posts` collection schema defines `title`, `description`, `pubDate`, `heroImage`, `category`, `draft`, and `translationID`.
 - [x] T003 Ensure dummy `.mdx` content exists in `src/content/posts` and `src/content/posts/en` to test the listing before frontend implementation is finalized.
 
 ## Phase 2: Foundational (Blocking)

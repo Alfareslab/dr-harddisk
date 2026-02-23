@@ -4,7 +4,7 @@
 
 ### `Article` (Content Collection: `posts`)
 
-The core entity representing a single knowledge base article. It is defined in `src/content/config.ts` using Astro's `zod` validation.
+The core entity representing a single knowledge base article. It is defined in `src/content.config.ts` using Astro's `zod` validation.
 
 **Fields**:
 - `title` (String, Required): The H1 title of the article.

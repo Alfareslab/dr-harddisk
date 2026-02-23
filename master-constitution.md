@@ -216,11 +216,11 @@
 
 | السياق | الاسم المستخدم |
 |--------|---------------|
-| الشعار (Logo Main) | **Datacodex** |
-| الشعار (Logo Subtitle) | **Datacodex** |
-| داخل المحتوى العربي | **Datacodex** أو **Datacodex** |
+| الشعار (Logo Main) | **د.** |
+| الشعار (Logo Subtitle) | **د.** |
+| داخل المحتوى العربي | **د.** |
 | داخل المحتوى الإنجليزي | **Datacodex** |
-| الـ Footer | **Datacodex** |
+| الـ Footer | **د.** |
 | ❌ ممنوع مطلقاً | "Datacodex" (بدون اختصار) |
 
 ---
@@ -544,7 +544,7 @@ public/images/
 > **القاعدة غير قابلة للنقاش:**
 
 ```
-✅  Datacodex
+✅  د.
 ❌  Datacodex
 ```
 

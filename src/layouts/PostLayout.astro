@@ -25,11 +25,11 @@ let alternateUrlAr = "";
 let alternateUrlEn = "";
 
 if (isRTL) {
-  const twin = posts.find((p) => p.data.lang === "en" && p.data.translationID === translationID);
+  const twin = posts.find((p) => p.data.lang === "en" && p.data.translationID === translationID && !p.data.draft);
   alternateUrlAr = Astro.url.pathname;
   alternateUrlEn = twin ? `/en/posts/${twin.id}` : "/en/posts/";
 } else {
-  const twin = posts.find((p) => p.data.lang === "ar" && p.data.translationID === translationID);
+  const twin = posts.find((p) => p.data.lang === "ar" && p.data.translationID === translationID && !p.data.draft);
   alternateUrlAr = twin ? `/posts/${twin.id}` : "/posts/";
   alternateUrlEn = Astro.url.pathname;
 }

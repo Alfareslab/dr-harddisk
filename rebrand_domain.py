@@ -1,7 +1,7 @@
 import os
 import re
 
-root_dir = r"f:\Myprojects\Dr.Harddisk"
+root_dir = os.path.dirname(os.path.abspath(__file__))
 exclude_dirs = {'.git', 'node_modules', 'dist', '.vscode', '.astro', '.github', '.gemini'}
 
 include_exts = {'.md', '.mdx', '.astro', '.ts', '.tsx', '.mjs', '.json', '.txt'}
