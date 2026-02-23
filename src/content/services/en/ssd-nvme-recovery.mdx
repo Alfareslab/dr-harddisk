@@ -1,0 +1,33 @@
+---
+title: "SSD & NVMe Data Recovery"
+description: "Safe data extraction from failed SSD and NVMe drives — sudden death, firmware corruption, and controller failure."
+pubDate: "2026-02-23"
+heroImage: "../../assets/images/services/ssd-nvme-recovery.svg"
+lang: "en"
+translationID: "ssd-nvme-recovery"
+category: "ssd"
+brands: ["samsung", "kingston", "sandisk"]
+symptoms: ["not-detected", "firmware-corruption", "bad-sectors", "electrical-surge"]
+difficulty: "critical"
+---
+
+**SSD** and **NVMe** drives revolutionized storage performance by relying entirely on NAND flash memory chips instead of mechanical parts. However, this also means their failures are sudden, silent, and without warning — a phenomenon known as Sudden Death Syndrome.
+
+At **Dr. Hard Disk**, we have the readiness and tooling to handle complex controller and firmware failures in high-speed solid-state storage devices.
+
+## Signs of SSD and NVMe Drive Failure
+
+Unlike HDDs, these drives give no audible warning before failing:
+
+- **No Boot / Blue Screen (BSOD):** A sudden blue screen crash or the system hanging on the Windows logo during startup.
+- **Capacity Drops to 8MB or 0GB:** The drive reports an impossibly small size, indicating it has lost its firmware identity (common identifiers: SATAFIRM S11 or ROM Mode).
+- **Hardware Encryption Lock:** The drive's built-in controller encryption prevents any access to the stored data even when connected to another system.
+- **Write-Protected Mode:** The drive enters a read-only state as a self-protection mechanism when its NAND cells reach the end of their rated lifespan.
+
+## How We Recover Data from SSDs
+
+Flash-based storage systems are significantly more complex than mechanical drives because they require deep knowledge of the internal architecture and Flash Translation Layer (FTL) protocols. Our approach includes:
+
+1. **Direct Firmware Intervention:** We use manufacturer-specific developer interfaces to enter Techno Mode — bypassing the standard logical structure and rebuilding the flash translation tables from scratch.
+2. **Electrical Surge Repair:** We inspect the microscopic SMD components on the PCB that protect the controller chip, replacing any fused or damaged elements to restore board functionality.
+3. **Chip-Off Recovery:** In cases of complete controller IC death, we physically desolder the NAND flash memory chips, read their raw data using specialized programmers, and then reconstruct the complex data structure — like assembling puzzle pieces through reverse engineering — to recover the original files.

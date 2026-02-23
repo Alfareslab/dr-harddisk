@@ -39,7 +39,7 @@ The platform delivers:
 | 2.1 | Content: First 5 Articles | Write and publish initial knowledge articles (Arabic) | `content/posts/*.mdx` (5 files) | ✅ | No |
 | 2.2 | Content: English Twins | English translations of the first 5 articles | `content/posts/en/*.mdx` (5 files) | ✅ | No |
 | 2.3 | About Page | "About Datacodex" brand story page | `about.astro`, `en/about.astro` | ✅ | Yes |
-| 2.4 | Service Pages (5) | 5 dedicated service pages (HDD, External, RAID, SSD, Flash) | `services/[slug].astro`, `content/services/*.mdx` | ⏳ | Yes |
+| 2.4 | Service Pages (5) | 5 dedicated service pages (HDD, External, RAID, SSD, Flash) | `services/[slug].astro`, `content/services/*.mdx` | ✅ | Yes |
 | 2.5 | Case Studies Template + Content | Case study template + initial 3 case studies | `cases/[slug].astro`, `CaseLayout.astro`, `content/cases/*.mdx` | ⏳ | Yes |
 | 2.6 | Local Page (`/jeddah/`) | Local SEO layer page for current city | `jeddah/index.astro`, `en/jeddah/index.astro` | ⏳ | Yes |
 | 2.7 | Legal Pages | Privacy Policy + Terms of Service (PDPL) | `privacy.astro`, `terms.astro` | ⏳ | Yes |
@@ -116,7 +116,7 @@ The platform delivers:
 | 2.1 | First 5 Articles (Arabic) | ✅ Built |
 | 2.2 | English Twins (translations) | ✅ Built |
 | 2.3 | About Page | ✅ Built |
-| 2.4 | Service Pages (5 dedicated pages) | ⏳ |
+| 2.4 | Service Pages (5 dedicated pages) | ✅ Built |
 | 2.5 | Case Studies Template + First 3 Cases | ⏳ |
 | 2.6 | Local Page (`/jeddah/`) | ⏳ |
 | 2.7 | Legal Pages (Privacy + Terms) | ⏳ |
@@ -129,7 +129,7 @@ The platform delivers:
 - [x] 5 Arabic articles published and rendering correctly
 - [x] 5 English twin articles with matching `translationID`
 - [x] About page tells the brand story (not a service pitch)
-- [ ] 5 service pages (HDD, External HDD, RAID, SSD, Flash) — 800+ words each
+- [x] 5 service pages (HDD, External HDD, RAID, SSD, Flash) — 800+ words each
 - [ ] Case studies template supports before/after narratives
 - [ ] 3 initial case studies published
 - [ ] `/jeddah/` local SEO page with Schema.org LocalBusiness
@@ -320,15 +320,15 @@ The platform delivers:
 | 2.1 | 2026-02-21 | N/A   | Content: First 5 Arabic Articles published |
 | 2.2 | 2026-02-22 | N/A   | Content: First 5 English translated Articles published |
 | 2.3 | 2026-02-23 | N/A   | About Datacodex Page (Arabic + English) with Schema.org |
+| 2.4 | 2026-02-23 | N/A   | 5 Service Pages (AR + EN) with dynamic routing and NavBar linkage |
 | N/A | 2026-02-22 | N/A   | Audits (Visual + Comprehensive) & Fixes applied |
 
 ### 🔄 What's In Progress:
 
 - None currently.
 
-### ⏭️ What's Next After 2.3:
+### ⏭️ What's Next After 2.4:
 
-Phase 2.4 (Service Pages): 5 dedicated recovery service pages (HDD, External, RAID, SSD, Flash) — each 800+ words.
 Phase 2.5 (Case Studies): Template + 3 initial case studies.
 Phase 2.6 (Local Page): `/jeddah/` SEO landing page.
 Phase 2.7 (Legal): Privacy Policy + Terms of Service.
@@ -408,7 +408,7 @@ Phase 3.1 (SEO: Technical): Sitemap, robots.txt, Schema.org JSON-LD.
 | Phase 2.1 (First 5 Articles)| ✅ Built | `content/posts/*.mdx` (No separate spec needed) |
 | Phase 2.2 (English Twins)| ✅ Built | `content/posts/en/*.mdx` (No separate spec needed) |
 | Phase 2.3 (About Page)| ✅ Built | `plans/09-about-page.md` (Completed via standard plan) |
-| Phase 2.4 (Service Pages)| ⏳ Pending Spec | `specs/005-service-pages/` (Planned) |
+| Phase 2.4 (Service Pages)| ✅ Built | `plans/11-service-pages-english.md` (Completed) |
 | Phase 2.5 (Case Studies)| ⏳ Pending Spec | `specs/006-case-studies/` (Planned) |
 | Phase 2.6 (Local Page)| ⏳ Pending Spec | `specs/007-local-page/` (Planned) |
 | Phase 2.7 (Legal Pages)| ⏳ Pending Spec | `specs/008-legal-pages/` (Planned) |

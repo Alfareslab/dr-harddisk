@@ -1,0 +1,28 @@
+---
+// src/pages/services/[slug].astro
+import { getCollection, render } from "astro:content";
+import PostLayout from "../../layouts/PostLayout.astro";
+import GentleNote from "../../components/content/GentleNote.astro";
+
+export async function getStaticPaths() {
+  const services = await getCollection("services");
+  // Filter for Arabic services only, exclude drafts
+  return services
+    .filter((service) => service.data.lang === "ar" && !service.data.draft)
+    .map((service) => ({
+      params: { slug: service.data.translationID },
+      props: { entry: service },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<PostLayout 
+  {...entry.data} 
+  alternateUrlEn={`/en/services/${entry.data.translationID}/`}
+>
+  <Content />
+  <GentleNote category={entry.data.category} symptoms={entry.data.symptoms} />
+</PostLayout>
