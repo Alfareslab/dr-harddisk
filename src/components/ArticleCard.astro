@@ -11,8 +11,15 @@ const { post, locale } = Astro.props;
 const { title, description, pubDate, heroImage, category } = post.data;
 
 // Dynamically import images from the assets folder.
-const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/**/*.{jpeg,jpg,png,gif,svg}');
-const optimizedHeroImage = images[heroImage] ? await images[heroImage]() : null;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
+
+// Clean up path to match glob key. Schema enforces "../../assets/images/..."
+// Input: "../../assets/images/placeholder.svg" → Target: "/src/assets/images/placeholder.svg"
+const imagePath = heroImage?.startsWith("../../assets/images/")
+  ? heroImage.replace("../../", "/src/")
+  : null;
+
+const optimizedHeroImage = imagePath && images[imagePath] ? await images[imagePath]() : null;
 
 // Format Date
 const formatter = new Intl.DateTimeFormat(locale === 'ar' ? 'ar-EG' : 'en-US', {
@@ -41,23 +48,23 @@ const articleUrl = locale === 'ar' ? `/posts/${post.id}` : `/en/posts/${post.id}
       />
     ) : (
       <img
-        src={heroImage.startsWith('../../assets/') ? heroImage.replace('../../assets/', '/assets/') : heroImage}
+        src={heroImage?.startsWith('../../assets/') ? heroImage.replace('../../assets/', '/assets/') : heroImage}
         alt={title}
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
       />
     )}
-    <span class="absolute top-4 start-4 bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
+    <span class="absolute top-4 start-4 bg-white/95 backdrop-blur-md text-primary-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm border border-white/20">
       {category.toUpperCase()}
     </span>
   </a>
 
-  <div class="p-5 flex flex-col flex-1">
+  <div class="p-5 flex flex-col flex-1 mt-1">
     <div class="flex items-center text-xs text-slate-500 mb-3 space-s-2">
       <time datetime={pubDate.toISOString()}>{formattedDate}</time>
     </div>
     <a href={articleUrl} class="block mb-2">
-      <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-amber-600 transition-colors duration-200">
+      <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-primary-600 transition-colors duration-200">
         {title}
       </h3>
     </a>

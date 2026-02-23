@@ -1,4 +1,4 @@
-# 🗺️ Phase 1.3: Page Templates — Dr. Hard Disk
+# 🗺️ Phase 1.3: Page Templates — Datacodex
 > **Version:** 1.0.0
 > **Date:** 2026-02-18
 > **Methodology:** Multi-Model Development
@@ -118,7 +118,7 @@ Placeholder strategy:
 │  ┌─────────────────────────────────────────┐             │
 │  │  HERO SECTION                           │             │
 │  │  H1: "إيه مشكلة جهازك؟"                │             │
-│  │  Subtitle: "Dr. Hard Disk — موسوعتك..." │             │
+│  │  Subtitle: "Datacodex — موسوعتك..." │             │
 │  │  8 CSS-only placeholder cards (no imgs) │             │
 │  └─────────────────────────────────────────┘             │
 │                                                          │
@@ -136,7 +136,7 @@ Placeholder strategy:
 │                                                          │
 │  ┌─────────────────────────────────────────┐             │
 │  │  ABOUT SECTION (Static)                 │             │
-│  │  H2: "Dr. Hard Disk"                    │             │
+│  │  H2: "Datacodex"                    │             │
 │  │  Brand intro text (from Blueprint §3.5) │             │
 │  │  3 equipment badges (text-only)          │             │
 │  └─────────────────────────────────────────┘             │
@@ -148,7 +148,7 @@ Placeholder strategy:
 **Hero Section (Blueprint §3.1):**
 - `<section data-section="hero">` — required for FloatingWhatsApp observer (future)
 - H1: `"إيه مشكلة جهازك؟"` — color: `#0B4F6C` (Engineering Blue)
-- Subtitle: `"Dr. Hard Disk — موسوعتك التقنية لفهم مشاكل التخزين واستعادة البيانات"`
+- Subtitle: `"Datacodex — موسوعتك التقنية لفهم مشاكل التخزين واستعادة البيانات"`
 - Background: gradient `#F8F9FA` → `#EFF1F3`
 - Cards grid: 4×2 desktop / 2×4 mobile — CSS Grid
 - Each card: emoji icon + Arabic name + English name (sub-text)
@@ -183,10 +183,10 @@ Placeholder strategy:
 **About Section (Blueprint §3.5 — Static):**
 - Background: gradient `#0B4F6C` → darker
 - Text color: white
-- H2: `"Dr. Hard Disk"`
+- H2: `"Datacodex"`
 - Text from Blueprint §3.5 (8+ years experience, no software, physical access)
 - 3 equipment badges (text-only): PC-3000, MRT Ultra, Clean Room
-- Link: `"تعرف على Dr. Hard Disk أكتر ←"` → `/about/` (placeholder href)
+- Link: `"تعرف على Datacodex أكتر ←"` → `/about/` (placeholder href)
 - **No personal name, no location, no contact info**
 
 #### Task Table:
@@ -232,7 +232,7 @@ No nav/footer/WhatsApp FAB (future phases).
 | `lang` | `"ar"` | `"en"` |
 | `dir` | RTL (auto) | LTR (auto) |
 | H1 | `"إيه مشكلة جهازك؟"` | `"What's wrong with your device?"` |
-| Subtitle | Arabic text | `"Dr. Hard Disk — Your tech encyclopedia..."` |
+| Subtitle | Arabic text | `"Datacodex — Your tech encyclopedia..."` |
 | Section headings | Arabic | English equivalents |
 | About text | Arabic | English (same content, translated) |
 | Card labels | Arabic first, English sub | English first (no Arabic sub) |
@@ -283,7 +283,7 @@ Rules: All text English. lang="en". Same CSS grid, same emoji cards, same sectio
 │                                                          │
 │  ┌─────────────────────────────────────────┐             │
 │  │  HEADER                                  │             │
-│  │  H1: "تواصل مع Dr. Hard Disk"           │             │
+│  │  H1: "تواصل مع Datacodex"           │             │
 │  └─────────────────────────────────────────┘             │
 │                                                          │
 │  ┌─────────────────────────────────────────┐             │
@@ -314,7 +314,7 @@ import { brand, currentLocation } from "../config/location";
 ```
 
 **Section 1 — Direct Contact:**
-- H1: `"تواصل مع Dr. Hard Disk"` (brand name, not facility name)
+- H1: `"تواصل مع Datacodex"` (brand name, not facility name)
 - WhatsApp link: `currentLocation.contact.whatsappUrl`
 - WhatsApp message: pre-filled `"مرحباً، عندي استفسار عن استعادة البيانات"`
 - Button: styled green `#25D366`, large, centered — THIS IS ALLOWED on /contact/
@@ -502,8 +502,8 @@ Then wait for CodeRabbit review on the 4 new files:
 | File | Section | Used For |
 |:-----|:--------|:---------|
 | `09_Homepage_Site_Blueprint.md` | §3, §8 | Homepage sections, contact page spec |
-| `04_DrHardDisk_UX_v3.2.md` | §1-§5 | Design system, colors, typography, components |
-| `05_DrHardDisk_TAD_v4.2.md` | §2, §4 | File structure, component architecture |
+| `04_Datacodex_UX_v3.2.md` | §1-§5 | Design system, colors, typography, components |
+| `05_Datacodex_TAD_v4.2.md` | §2, §4 | File structure, component architecture |
 | `master-constitution.md` | Brand/Location rules | No Panic UI, RTL-First, Brand ≠ Location |
 | `src/config/location.ts` | — | Brand + currentLocation data source |
 | `src/layouts/BaseLayout.astro` | — | Root layout (SEO, fonts, meta) |

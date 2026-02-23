@@ -1,4 +1,4 @@
-# 🗺️ Phase 1.2: Core Components — Dr. Hard Disk
+# 🗺️ Phase 1.2: Core Components — Datacodex
 > **Version:** 1.0.0
 > **Date:** 2026-02-18
 > **Methodology:** Multi-Model Development
@@ -41,7 +41,7 @@ Build the 4 foundational components that all future phases depend on:
 
 ### C-1: Brand ≠ Location (The Cardinal Rule)
 ```
-Dr. Hard Disk = Knowledge Brand (PERMANENT — never changes)
+Datacodex = Knowledge Brand (PERMANENT — never changes)
 Al-Fares Center = Physical Facility (SWAPPABLE — changes with relocation)
 ```
 > **Source:** Vision v2.0 §3.1, Constitution §11, §12
@@ -104,7 +104,7 @@ Each component gets its own commit. CodeRabbit will auto-review.
 > **Rule:** No-AI-First-Draft — content provided below, agent writes file
 
 #### Data Sources:
-- **Brand data:** KB_02_Dr_Hard_Disk_Profile_Location.md
+- **Brand data:** KB_02_Datacodex_Profile_Location.md
 - **Facility data:** KB_01_Alfares_Profile_Location.md
 - **Architecture:** Vision v2.0 §3.1–§3.3
 - **Critical file rules:** Constitution §11
@@ -114,12 +114,12 @@ Each component gets its own commit. CodeRabbit will auto-review.
 ```typescript
 // src/config/location.ts
 // ══════════════════════════════════════════════════════════════
-// THE ATOMIC CORE — Dr. Hard Disk Portable Brand
+// THE ATOMIC CORE — Datacodex Portable Brand
 // Source: master-constitution.md §11 | Vision v2.0 §3.1
 // ══════════════════════════════════════════════════════════════
 //
 // ARCHITECTURE:
-//   brand        → PERMANENT — never changes (Dr. Hard Disk identity)
+//   brand        → PERMANENT — never changes (Datacodex identity)
 //   currentLocation → SWAPPABLE — changes when facility changes
 //
 // DANGER: Never import brand data from currentLocation or vice versa.
@@ -169,16 +169,16 @@ export interface Location {
 // ─── BRAND — PERMANENT (never changes) ───
 
 export const brand: Brand = {
-  name: "د.هارد ديسك",
-  nameEn: "Dr. Hard Disk",
+  name: "Datacodex",
+  nameEn: "Datacodex",
 
   tagline: {
     ar: "مرجعك العربي لاستعادة البيانات",
     en: "Your Arabic Reference for Data Recovery",
   },
 
-  title: "د.هارد ديسك — مرجعك العربي لاستعادة البيانات",
-  titleEn: "Dr. Hard Disk — Your Arabic Reference for Data Recovery",
+  title: "Datacodex — مرجعك العربي لاستعادة البيانات",
+  titleEn: "Datacodex — Your Arabic Reference for Data Recovery",
 
   specialty: {
     ar: "قاعدة معرفية متخصصة في استعادة البيانات",
@@ -187,7 +187,7 @@ export const brand: Brand = {
 
   siteUrl: process.env.PUBLIC_SITE_URL ?? "", // From .env — domain not chosen yet
 
-  // Personal contact (Dr. Hard Disk — stable)
+  // Personal contact (Datacodex — stable)
   contact: {
     whatsapp: "966507322542",
     whatsappUrl: "https://wa.me/966507322542",
@@ -273,7 +273,7 @@ cmd /c git push origin main
 ```typescript
 // src/content/config.ts
 // ══════════════════════════════════════════════════════════════
-// Content Collections Schema — Dr. Hard Disk
+// Content Collections Schema — Datacodex
 // Source: TAD v4.2 §3.1–§3.3 | Constitution §9.2
 // API: Astro v5 Content Layer API (glob loader)
 // ══════════════════════════════════════════════════════════════
@@ -455,7 +455,7 @@ cmd /c git push origin main
 ---
 // src/layouts/BaseLayout.astro
 // ══════════════════════════════════════════════════════════════
-// Root Layout — Dr. Hard Disk
+// Root Layout — Datacodex
 // Source: TAD v4.2 §4.2 | Constitution §10.3
 // ══════════════════════════════════════════════════════════════
 
@@ -807,7 +807,7 @@ If any checkpoint fails:
 |----------|---------|----------|
 | `master-constitution.md` | §9.2, §9.3, §11, §12 | Schema rules, No-AI-First-Draft, Critical files, Forbidden changes |
 | `01_Project_Vision_v2.0.md` | §3.1–§3.3, §4 | Portable brand model, 3-layer architecture |
-| `05_DrHardDisk_TAD_v4.2.md` | §3.1–§3.3 | Content schema, frontmatter fields, validation rules |
+| `05_Datacodex_TAD_v4.2.md` | §3.1–§3.3 | Content schema, frontmatter fields, validation rules |
 | `KB_01_Alfares_Profile_Location.md` | All | Facility address, phone, hours, social media |
-| `KB_02_Dr_Hard Disk_Profile_Location.md` | All | Brand identity, persona, arsenal, tone |
-| `04_DrHardDisk_UX_v3.2.md` | §3.2 | Design system, layout structure |
+| `KB_02_Datacodex_Profile_Location.md` | All | Brand identity, persona, arsenal, tone |
+| `04_Datacodex_UX_v3.2.md` | §3.2 | Design system, layout structure |

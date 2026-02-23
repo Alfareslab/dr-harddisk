@@ -17,7 +17,7 @@ Phase 1.1 (Scaffolding) is **correctly in place** and Phase 1.2 Plan is **strate
 
 ### 1. Brand ≠ Location Separation
 The cardinal rule (Vision v2.0 §3.1) is **perfectly reflected** in the plan:
-- `brand` object = PERMANENT (Dr. Hard Disk identity)
+- `brand` object = PERMANENT (Datacodex identity)
 - `currentLocation` object = SWAPPABLE (Al-Fares facility)
 - TypeScript interfaces enforce separation at the type level
 - `gentleNote` lives inside `currentLocation` — changes with relocation ✅
@@ -78,7 +78,7 @@ siteUrl: "", // Placeholder — domain not chosen yet
 
 **Recommendation:**
 - Use `process.env.PUBLIC_SITE_URL` (already defined in `astro.config.mjs`) as fallback
-- Or set temporary value: `"https://drharddisk.sa"` (from `.env`)
+- Or set temporary value: `"https://datacodex.com"` (from `.env`)
 
 ### 3. Font Imports Duplicated
 Fonts are imported in both `global.css` AND `BaseLayout.astro` (Phase C plan):
@@ -99,7 +99,7 @@ This is the default random name from `create astro`. Should be updated to `dr-ha
 ### 1. WhatsApp Contact Ownership Question
 The plan puts WhatsApp `966507322542` in **both** `brand.contact` and `currentLocation.contact`.
 
-User said this is "د.هارد ديسك WhatsApp" — so it should be brand-level contact, which is correct. But when location changes, location contact may need a different number.
+User said this is "Datacodex WhatsApp" — so it should be brand-level contact, which is correct. But when location changes, location contact may need a different number.
 
 **Decision needed:** Is `currentLocation.contact` currently the same as brand contact by design, or should it have its own field for a future separate number?
 

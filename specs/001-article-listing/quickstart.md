@@ -1,7 +1,7 @@
 # Quickstart: Article Listing
 
 ## Overview
-This feature introduces the Article Listing hub (`/posts` and `/en/posts`) in the Dr. Hard Disk project. The goal is to dynamically render `.mdx` files defined in `src/content/posts/*` and implement client-side filtering by category.
+This feature introduces the Article Listing hub (`/posts` and `/en/posts`) in the Datacodex project. The goal is to dynamically render `.mdx` files defined in `src/content/posts/*` and implement client-side filtering by category.
 
 ## Development Setup
 

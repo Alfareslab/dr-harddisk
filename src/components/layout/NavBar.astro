@@ -29,7 +29,7 @@ const navLinks = [
   { label: isAr ? 'الرئيسية' : 'Home', href: isAr ? '/' : '/en/' },
   { label: isAr ? 'المقالات' : 'Articles', href: isAr ? '/posts/' : '/en/posts/' },
   { label: isAr ? 'تواصل' : 'Contact', href: '/contact/' }, // Contact page handles its own lang
-  { label: isAr ? 'عن Dr. Hard Disk' : 'About', href: isAr ? '/about/' : '/en/about/' },
+  { label: isAr ? 'عن Datacodex' : 'About', href: isAr ? '/about/' : '/en/about/' },
 ];
 ---
 
@@ -43,16 +43,12 @@ const navLinks = [
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     
     <!-- Logo Section -->
-    <a href={isAr ? '/' : '/en/'} class="flex items-center gap-2 z-50 group hover:opacity-90 transition-opacity">
-      <span class="text-2xl filter drop-shadow-sm">💿</span>
-      <div class="flex flex-col">
-        <span class="font-heading font-bold text-lg leading-none text-primary-900">
-          {brand.nameEn}
-        </span>
-        <span class="font-heading text-xs text-primary-600">
-          {brand.name}
-        </span>
-      </div>
+    <a href={isAr ? '/' : '/en/'} class="flex items-center z-50 group hover:opacity-90 transition-opacity">
+      <img 
+        src="/images/logo.png" 
+        alt="Datacodex Logo" 
+        class="w-48 sm:w-56 aspect-[21/9] object-contain" 
+      />
     </a>
 
     <!-- Mobile Menu Toggle (CSS-Only) -->

@@ -32,4 +32,4 @@
 ## Notes
 
 - Items marked incomplete require spec updates before `/speckit.clarify` or `/speckit.plan`
-- Note: Evaluated positively. We consider this spec solid up to Dr. Hard Disk methodology parameters (e.g., Arabic-first separation).
+- Note: Evaluated positively. We consider this spec solid up to Datacodex methodology parameters (e.g., Arabic-first separation).

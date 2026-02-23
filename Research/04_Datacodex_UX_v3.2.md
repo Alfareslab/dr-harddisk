@@ -1,8 +1,8 @@
 
 
-# Dr. Hard Disk — Design System Document v3.2
+# Datacodex — Design System Document v3.2
 
-> **Project Name:** Dr. Hard Disk
+> **Project Name:** Datacodex
 > **Document Type:** UX/UI Design System & Specifications
 > **Status:** مسودة للاعتماد
 > **Theme Base:** AstroWind (Tailwind CSS)
@@ -83,7 +83,7 @@ The site must serve two visitor states:
 |:--|:---|:---|
 | 1 | Buttons: "ابدأ فحص مجاني" / "احجز ميعاد" / "اتصل الآن" | Storefront language, not encyclopedia |
 | 2 | Classic sales CTA (bright green, urgent tone) | Contradicts knowledge-first philosophy |
-| 3 | Personal photos or personal names | Brand is Dr. Hard Disk, not an individual |
+| 3 | Personal photos or personal names | Brand is Datacodex, not an individual |
 | 4 | Pulse animations or attention-grabbing effects on buttons | Creates anxiety, not trust |
 | 5 | Language like "تعال عندنا" or "أفضل خدمة" | Marketing speak, not educational tone |
 
@@ -130,7 +130,7 @@ This means:
 - No design element outside the Local Layer should reference a specific
   physical location, business name, or address.
 - The brand identity (colors, typography, logo, tone) belongs to
-  Dr. Hard Disk permanently, regardless of which lab provides the service.
+  Datacodex permanently, regardless of which lab provides the service.
 
 ---
 
@@ -225,10 +225,10 @@ colors: {
 │                         NAVIGATION BAR                            │
 │                                                                   │
 │  ┌── Right (RTL) ──┐   ┌───── Center ─────┐   ┌── Left ──┐     │
-│  │ Dr. Hard Disk    │   │ الرئيسية          │   │ 📱 (WA)  │     │
-│  │ د.هارد ديسك  │   │ المقالات          │   │ [EN]     │     │
+│  │ Datacodex    │   │ الرئيسية          │   │ 📱 (WA)  │     │
+│  │ Datacodex  │   │ المقالات          │   │ [EN]     │     │
 │  │ → clickable /    │   │ قصص النجاح        │   │          │     │
-│  │                  │   │ عن Dr. Hard Disk  │   │          │     │
+│  │                  │   │ عن Datacodex  │   │          │     │
 │  │                  │   │ تواصل             │   │          │     │
 │  └──────────────────┘   └──────────────────┘   └──────────┘     │
 │                                                                   │
@@ -238,8 +238,8 @@ colors: {
 ```
 
 **يمين (RTL):**
-- اللوجو: "Dr. Hard Disk" + أيقونة صغيرة
-- تحته بخط أصغر: "د.هارد ديسك"
+- اللوجو: "Datacodex" + أيقونة صغيرة
+- تحته بخط أصغر: "Datacodex"
 - Clickable → الرئيسية
 
 **وسط:**
@@ -247,7 +247,7 @@ colors: {
 1. الرئيسية → /
 2. المقالات → /posts/
 3. قصص النجاح → /cases/
-4. عن Dr. Hard Disk → /about/
+4. عن Datacodex → /about/
 5. تواصل → /contact/
 
 **يسار (RTL):**
@@ -286,7 +286,7 @@ colors: {
 
 **العنوان فوق الكروت:**
 - H1: "إيه مشكلة جهازك؟"
-- نص توضيحي: "Dr. Hard Disk — موسوعتك التقنية لفهم مشاكل التخزين واستعادة البيانات"
+- نص توضيحي: "Datacodex — موسوعتك التقنية لفهم مشاكل التخزين واستعادة البيانات"
 
 **التخطيط:**
 
@@ -295,7 +295,7 @@ colors: {
 │                     HERO CARDS GRID                                │
 │                                                                   │
 │  H1: "إيه مشكلة جهازك؟"                                         │
-│  Subtitle: "Dr. Hard Disk — موسوعتك التقنية..."                  │
+│  Subtitle: "Datacodex — موسوعتك التقنية..."                  │
 │                                                                   │
 │  Desktop (4×2):                                                   │
 │  ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐                                │
@@ -343,7 +343,7 @@ colors: {
 |:---|:---|
 | Background | #F0FDF4 (green-50) instead of white |
 | Text | "محتاج مساعدة متخصصة؟" |
-| Icon | WhatsApp icon or Dr. Hard Disk caricature |
+| Icon | WhatsApp icon or Datacodex caricature |
 | Link | /contact/ (NOT direct WhatsApp link) |
 | Border | 1px solid #BBF7D0 (green-200) |
 
@@ -526,7 +526,7 @@ interface Props {
   lang?: 'ar' | 'en';
   title?: string;
 }
-const { lang = 'ar', title = 'Dr. Hard Disk' } = Astro.props;
+const { lang = 'ar', title = 'Datacodex' } = Astro.props;
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 ---
 <!DOCTYPE html>
@@ -648,7 +648,7 @@ const dir = lang === 'ar' ? 'rtl' : 'ltr';
 │  ┌─────────────────────────────────────────────────────┐│
 │  │ ⚠️  هل تسمع صوت طقطقة الآن؟ افصل الجهاز فوراً.    ││
 │  │                                                      ││
-│  │  Dr. Hard Disk متخصص في الحالات الحرجة              ││
+│  │  Datacodex متخصص في الحالات الحرجة              ││
 │  │                                                      ││
 │  │  [💬 تواصل عبر واتساب]                              ││
 │  └─────────────────────────────────────────────────────┘│
@@ -670,7 +670,7 @@ const dir = lang === 'ar' ? 'rtl' : 'ltr';
 **المحتوى:**
 - أيقونة: ⚠️
 - نص رئيسي (يتغير حسب المقال): "هل تسمع صوت طقطقة الآن؟ افصل الجهاز فوراً."
-- نص ثانوي: "Dr. Hard Disk متخصص في الحالات الحرجة"
+- نص ثانوي: "Datacodex متخصص في الحالات الحرجة"
 - زرار واتساب (كبير هنا — مسموح لأن السياق طوارئ)
 
 **الفرق عن الزر العائم:**
@@ -853,7 +853,7 @@ const text = lang === 'ar'
 │                                                          │
 │  ┌─────────────────────────────────────────────────────┐ │
 │  │ 💡 لو بتسمع صوت طقطقة دلوقتي، ما تحاولش تشغل    │ │
-│  │    الهارد تاني. Dr. Hard Disk متخصص في             │ │
+│  │    الهارد تاني. Datacodex متخصص في             │ │
 │  │    الحالات دي.                                      │ │
 │  │                                                      │ │
 │  │    تواصل عبر واتساب أو زورنا في [المكان].          │ │
@@ -875,9 +875,9 @@ const text = lang === 'ar'
 النص **يتغير تلقائياً** حسب `category` و `symptoms` من frontmatter المقال.
 
 **أمثلة:**
-- مقال عن clicking: "لو بتسمع صوت طقطقة دلوقتي، ما تحاولش تشغل الهارد تاني. Dr. Hard Disk متخصص في الحالات دي."
-- مقال عن فورمات: "لو عملت فورمات بالغلط، ما تكتبش أي حاجة على القرص. Dr. Hard Disk يقدر يساعدك."
-- مقال عام: "لو محتاج مساعدة متخصصة في استعادة البيانات، Dr. Hard Disk موجود."
+- مقال عن clicking: "لو بتسمع صوت طقطقة دلوقتي، ما تحاولش تشغل الهارد تاني. Datacodex متخصص في الحالات دي."
+- مقال عن فورمات: "لو عملت فورمات بالغلط، ما تكتبش أي حاجة على القرص. Datacodex يقدر يساعدك."
+- مقال عام: "لو محتاج مساعدة متخصصة في استعادة البيانات، Datacodex موجود."
 
 **كل نص يُذيَّل بـ:**
 "تواصل عبر واتساب أو زورنا في [المكان]."
@@ -916,7 +916,7 @@ interface GentleNoteProps {
 
 **Design Principle:** The footer has two visually distinct zones:
 
-1. **Brand Zone (permanent):** Dr. Hard Disk logo, social media links,
+1. **Brand Zone (permanent):** Datacodex logo, social media links,
    legal pages links, copyright. This NEVER changes.
 2. **Local Zone (swappable):** Current location name, address, phone,
    map link. This is the only part that changes when Ahmad moves.
@@ -932,7 +932,7 @@ to both the user and the developer.
 │                                                          │
 │  ┌─────────────── Brand Zone (permanent) ──────────────┐│
 │  │                                                      ││
-│  │  [Dr. Hard Disk Logo]                                ││
+│  │  [Datacodex Logo]                                ││
 │  │                                                      ││
 │  │  الخدمات        المعرفة         القانونية            ││
 │  │  ─────────     ─────────       ──────────            ││
@@ -962,7 +962,7 @@ to both the user and the developer.
 │  └──────────────────────────────────────────────────────┘│
 │                                                          │
 │  ── Copyright ──────────────────────────────────────────│
-│  © 2026 Dr. Hard Disk. جميع الحقوق محفوظة.             │
+│  © 2026 Datacodex. جميع الحقوق محفوظة.             │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -1161,7 +1161,7 @@ to both the user and the developer.
 
 | # | Prohibited | Reason |
 |:--|:---|:---|
-| 1 | صور شخصية (للمؤسس أو أي شخص) | Brand is Dr. Hard Disk, not an individual |
+| 1 | صور شخصية (للمؤسس أو أي شخص) | Brand is Datacodex, not an individual |
 | 2 | صور "behind the scenes" فيها أشخاص | Privacy + portable brand |
 | 3 | استخدام الاسم الشخصي (المهندس أحمد) | Brand identity separation |
 
@@ -1169,13 +1169,13 @@ to both the user and the developer.
 
 | # | Allowed | Usage |
 |:--|:---|:---|
-| 1 | كاريكاتير Dr. Hard Disk (AI-generated mascot) | Hero of About page |
+| 1 | كاريكاتير Datacodex (AI-generated mascot) | Hero of About page |
 | 2 | لوجو نصي أو رمزي | Header and identity sections |
 | 3 | صور الأجهزة (PC-3000, MRT) بدون أشخاص | Equipment showcase |
 | 4 | صور AI-generated للمعدات | Lab environment illustration |
 
 **النبرة:**
-"Dr. Hard Disk — خبرة أكثر من 8 سنوات"
+"Datacodex — خبرة أكثر من 8 سنوات"
 (وليس "أنا أحمد، عندي خبرة...")
 
 ---
@@ -1245,7 +1245,7 @@ npm install @fontsource/tajawal
 
 ```javascript
 // tailwind.config.mjs
-// Dr. Hard Disk — Design System v3.2 (Bilingual AR/EN)
+// Datacodex — Design System v3.2 (Bilingual AR/EN)
 
 import defaultTheme from 'tailwindcss/defaultTheme';
 import typographyPlugin from '@tailwindcss/typography';

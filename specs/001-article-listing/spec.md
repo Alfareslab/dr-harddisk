@@ -26,7 +26,7 @@ As a user seeking data recovery knowledge, I want to see a comprehensive list of
 
 As a bilingual user, I want the article listings to respect my current language selection so that I only see articles in the language I can read.
 
-**Why this priority**: Dr. Hard Disk is an Arabic-first platform with English twins. Separating content by language is vital for SEO and user experience.
+**Why this priority**: Datacodex is an Arabic-first platform with English twins. Separating content by language is vital for SEO and user experience.
 
 **Independent Test**: Can be fully tested by switching between `/posts` (Arabic) and `/en/posts` (English) and verifying that only articles matching the language are shown.
 

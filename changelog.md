@@ -15,6 +15,10 @@
 ## [Unreleased]
 
 ### Fixed
+- **Visual QA Phase 1.7 Fixes (2026-02-22)**
+  - Fixed article card broken images by correcting dynamic glob asset import pathing in `ArticleCard.astro` resolving badge overlaps.
+  - Fixed title clipping issues on the Arabic homepage due to skewed section overlapping by adjusting structural spacing (`mt-*`).
+  - Improved text breathing room and layout padding alignment inside `ArticleCard.astro` component to avoid crowding.
 - **CodeRabbit PR #4 Review (2026-02-22)**
   - Fixed typo in frontmatter description of `en-mobile-data-recovery.mdx`.
   - Fixed grammatical typo in `en-usb-format-error.mdx`.
@@ -26,6 +30,14 @@
   - Dynamically populated top 3 latest articles on both Arabic (`/`) and English (`/en/`) homepages, replacing placeholders.
 
 ### Added
+- **Phase 2.4 Planning — Service Pages (2026-02-23)**
+  - Created execution plan `11-service-pages-plan.md` for building the 5 core service pages (HDD, External HDD, RAID, SSD, Flash).
+  - Outlined the requirement for the `GentleNote` non-sales component for conversion.
+- **Phase 2.3 — About Page (2026-02-23)**
+  - `src/pages/about.astro`: Arabic "About" page focusing on the Datacodex brand story, expertise, and realistic success rates.
+  - `src/pages/en/about.astro`: English translated copy of the "About" page.
+  - Included LocalBusiness and Person Schema.org JSON-LD structured data.
+  - Sourced all location values directly from `location.ts` (strictly avoiding hardcoded values).
 - **Phase 2.2 — First 5 English Articles (2026-02-22)**
   - Translated all 5 Arabic articles to English (`en-hdd-clicking`, `en-ssd-not-detected`, `en-usb-format`, `en-mobile-recovery`, `en-ransomware-recovery`).
   - Implemented bilingual mapping using the `translationID` frontmatter.

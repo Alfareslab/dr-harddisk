@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import { brand, currentLocation } from "../../config/location";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": brand.nameEn,
+  "alternateName": brand.nameEn, // English name is the same
+  "jobTitle": "Data Recovery Specialist",
+  "description": "English knowledge base specialized in data recovery",
+  "knowsAbout": ["Data Recovery", "HDD Repair", "RAID Recovery", "SSD Recovery"],
+  "url": `${brand.siteUrl}/en/about/`,
+  "worksFor": {
+    "@type": "LocalBusiness",
+    "name": currentLocation.facilityName.en,
+    "address": `${currentLocation.street.en}, ${currentLocation.district.en}, ${currentLocation.city.en}`
+  }
+};
+---
+
+<BaseLayout
+  title={`About ${brand.nameEn} — ${brand.tagline.en}`}
+  description="Discover Datacodex — a specialized data recovery knowledge base with 8+ years of experience and professional lab equipment."
+  lang="en"
+  alternateUrlAr="/about/"
+>
+  
+  <div class="max-w-4xl mx-auto px-4 py-16 md:py-24">
+    {/* ─── 1. Hero Header ─── */}
+    <header class="text-center mb-16">
+      <h1 class="text-[#0b4f6c] font-bold text-4xl md:text-5xl mb-4">
+        About {brand.nameEn}
+      </h1>
+      <p class="text-gray-600 text-lg md:text-xl">
+        {brand.tagline.en}
+      </p>
+    </header>
+
+    {/* ─── 2. Brand Story ─── */}
+    <section class="prose prose-lg max-w-3xl mx-auto text-gray-700 mb-16 px-4 md:px-0 leading-relaxed text-left">
+      <p>
+        <strong>{brand.nameEn}</strong> is a specialized knowledge platform dedicated to the science of data recovery and handling damaged storage media. Our journey began over <span class="text-[#0b4f6c] font-bold">8 years</span> ago, fueled by technical passion and continuous research into the deepest layers of data storage.
+      </p>
+      <p>
+        We have evolved beyond being just a service provider to become the <strong>trusted reference</strong> for understanding data loss causes and how to securely retrieve data. Having previously managed data recovery operations in Egypt, we now offer our expertise through carefully selected partner laboratories in the Kingdom of Saudi Arabia.
+      </p>
+      <p>
+        We do not rely on flashy marketing terms. Instead, we are committed to providing <strong>absolute transparency</strong> and accurate technical information that empowers you to make the right decisions.
+      </p>
+    </section>
+
+    {/* ─── 3. Tools & Equipment ─── */}
+    <section class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm mb-16">
+      <h2 class="text-[#0b4f6c] font-bold text-2xl mb-8 text-center">Lab Tools & Technologies</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">🛠️</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">PC-3000 Portable Pro</h3>
+            <p class="text-gray-600 text-sm">The world's most powerful system from ACE Lab for innovative handling of severe cases and extracting data from complex failures.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">🔬</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">Clean Room Capability</h3>
+            <p class="text-gray-600 text-sm">A certified Clean Room environment for opening HDDs and dealing with sensitive mechanical failures without exposing platters to contamination.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">⚙️</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">MRT Lab & CDev</h3>
+            <p class="text-gray-600 text-sm">A suite of tools for reading firmware and bypassing translator issues in HDDs and modern storage drives.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">💻</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">Software Solutions</h3>
+            <p class="text-gray-600 text-sm">We utilize a wide spectrum of advanced software such as R-Studio to recover logical files and rebuild complex RAID structures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── 4. Privacy Protocol ─── */}
+    <section class="bg-[#F9FAFB] border-2 border-gray-200 rounded-2xl p-8 mb-16">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div class="text-5xl shrink-0">🛡️</div>
+        <div>
+          <h2 class="text-gray-900 font-bold text-2xl mb-3">The "Blind Recovery" Protocol</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Privacy is our foremost standard. We implement a strict policy known as <strong>"Blind Recovery"</strong>. This methodology ensures data is recovered as blocks and structures (Hex & Directory Trees) without the need to open or preview personal files.
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1">
+            <li>Scanning mechanism relies on infrastructure, not content.</li>
+            <li>No file backups are retained after successful delivery.</li>
+            <li>Immediate sanitization of donor drives upon completion.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── 5. Success Rates ─── */}
+    <section class="mb-16">
+      <h2 class="text-[#0b4f6c] font-bold text-2xl mb-6 text-center">Realistic & Proven Success Rates</h2>
+      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">At {brand.nameEn}, we do not believe in "100% recovery" promises. Our figures reflect the technical reality of the cases we handle.</p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-white border border-green-100 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-green-600 font-bold text-4xl mb-2">~95%</div>
+          <h3 class="font-bold text-gray-900 mb-1">Logical Failures</h3>
+          <p class="text-sm text-gray-500">Accidental deletion, formatting, or file system damage</p>
+        </div>
+        <div class="bg-white border border-amber-100 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-amber-600 font-bold text-4xl mb-2">~85%</div>
+          <h3 class="font-bold text-gray-900 mb-1">Physical Failures</h3>
+          <p class="text-sm text-gray-500">Clicking sounds, head damage, or motor seizures</p>
+        </div>
+        <div class="bg-white border border-blue-100 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-blue-600 font-bold text-4xl mb-2">~75%</div>
+          <h3 class="font-bold text-gray-900 mb-1">Server Arrays (RAID)</h3>
+          <p class="text-sm text-gray-500">NAS server crashes or multiple drive failures</p>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</BaseLayout>

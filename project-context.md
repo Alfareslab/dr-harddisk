@@ -39,15 +39,19 @@
 - **Phase 1.7: Article Listing** — Built the bilingual index pages and integrated vanilla JS CategoryFilter.
 - **Phase 2.1: Arabic Articles** — Wrote and published the first 5 Arabic articles with metadata.
 - **Phase 2.2: English Twins** — Translated the 5 articles to English and ensured seamless language switching.
+- **Phase 2.3: About Page** — Built bilingual corporate identity page with Schema.org formatting and NO sales language.
+- **Phase 2.4 Planning** — Created the execution plan `11-service-pages-plan.md` based on PRD v4.
 - **CodeRabbit PR #4 Fixes** — Addressed all minor issues, nitpicks, and fixed the language switcher mapping & homepage placeholders.
+- **Comprehensive Audit** — فحص شامل لمطابقة الكود والرؤية و UX. تقرير: `docs/audits/audit-2026-02-22-comprehensive.md`
 
 ### 🔄 قيد العمل:
-- لا يوجد حالياً.
+- Phase 2.4 (Service Pages × 5) - Execution Phase.
 
 ### ⏭️ الخطوة التالية:
-- بدء Phase 3.1 (Service Details Pages).
+- تنفيذ المرحلة الأولى من Phase 2.4 (عنصر GentleNote وتجهيز المسارات).
+- بعدها: Phase 2.5 (Case Studies Template).
 
-✅ **تم الانتهاء للتو من:** إصلاحات CodeRabbit لـ PR #4 وتفعيل مبدل اللغات (Language Switcher) بين المقالات المترجمة بدقة، بالإضافة لإظهار المقالات ديناميكياً في الصفحة الرئيسية العربية والإنجليزية.
+✅ **تم الانتهاء للتو من:** مراجعة استراتيجية شاملة للخطة الكبرى وإضافة 4 مراحل مفقودة (Service Pages, Local Page, Legal Pages, MDX Components) + تصحيح Milestone 2 وتحديث الجدول الزمني.
 
 ---
 
@@ -70,6 +74,12 @@
 | `dir-ltr` invalid Tailwind class in `Footer.astro` | Replaced with `dir="ltr"` HTML attribute | 2026-02-19 |
 | Content collection posts empty during build | Added `@astrojs/mdx` integration + `sharp` for image optimization | 2026-02-19 |
 | Draft posts being built to static routes | Added `!post.data.draft` filter to `getStaticPaths` | 2026-02-21 |
+| Article Title Clipping (AR Homepage) | Added margin-top to section container to clear skewed background pattern | 2026-02-22 |
+| ArticleCard Broken Images & Badge Overlap | Fixed glob import path to absolute `/src/assets/...` and normalized frontend string format | 2026-02-22 |
+| Crowded Article Cards Text | Added sufficient padding-top to card content wrapper for visual breathing room | 2026-02-22 |
+| FloatingWhatsApp Inline Styles | Replaced inline styles with Tailwind classes (`bottom-4 start-4 bg-[#25D366]/70`) | 2026-02-22 |
+| Tajawal `font-display` not optional | Overrode `@fontsource` defaults by declaring `@font-face` explicitly | 2026-02-22 |
+| Homepage `index.astro` bloated with cards HTML | Extracted Hero grid cards into a dedicated `HeroCard.astro` component | 2026-02-22 |
 
 ---
 

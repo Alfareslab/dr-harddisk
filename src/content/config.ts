@@ -1,6 +1,6 @@
 // src/content/config.ts
 // ══════════════════════════════════════════════════════════════
-// Content Collections Schema — Dr. Hard Disk
+// Content Collections Schema — Datacodex
 // Source: TAD v4.2 §3.1–§3.3 | Constitution §9.2
 // API: Astro v5 Content Layer API (glob loader)
 // ══════════════════════════════════════════════════════════════

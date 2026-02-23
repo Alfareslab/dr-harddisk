@@ -1,4 +1,4 @@
-// astro.config.mjs — Dr. Hard Disk v1.0.0
+// astro.config.mjs — Datacodex v1.0.0
 // Source of truth: master-constitution.md §9.1 + TAD §1.1
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 
 // Domain from environment variable (Risk B-3)
-const siteURL = process.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
+const siteURL = process.env.PUBLIC_SITE_URL || 'https://datacodex.com';
 
 export default defineConfig({
   site: siteURL,

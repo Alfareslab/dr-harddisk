@@ -63,7 +63,7 @@ Not even supercomputers can brute-force an AES-256 key within our lifetime. If a
 
 **So, what *can* data recovery specialists do?**
 
-At Dr. Harddisk, our approach to ransomware is forensic and highly methodical, focusing on exploiting vulnerabilities rather than breaking unbreakable math:
+At Datacodex, our approach to ransomware is forensic and highly methodical, focusing on exploiting vulnerabilities rather than breaking unbreakable math:
 
 1.  **Decrypter Identification:** We analyze the exact ransomware strain and the ransom note. Sometimes, the attackers use weak, old variants where Security Researchers have already reverse-engineered a free master decrypter.
 2.  **Volume Shadow Copy Recovery:** Ransomware usually attempts to delete the Windows automatic background backups (VSS). We use raw forensic tools to deeply scan the "Unallocated Space" of the hard drive to find leftover, deleted fragments of those shadow copies before they were wiped out.
