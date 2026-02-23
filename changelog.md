@@ -14,7 +14,41 @@
 
 ## [Unreleased]
 
+### Fixed
+- **Visual QA Phase 1.7 Fixes (2026-02-22)**
+  - Fixed article card broken images by correcting dynamic glob asset import pathing in `ArticleCard.astro` resolving badge overlaps.
+  - Fixed title clipping issues on the Arabic homepage due to skewed section overlapping by adjusting structural spacing (`mt-*`).
+  - Improved text breathing room and layout padding alignment inside `ArticleCard.astro` component to avoid crowding.
+- **CodeRabbit PR #4 Review (2026-02-22)**
+  - Fixed typo in frontmatter description of `en-mobile-data-recovery.mdx`.
+  - Fixed grammatical typo in `en-usb-format-error.mdx`.
+  - Standardized Arabic tanween formatting in `usb-format-error.mdx` and `mobile-data-recovery.mdx`.
+  - Removed stray Hebrew characters from `hdd-clicking-sound.mdx` and `ssd-not-detected.mdx`.
+  - Prevented double initialization of JavaScript in `CategoryFilter.astro` using `data-initialized` attribute.
+  - Hardened image pathing logic with `.startsWith()` in `ArticleCard.astro`.
+  - Fixed bilingual toggle in `NavBar.astro` by querying Astro Content API in `PostLayout.astro` via `translationID` for precise `alternateUrl` redirection.
+  - Dynamically populated top 3 latest articles on both Arabic (`/`) and English (`/en/`) homepages, replacing placeholders.
+
 ### Added
+- **Phase 2.4 Planning — Service Pages (2026-02-23)**
+  - Created execution plan `11-service-pages-plan.md` for building the 5 core service pages (HDD, External HDD, RAID, SSD, Flash).
+  - Outlined the requirement for the `GentleNote` non-sales component for conversion.
+- **Phase 2.3 — About Page (2026-02-23)**
+  - `src/pages/about.astro`: Arabic "About" page focusing on the Datacodex brand story, expertise, and realistic success rates.
+  - `src/pages/en/about.astro`: English translated copy of the "About" page.
+  - Included LocalBusiness and Person Schema.org JSON-LD structured data.
+  - Sourced all location values directly from `location.ts` (strictly avoiding hardcoded values).
+- **Phase 2.2 — First 5 English Articles (2026-02-22)**
+  - Translated all 5 Arabic articles to English (`en-hdd-clicking`, `en-ssd-not-detected`, `en-usb-format`, `en-mobile-recovery`, `en-ransomware-recovery`).
+  - Implemented bilingual mapping using the `translationID` frontmatter.
+- **Phase 2.1 — First 5 Arabic Articles (2026-02-21)**
+  - `src/content/posts/hdd-clicking-sound.mdx` (Moderate, HDD category)
+  - `src/content/posts/ssd-not-detected.mdx` (Moderate, SSD category)
+  - `src/content/posts/usb-format-error.mdx` (Simple, Flash category)
+  - `src/content/posts/mobile-data-recovery.mdx` (Critical, Mobile category)
+  - `src/content/posts/ransomware-recovery.mdx` (Critical, General category)
+  - Generated dummy hero images for the new articles inside `src/assets/images/posts/`.
+
 - **Phase 1.2 — Core Components (2026-02-18)**
   - `src/config/location.ts`: Brand/Location separation (Atomic Core)
   - `src/content/config.ts`: Zod schemas (posts, services, cases) — Astro v5 API
@@ -46,12 +80,25 @@
 - `src/content/posts/en-test-hdd-clicking.mdx`: English test article with GentleNote
 - `src/assets/images/placeholder.svg`: Placeholder hero image for testing
 
+### Added (Phase 1.6 — 2026-02-21)
+- `.specify/`: Directory for GitHub Spec-Kit tooling (Templates and Core logic)
+- Intialized Spec-Kit for Spec-Driven Development.
+
+### Changed (Phase 1.6 — 2026-02-21)
+- `project-context.md`: Updated project memory for Phase 1.6 completion.
+- `project-key.md`: Added `.specify/` dir to project tree index.
+
 ### Changed (Phase 1.5 — 2026-02-19)
 - `astro.config.mjs`: Added `@astrojs/mdx` integration
 - `package.json`: Added `sharp` and `@astrojs/mdx` dependencies
 
 ### Fixed (Phase 1.4E — 2026-02-19)
 - `src/layouts/BaseLayout.astro`: TypeError: Invalid URL when `brand.siteUrl` is empty (added `siteBase` fallback to `Astro.url.origin`)
+
+### Fixed (Phase 1.5 — 2026-02-21)
+- `src/pages/*/posts/[slug].astro`: Excluded draft posts from build step.
+- `src/layouts/PostLayout.astro`: Improved `heroImage` path validation with console warning, and refined `pubDate` locale string (`ar-SA`/`en-US`).
+- `.coderabbit.yaml`: Moved `knowledge_base` custom rules to `reviews.instructions` to fix parsing error.
 
 ### Removed
 - 

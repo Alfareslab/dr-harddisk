@@ -1,4 +1,4 @@
-# Dr. Hard Disk — NotebookLM Output Instructions (أوامر الإنتاج)
+# Datacodex — NotebookLM Output Instructions (أوامر الإنتاج)
 
 > **Document:** `09_NotebookLM_Output_Instructions.md`
 > **Version:** 1.0

@@ -1,6 +1,6 @@
 
 
-# DrHardDisk — Technical Architecture Document (TAD)
+# Datacodex — Technical Architecture Document (TAD)
 
 > **Document Type:** Technical Architecture Document (TAD)
 > **Version:** 4.2 — Aligned with Vision v2.0, Risk v3.0, PRD v3.0, UX v3.0
@@ -84,7 +84,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 // ═══ [v4] Domain from environment variable ═══
-const siteURL = process.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
+const siteURL = process.env.PUBLIC_SITE_URL || 'https://datacodex.com';
 
 export default defineConfig({
   site: siteURL,
@@ -153,7 +153,7 @@ export default defineConfig({
 > Unchanged from v3.
 
 ```toml
-name = "drharddisk-sa"
+name = "datacodex-sa"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
@@ -166,13 +166,13 @@ bucket = "./dist"
 ```env
 # .env (لا تُرفع على GitHub!)
 NODE_ENV=development
-PUBLIC_SITE_URL=https://drharddisk.sa
+PUBLIC_SITE_URL=https://datacodex.com
 ```
 
 ```env
 # .env.example (تُرفع على GitHub كمرجع)
 NODE_ENV=development
-PUBLIC_SITE_URL=https://drharddisk.sa
+PUBLIC_SITE_URL=https://datacodex.com
 ```
 
 ### 1.4 التطوير والنشر المحلي
@@ -184,7 +184,7 @@ PUBLIC_SITE_URL=https://drharddisk.sa
 ## 2. هيكلة المجلدات — RESTRUCTURED v4.2
 
 ```bash
-drharddisk/
+datacodex/
 ├── astro.config.mjs
 ├── wrangler.toml
 ├── tailwind.config.mjs              # ← Source: UX v3 §5.3
@@ -214,7 +214,7 @@ drharddisk/
 │   │           ├── card-flash.webp
 │   │           ├── card-dvr.webp
 │   │           ├── card-raid.webp
-│   │           ├── card-contact.webp    # Dr. Hard Disk caricature
+│   │           ├── card-contact.webp    # Datacodex caricature
 │   │           ├── about-pc3000.webp    # Equipment — 800×500
 │   │           ├── about-mrt.webp
 │   │           └── about-cleanroom.webp
@@ -752,7 +752,7 @@ const cards = [
     >
       <Image
         src={cardContact}
-        alt="Dr. Hard Disk"
+        alt="Datacodex"
         width={200}
         height={200}
         format="webp"
@@ -1232,8 +1232,8 @@ const {
 } = Astro.props;
 
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
-const siteURL = import.meta.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
-const fullTitle = `${title} | ${lang === 'ar' ? 'د.هارد ديسك' : 'Dr. Hard Disk'}`;
+const siteURL = import.meta.env.PUBLIC_SITE_URL || 'https://datacodex.com';
+const fullTitle = `${title} | ${lang === 'ar' ? 'Datacodex' : 'Datacodex'}`;
 ---
 
 <!doctype html>
@@ -1307,14 +1307,14 @@ interface Props {
   lang: 'ar' | 'en';
 }
 const { lang } = Astro.props;
-const siteURL = import.meta.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
+const siteURL = import.meta.env.PUBLIC_SITE_URL || 'https://datacodex.com';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${siteURL}/#business`,
-  "name": lang === 'ar' ? "د.هارد ديسك" : "Dr Hard Disk",
-  "alternateName": "DrHardDisk",
+"name": lang === 'ar' ? "Datacodex" : "Datacodex",
+  "alternateName": "Datacodex",
   "description": lang === 'ar'
     ? `مركز متخصص في استعادة البيانات في ${location.city}. خبرة +15 سنة.`
     : `Specialized data recovery center in Jeddah. 15+ years experience.`,
@@ -1403,7 +1403,7 @@ const caseSchema = {
 ```json
 {
   "@type": "LocalBusiness",
-  "name": "Dr. Hard Disk",
+  "name": "Datacodex",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "[from location.street]",
@@ -1434,7 +1434,7 @@ interface Props {
 }
 
 const { currentLang, currentPath, translationID } = Astro.props;
-const siteURL = import.meta.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
+const siteURL = import.meta.env.PUBLIC_SITE_URL || 'https://datacodex.com';
 
 const cleanPath = currentPath.startsWith('/en/')
   ? currentPath.replace(/^\/en/, '')
@@ -1654,7 +1654,7 @@ IS the UX v3 config.
 | `card-flash.webp` | USB flash drive |
 | `card-dvr.webp` | DVR device |
 | `card-raid.webp` | Server RAID array |
-| `card-contact.webp` | Dr. Hard Disk caricature |
+| `card-contact.webp` | Datacodex caricature |
 
 **صور الأجهزة (3 صور — 800×500):**
 

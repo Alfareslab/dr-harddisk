@@ -25,16 +25,12 @@ const year = new Date().getFullYear();
     <div class="flex flex-col items-center justify-center text-center space-y-6">
       
       <!-- Logo + Name -->
-      <div class="group flex flex-col items-center gap-2">
-        <span class="text-4xl filter drop-shadow-md grayscale group-hover:grayscale-0 transition-all duration-300">💿</span>
-        <div class="flex flex-col">
-          <h2 class="font-heading font-bold text-2xl text-white tracking-wide">
-            {isAr ? brand.name : brand.nameEn}
-          </h2>
-          <span class="text-primary-400 text-sm">
-            {isAr ? brand.nameEn : brand.name}
-          </span>
-        </div>
+      <div class="group flex flex-col items-center gap-4">
+        <img 
+          src="/images/logo.png" 
+          alt="Datacodex Logo" 
+          class="w-56 aspect-[21/9] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 filter drop-shadow-md" 
+        />
       </div>
 
       <!-- Tagline -->

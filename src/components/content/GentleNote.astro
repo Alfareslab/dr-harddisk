@@ -2,24 +2,27 @@
 // src/components/content/GentleNote.astro
 // ══════════════════════════════════════════════════════════════
 // GentleNote — Knowledge-First Soft CTA
-// Source: Constitution §11, §12 | TAD v4.2 §4.4
+// Source: Constitution §11, §12 | TAD v4.2 §4.4 | PRD v4 §4.5
 // ══════════════════════════════════════════════════════════════
 //
-// PURPOSE: A gentle, non-aggressive nudge at the end of articles.
+// PURPOSE: A gentle, non-aggressive nudge at the end of articles and services.
 //          It bridges the "knowledge layer" to the "local layer"
 //          without breaking the site's authority tone.
 //
 // TONE:   "If you need help, we're here." — NOT "BUY NOW!"
 // DATA:   ALL location data comes from location.ts (never hardcoded)
+// DESIGN: Light gray box (#F9FAFB), no attractive colors (FR-GN4)
+// TEXT:   Changes dynamically based on category (FR-GN2)
 // ══════════════════════════════════════════════════════════════
 
 import { currentLocation } from "../../config/location";
 
 interface Props {
   lang?: "ar" | "en";
+  category?: string; // e.g., 'hdd', 'ssd', 'flash', 'raid'
 }
 
-const { lang = "ar" } = Astro.props;
+const { lang = "ar", category = "general" } = Astro.props;
 
 const isArabic = lang === "ar";
 const facility = isArabic
@@ -28,17 +31,24 @@ const facility = isArabic
 const city = isArabic
   ? currentLocation.city.ar
   : currentLocation.city.en;
+
+// Fallback to general note if category is not found in gentleNotes mapping
+const noteCategory = (currentLocation.gentleNotes as Record<string, any>)[category] 
+  ? category 
+  : "general";
+
 const noteText = isArabic
-  ? currentLocation.gentleNote.ar
-  : currentLocation.gentleNote.en;
-const whatsappLabel = isArabic ? "واتساب" : "WhatsApp";
-const mapsLabel = isArabic ? "الموقع على الخريطة" : "View on Map";
+  ? (currentLocation.gentleNotes as Record<string, any>)[noteCategory].ar
+  : (currentLocation.gentleNotes as Record<string, any>)[noteCategory].en;
+
+const whatsappLabel = isArabic ? "تواصل عبر واتساب" : "WhatsApp Consultation";
+const mapsLabel = isArabic ? `زورنا في ${city}` : `Visit us in ${city}`;
 ---
 
 <aside
   class="gentle-note"
   role="complementary"
-  aria-label={isArabic ? "ملاحظة" : "Note"}
+  aria-label={isArabic ? "ملاحظة مساعدة" : "Help Note"}
 >
   <p class="gentle-note__icon">💡</p>
   <p class="gentle-note__text">{noteText}</p>
@@ -64,10 +74,10 @@ const mapsLabel = isArabic ? "الموقع على الخريطة" : "View on Map
 
 <style>
   .gentle-note {
-    margin-block: 2rem;
-    padding: 1.25rem 1.5rem;
-    border-inline-start: 4px solid var(--color-primary-500, #22c55e);
-    background-color: var(--color-primary-50, #f0fdf4);
+    margin-block: 2.5rem;
+    padding: 1.5rem;
+    border-inline-start: 4px solid #D1D5DB; /* Tailwind gray-300 */
+    background-color: #F9FAFB; /* Tailwind gray-50 */
     border-radius: 0.5rem;
   }
 
@@ -77,28 +87,31 @@ const mapsLabel = isArabic ? "الموقع على الخريطة" : "View on Map
   }
 
   .gentle-note__text {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.7;
-    color: var(--color-primary-700, #15803d);
+    color: #4B5563; /* Tailwind gray-600 */
     margin: 0;
   }
 
   .gentle-note__links {
     display: flex;
-    gap: 1rem;
-    margin-block-start: 0.75rem;
+    gap: 1.25rem;
+    margin-block-start: 1rem;
     flex-wrap: wrap;
   }
 
   .gentle-note__link {
-    font-size: 0.85rem;
-    color: var(--color-primary-600, #16a34a);
+    font-size: 0.9rem;
+    color: #374151; /* Tailwind gray-700 */
     text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.2s ease;
+    text-decoration-color: #9CA3AF; /* Tailwind gray-400 */
+    text-underline-offset: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
   }
 
   .gentle-note__link:hover {
-    color: var(--color-primary-700, #15803d);
+    color: #111827; /* Tailwind gray-900 */
+    text-decoration-color: #4B5563;
   }
 </style>
