@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://drharddisk.sa/sitemap-index.xml
+Sitemap: https://datacodex.com/sitemap-index.xml

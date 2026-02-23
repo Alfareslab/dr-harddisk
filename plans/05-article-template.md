@@ -3,7 +3,7 @@
 > **الحالة:** ⏳ مسودة (Waiting for Approval)
 > **التاريخ:** 2026-02-19
 > **الفرع:** `feature/phase-1.5-article-template`
-> **المرجع:** `plans/00-master-plan.md` | `Research/03_DrHardDisk_PRD_v4.md`
+> **المرجع:** `plans/00-master-plan.md` | `Research/03_Datacodex_PRD_v4.md`
 
 ---
 
@@ -34,7 +34,7 @@
 | **C-2** | **No Panic UI** | تجنب الألوان الصارخة في جسم المقال. التركيز على التباين المريح للقراءة (Typography). استخدام `GentleNote` للرسائل المهمة بدلاً من الـ Alerts المزعجة. |
 | **C-3** | **Bilingual Routing** | المقالات العربية في `/posts/`، والإنجليزية في `/en/posts/`. لا خلط بين اللغتين في نفس المسار. |
 | **C-4** | **Type Safety** | استخدام `src/content/config.ts` للتحقق الصارم من البيانات. أي خطأ في البيانات يمنع البناء. |
-| **C-5** | **Portable Brand** | استيراد أي نصوص ثابتة أو روابط من `src/config/location.ts`. ممنوع كتابة "Dr. Hard Disk" يدوياً في الكود. |
+| **C-5** | **Portable Brand** | استيراد أي نصوص ثابتة أو روابط من `src/config/location.ts`. ممنوع كتابة "Datacodex" يدوياً في الكود. |
 
 ---
 

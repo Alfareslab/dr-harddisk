@@ -7,7 +7,7 @@
 
 ## 🎯 General Goal
 
-Initialize the Dr. Hard Disk project from scratch using:
+Initialize the Datacodex project from scratch using:
 - **Astro v5** (Static output, Content Layer API)
 - **Tailwind CSS v4** (CSS-first — no `tailwind.config.js`)
 - **pnpm** as the package manager
@@ -65,8 +65,8 @@ The result is a clean, buildable project skeleton ready for Phase 1.2 (Core Comp
 | `[x]` | `[x]` | Initialize Astro project: `cmd /c pnpm create astro@latest ./ --template minimal --no-install --no-git --typescript strict` |
 | `[x]` | `[x]` | Install dependencies: `cmd /c pnpm install` |
 | `[x]` | `[x]` | Create `.node-version` file with content `22` |
-| `[x]` | `[x]` | Create `.env.example` with `PUBLIC_SITE_URL=https://drharddisk.sa` |
-| `[x]` | `[x]` | Create `.env` with `NODE_ENV=development` and `PUBLIC_SITE_URL=https://drharddisk.sa` |
+| `[x]` | `[x]` | Create `.env.example` with `PUBLIC_SITE_URL=https://datacodex.com` |
+| `[x]` | `[x]` | Create `.env` with `NODE_ENV=development` and `PUBLIC_SITE_URL=https://datacodex.com` |
 
 **Checkpoint A — Verification:**
 ```
@@ -118,7 +118,7 @@ Expected: All packages listed above appear in the output.
 **Final content of `astro.config.mjs`:**
 
 ```javascript
-// astro.config.mjs — Dr. Hard Disk v1.0.0
+// astro.config.mjs — Datacodex v1.0.0
 // Source of truth: master-constitution.md §9.1 + TAD §1.1
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
@@ -126,7 +126,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // Domain from environment variable (Risk B-3)
-const siteURL = process.env.PUBLIC_SITE_URL || 'https://drharddisk.sa';
+const siteURL = process.env.PUBLIC_SITE_URL || 'https://datacodex.com';
 
 export default defineConfig({
   site: siteURL,

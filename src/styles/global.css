@@ -26,9 +26,26 @@
 }
 
 /* ═══ Font Imports (self-hosted — no external requests) ═══ */
-@import "@fontsource/tajawal/400.css";
-@import "@fontsource/tajawal/700.css";
 @import "@fontsource-variable/inter";
+
+/* Tajawal manual faces for font-display: optional (Risk S-3) */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 400;
+  src: url(@fontsource/tajawal/files/tajawal-arabic-400-normal.woff2) format('woff2'),
+       url(@fontsource/tajawal/files/tajawal-latin-400-normal.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 700;
+  src: url(@fontsource/tajawal/files/tajawal-arabic-700-normal.woff2) format('woff2'),
+       url(@fontsource/tajawal/files/tajawal-latin-700-normal.woff2) format('woff2');
+}
 
 /* ═══ Base Styles ═══ */
 @layer base {

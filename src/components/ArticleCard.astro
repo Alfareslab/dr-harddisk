@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  locale: string;
+}
+
+const { post, locale } = Astro.props;
+const { title, description, pubDate, heroImage, category } = post.data;
+
+// Dynamically import images from the assets folder.
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,webp}');
+
+// Clean up path to match glob key. Schema enforces "../../assets/images/..."
+// Input: "../../assets/images/placeholder.svg" → Target: "/src/assets/images/placeholder.svg"
+const imagePath = heroImage?.startsWith("../../assets/images/")
+  ? heroImage.replace("../../", "/src/")
+  : null;
+
+const optimizedHeroImage = imagePath && images[imagePath] ? await images[imagePath]() : null;
+
+// Format Date
+const formatter = new Intl.DateTimeFormat(locale === 'ar' ? 'ar-EG' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+const formattedDate = formatter.format(pubDate);
+
+const articleUrl = locale === 'ar' ? `/posts/${post.id}` : `/en/posts/${post.id}`;
+---
+
+<article
+  class="group flex flex-col bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
+  data-category={category}
+  data-article-card
+>
+  <a href={articleUrl} class="relative block h-48 overflow-hidden bg-slate-50">
+    {optimizedHeroImage && optimizedHeroImage.default ? (
+      <Image
+        src={optimizedHeroImage.default}
+        alt={title}
+        width={600}
+        height={400}
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    ) : (
+      <img
+        src={heroImage?.startsWith('../../assets/') ? heroImage.replace('../../assets/', '/assets/') : heroImage}
+        alt={title}
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+    )}
+    <span class="absolute top-4 start-4 bg-white/95 backdrop-blur-md text-primary-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm border border-white/20">
+      {category.toUpperCase()}
+    </span>
+  </a>
+
+  <div class="p-5 flex flex-col flex-1 mt-1">
+    <div class="flex items-center text-xs text-slate-500 mb-3 space-s-2">
+      <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+    </div>
+    <a href={articleUrl} class="block mb-2">
+      <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-primary-600 transition-colors duration-200">
+        {title}
+      </h3>
+    </a>
+    <p class="text-sm text-slate-600 line-clamp-3 mb-4 flex-1">
+      {description}
+    </p>
+    <div class="mt-auto pt-4 border-t border-slate-50">
+      <a href={articleUrl} class="inline-flex items-center text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors">
+        {locale === 'ar' ? 'اقرأ المزيد' : 'Read more'}
+        <svg class={`w-4 h-4 ms-1 transition-transform group-hover:translate-x-1 ${locale === 'ar' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

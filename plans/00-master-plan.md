@@ -1,4 +1,4 @@
-# 🗺️ Master Plan — Dr. Hard Disk
+# 🗺️ Master Plan — Datacodex
 > **Version:** 1.0.0
 > **Date:** 2026-02-19
 > **Methodology:** Multi-Model Development
@@ -9,7 +9,7 @@
 
 ## 🎯 Project Vision Summary
 
-**Dr. Hard Disk** is a bilingual (Arabic-first, RTL) knowledge platform for data recovery,
+**Datacodex** is a bilingual (Arabic-first, RTL) knowledge platform for data recovery,
 built as a static website on Astro v5 + Tailwind v4 + Cloudflare Pages.
 
 It serves individuals and businesses who have experienced data loss (HDD, SSD, USB, SD cards)
@@ -32,15 +32,20 @@ The platform delivers:
 | 1.1 | Project Scaffolding | Astro v5 + Tailwind v4 + Cloudflare setup | `astro.config.mjs`, `package.json`, `app.css` | ✅ | Yes |
 | 1.2 | Core Components | Brand/Location config, Schemas, BaseLayout, GentleNote | `location.ts`, `config.ts`, `BaseLayout.astro`, `GentleNote.astro` | ✅ | Yes |
 | 1.3 | Page Templates | Homepage (AR/EN), Contact, 404 pages | `index.astro`, `en/index.astro`, `contact.astro`, `404.astro` | ✅ | Yes |
-| 1.4 | Global UI | NavBar, Footer, FloatingWhatsApp + BaseLayout integration | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` | 🔄 | Yes |
-| 1.5 | Article Template | Single article page template + Content Collection rendering | `[slug].astro`, `PostLayout.astro` | ⏳ | Yes |
-| 1.6 | Article Listing | Articles index page with filtering/categorization | `posts/index.astro`, `en/posts/index.astro` | ⏳ | Yes |
-| 2.1 | Content: First 5 Articles | Write and publish initial knowledge articles (Arabic) | `content/posts/*.mdx` (5 files) | ⏳ | No |
-| 2.2 | Content: English Twins | English translations of the first 5 articles | `content/posts/en/*.mdx` (5 files) | ⏳ | No |
-| 2.3 | About Page | "About Dr. Hard Disk" brand story page | `about.astro`, `en/about.astro` | ⏳ | Yes |
-| 2.4 | Case Studies Template | Case study page template + collection schema | `cases/[slug].astro`, `CaseLayout.astro` | ⏳ | Yes |
-| 2.5 | Content: First 3 Cases | Initial case studies (Arabic) | `content/cases/*.mdx` (3 files) | ⏳ | No |
-| 3.1 | SEO: Technical | Sitemap, robots.txt, canonical URLs, structured data | `sitemap.xml`, `robots.txt`, Schema.org JSON-LD | ⏳ | Yes |
+| 1.4 | Global UI | NavBar, Footer, FloatingWhatsApp + BaseLayout integration | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` | ✅ | Yes |
+| 1.5 | Article Template | Single article page template + Content Collection rendering | `[slug].astro`, `PostLayout.astro` | ✅ | Yes |
+| 1.6 | Install Spec-Kit | Setup GitHub spec-kit for Spec-Driven Development | `.specify/` | ✅ | No |
+| 1.7 | Article Listing | Articles index page with filtering/categorization | `posts/index.astro`, `en/posts/index.astro` | ✅ | Yes |
+| 2.1 | Content: First 5 Articles | Write and publish initial knowledge articles (Arabic) | `content/posts/*.mdx` (5 files) | ✅ | No |
+| 2.2 | Content: English Twins | English translations of the first 5 articles | `content/posts/en/*.mdx` (5 files) | ✅ | No |
+| 2.3 | About Page | "About Datacodex" brand story page | `about.astro`, `en/about.astro` | ✅ | Yes |
+| 2.4 | Service Pages (5) | 5 dedicated service pages (HDD, External, RAID, SSD, Flash) | `services/[slug].astro`, `content/services/*.mdx` | ✅ | Yes |
+| 2.5 | Case Studies Template + Content | Case study template + initial 3 case studies | `cases/[slug].astro`, `CaseLayout.astro`, `content/cases/*.mdx` | ⏳ | Yes |
+| 2.6 | Local Page (`/jeddah/`) | Local SEO layer page for current city | `jeddah/index.astro`, `en/jeddah/index.astro` | ⏳ | Yes |
+| 2.7 | Legal Pages | Privacy Policy + Terms of Service (PDPL) | `privacy.astro`, `terms.astro` | ⏳ | Yes |
+| 2.8 | MDX Components | PanicButton, WarningBox, ArticleDisclaimer, VideoEmbed | `components/content/*.astro`, `components/article/*.astro` | ⏳ | Yes |
+| 2.9 | Homepage Enhancements | Reels Strip (social media), Success Stories section | `ReelsStrip.astro`, `SuccessStories.astro` | ⏳ | No |
+| 3.1 | SEO: Technical | Sitemap, robots.txt, canonical URLs, Schema.org JSON-LD | `sitemap.xml`, `robots.txt`, Schema components | ⏳ | Yes |
 | 3.2 | SEO: On-Page | Meta optimization, Open Graph, Twitter Cards | BaseLayout enhancements, social preview images | ⏳ | Yes |
 | 3.3 | SEO: Local | Google Business Profile integration, LocalBusiness Schema | Schema markup, location-specific SEO | ⏳ | No |
 | 3.4 | Performance | Core Web Vitals optimization, image pipeline, font loading | Image optimization, preload strategies | ⏳ | Yes |
@@ -76,48 +81,63 @@ The platform delivers:
 
 ---
 
-### Milestone 2: Global UI + Content Shell (Phase 1.4 → 1.6) 🔄
+### Milestone 2: Global UI + Content Shell (Phase 1.4 → 1.7) ✅
 
 > **Goal:** Make the site look and feel "real" — navigation, footer, floating actions,
 > and the ability to display articles.
 
 | Phase | Description | Status |
 |:------|:------------|:------:|
-| 1.4 | Global UI (NavBar + Footer + FloatingWhatsApp) | 🔄 |
-| 1.5 | Article Template (single post page) | ⏳ |
-| 1.6 | Article Listing (posts index page) | ⏳ |
+| 1.4 | Global UI (NavBar + Footer + FloatingWhatsApp) | ✅ |
+| 1.5 | Article Template (single post page) | ✅ |
+| 1.6 | Install Spec-Kit | ✅ |
+| 1.7 | Article Listing (posts index page) | ✅ |
 
-**CodeRabbit Gate:** One PR per phase (1.4, 1.5, 1.6 = 3 PRs)
+**CodeRabbit Gate:** One PR per phase.
 
 **Definition of Done:**
-- [ ] Every page has NavBar + Footer
-- [ ] FloatingWhatsApp appears globally after hero scroll
-- [ ] Article template renders MDX content with proper typography
-- [ ] Articles index page lists all posts with bilingual support
-- [ ] Language switcher works across all pages
-- [ ] Mobile hamburger menu functions correctly
+- [x] Every page has NavBar + Footer
+- [x] FloatingWhatsApp appears globally after hero scroll
+- [x] Article template renders MDX content with proper typography
+- [x] Spec-Kit tools installed and configured
+- [x] Articles index page lists all posts with bilingual support
+- [x] Language switcher works across all pages
+- [x] Mobile hamburger menu functions correctly
 
 ---
 
-### Milestone 3: Content Population (Phase 2.x) ⏳
+### Milestone 3: Content Population + Essential Pages (Phase 2.x) ⏳
 
-> **Goal:** Fill the site with real knowledge content — articles, case studies, about page.
+> **Goal:** Fill the site with real knowledge content — articles, case studies, about page,
+> service pages, local SEO layer, and legal pages required before launch.
 
 | Phase | Description | Status |
 |:------|:------------|:------:|
-| 2.1 | First 5 Articles (Arabic) | ⏳ |
-| 2.2 | English Twins (translations) | ⏳ |
-| 2.3 | About Page | ⏳ |
-| 2.4 | Case Studies Template | ⏳ |
-| 2.5 | First 3 Case Studies | ⏳ |
+| 2.1 | First 5 Articles (Arabic) | ✅ Built |
+| 2.2 | English Twins (translations) | ✅ Built |
+| 2.3 | About Page | ✅ Built |
+| 2.4 | Service Pages (5 dedicated pages) | ✅ Built |
+| 2.5 | Case Studies Template + First 3 Cases | ⏳ |
+| 2.6 | Local Page (`/jeddah/`) | ⏳ |
+| 2.7 | Legal Pages (Privacy + Terms) | ⏳ |
+| 2.8 | MDX Components (PanicButton, WarningBox, Disclaimer) | ⏳ |
+| 2.9 | Homepage Enhancements (Reels Strip, Success Stories) | ⏳ |
 
-**CodeRabbit Gate:** PRs for 2.3 and 2.4 (templates). Content-only PRs (2.1, 2.2, 2.5) are optional.
+**CodeRabbit Gate:** PRs for 2.3, 2.4, 2.5, 2.6, 2.7, 2.8 (code/templates). Content-only PRs optional.
 
 **Definition of Done:**
-- [ ] 5 Arabic articles published and rendering correctly
-- [ ] 5 English twin articles with matching `translationID`
-- [ ] About page tells the brand story (not a service pitch)
+- [x] 5 Arabic articles published and rendering correctly
+- [x] 5 English twin articles with matching `translationID`
+- [x] About page tells the brand story (not a service pitch)
+- [x] 5 service pages (HDD, External HDD, RAID, SSD, Flash) — 800+ words each
 - [ ] Case studies template supports before/after narratives
+- [ ] 3 initial case studies published
+- [ ] `/jeddah/` local SEO page with Schema.org LocalBusiness
+- [ ] Privacy Policy + Terms of Service published (PDPL compliance)
+- [ ] PanicButton appears in `difficulty: critical` articles only
+- [ ] WarningBox + ArticleDisclaimer injected in articles as needed
+- [ ] Reels Strip shows social media thumbnails on homepage
+- [ ] Success Stories section shows 3 cases with badges
 - [ ] All content follows No Panic UI philosophy
 
 ---
@@ -253,9 +273,10 @@ The platform delivers:
 | 1.1 Scaffolding | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
 | 1.2 Core Components | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
 | 1.3 Page Templates | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
-| **1.4 Global UI** | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
+| 1.4 Global UI | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
 | 1.5 Article Template | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
-| 1.6 Article Listing | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
+| 1.6 Install Spec-Kit | — | 🟠 Gemini Pro | Developer |
+| 1.7 Article Listing | 🔴 Claude | 🟠 Pro + 🟢 Flash | 🐰 CodeRabbit |
 | 2.1 First 5 Articles | 🔴 Claude | 🟠 Gemini Pro | 🟣 Perplexity |
 | 2.2 English Twins | — | 🟢 Gemini Flash | 🟣 Perplexity |
 | 2.3 About Page | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
@@ -264,21 +285,26 @@ The platform delivers:
 | 3.1–3.4 SEO + Performance | 🔴 Claude | 🟠 Gemini Pro | 🐰 CodeRabbit |
 | 4.1–4.3 Deployment + Launch | 🔴 Claude | 🟠 Gemini Pro | Developer |
 
-### Model Usage Rules:
+### Model Usage Rules (Spec-Kit Workflow):
 
-| Rule | Details |
-|:-----|:--------|
-| Claude writes plans ONLY | Claude never implements code — only plans, audits, fix strategies |
-| Gemini Pro gets detailed prompts | Every prompt includes: context, branch, rules, exact file paths, verification steps |
-| Gemini Flash gets mirror tasks | EN twins, simple components, CSS tweaks — always one file at a time |
-| CodeRabbit reviews all `src/` PRs | No merge without CodeRabbit pass on code changes |
-| Developer has final merge authority | No AI merges PRs — developer approves and merges |
+> **ملاحظة (2026-02-21):** تم دمج نظام `Spec-Kit`.
+> سير العمل الجديد يعتمد على الأوامر بدلاً من الخطة الحرة.
+
+| محطة Spec-Kit | الأمر المستخدم | النموذج (Model) | الوظيفة |
+|:--------------|:---------------|:----------------|:--------|
+| **1. التوصيف (Specify)** | `@/speckit.specify` | 🔴 Claude Opus | كتابة المواصفات وقصص المستخدم (`spec.md`). |
+| **2. التخطيط (Plan)** | `@/speckit.plan` | 🔴 Claude Opus | كتابة الخطة التقنية والمعمارية (`plan.md`). |
+| **3. المهام (Tasks)** | `@/speckit.tasks` | 🔴 Claude Opus / 🟠 Gemini | تقسيم الخطة إلى مهام قابلة للتنفيذ (`tasks.md`). |
+| **4. التنفيذ (Implement)** | `@/speckit.implement` | 🟠 Gemini Pro | قراءة `tasks.md` وكتابة الكود الفعلي خطوة بخطوة. |
+
+*   **CodeRabbit** يظل مسؤولاً عن مراجعة أي PR يمس مجلد `src/`.
+*   **المطور (Developer)** له السلطة النهائية في قبول أي محطة من محطات Spec-Kit قبل الانتقال للمحطة التالية.
 
 ---
 
 ## 📸 Current Status Snapshot
 
-> **As of:** 2026-02-19
+> **As of:** 2026-02-22
 
 ### ✅ What's Done:
 
@@ -287,26 +313,36 @@ The platform delivers:
 | 1.1 | 2026-02-18 | PR #1 | Astro v5 + Tailwind v4 project initialized |
 | 1.2 | 2026-02-18 | PR #1 | `location.ts` (brand ≠ location), `BaseLayout`, `GentleNote`, Content Schemas |
 | 1.3 | 2026-02-18 | PR #1 | 4 page templates (Homepage AR/EN, Contact, 404) |
+| 1.4 | 2026-02-19 | PR #2 | `NavBar.astro`, `Footer.astro`, `FloatingWhatsApp.astro` |
+| 1.5 | 2026-02-19 | PR #3 | `[slug].astro`, `PostLayout.astro` (Article Template) |
+| 1.6 | 2026-02-21 | N/A   | Spec-Kit tooling installed and integrated |
+| 1.7 | 2026-02-21 | PR #4 | Article listing bilingual pages and filters |
+| 2.1 | 2026-02-21 | N/A   | Content: First 5 Arabic Articles published |
+| 2.2 | 2026-02-22 | N/A   | Content: First 5 English translated Articles published |
+| 2.3 | 2026-02-23 | N/A   | About Datacodex Page (Arabic + English) with Schema.org |
+| 2.4 | 2026-02-23 | N/A   | 5 Service Pages (AR + EN) with dynamic routing and NavBar linkage |
+| N/A | 2026-02-22 | N/A   | Audits (Visual + Comprehensive) & Fixes applied |
 
 ### 🔄 What's In Progress:
 
-| Phase | Status | Branch |
-|:------|:-------|:-------|
-| 1.4 — Global UI | Plan written ✅, waiting for execution | `feature/phase-1.4-global-ui` (to be created) |
+- None currently.
 
-### ⏭️ What's Next After 1.4:
+### ⏭️ What's Next After 2.4:
 
-Phase 1.5 — Article Template: Build the single article page that renders MDX content
-from Content Collections. This is the first phase that depends on the Content Layer API.
+Phase 2.5 (Case Studies): Template + 3 initial case studies.
+Phase 2.6 (Local Page): `/jeddah/` SEO landing page.
+Phase 2.7 (Legal): Privacy Policy + Terms of Service.
+Phase 2.8 (MDX Components): PanicButton, WarningBox, ArticleDisclaimer.
+Phase 3.1 (SEO: Technical): Sitemap, robots.txt, Schema.org JSON-LD.
 
 ### ⚠️ Known Issues:
 
 | Issue | Status | Date |
 |:------|:-------|:-----|
-| `.coderabbit.yaml` had parsing errors (twice) | Fixed — using `path_instructions` with `**/*` pattern | 2026-02-19 |
-| `process.env` used instead of `import.meta.env` in `location.ts` | Fixed — switched to `import.meta.env.PUBLIC_SITE_URL` | 2026-02-19 |
-| PR #1 had all 3 phases in one PR | Not ideal — future phases will have 1 PR per phase | 2026-02-18 |
-| `project-context.md` has placeholder fields | Needs update after Phase 1.4 | — |
+| `.coderabbit.yaml` had parsing errors (twice) | Fixed | 2026-02-19 |
+| `.coderabbit.yaml` knowledge_base array error | Fixed | 2026-02-21 |
+| Content collection posts empty during build | Fixed — Added `@astrojs/mdx` integration | 2026-02-19 |
+| Draft posts being built to static routes | Fixed — Filtered during `getStaticPaths` | 2026-02-21 |
 
 ---
 
@@ -317,12 +353,12 @@ from Content Collections. This is the first phase that depends on the Content La
 | Milestone | Estimated Duration | Target |
 |:----------|:-------------------|:-------|
 | Milestone 1: Foundation | 2 days | ✅ Done |
-| Milestone 2: Global UI + Content Shell | 3–5 days | Week of 2026-02-19 |
-| Milestone 3: Content Population | 5–7 days | Week of 2026-02-24 |
-| Milestone 4: SEO + Performance | 3–4 days | Week of 2026-03-03 |
-| Milestone 5: Deployment + Launch | 2–3 days | Week of 2026-03-10 |
+| Milestone 2: Global UI + Content Shell | 3–5 days | ✅ Done |
+| Milestone 3: Content + Essential Pages | 10–14 days | Week of 2026-02-24 → 2026-03-10 |
+| Milestone 4: SEO + Performance | 3–4 days | Week of 2026-03-10 |
+| Milestone 5: Deployment + Launch | 2–3 days | Week of 2026-03-17 |
 
-> **Total estimated:** ~3–4 weeks from project start to production launch.
+> **Total estimated:** ~5–6 weeks from project start to production launch.
 
 ---
 
@@ -333,20 +369,26 @@ from Content Collections. This is the first phase that depends on the Content La
 | 00 | `Project_Master_Index.md` | Research document index | All |
 | 01 | `Project_Vision_v2.0.md` | Brand identity, mission, strategy | All |
 | 02 | `Risk_Assessment_v3.md` | Risk analysis and mitigation | 3.x, 4.x |
-| 03 | `DrHardDisk_PRD_v4.md` | Product requirements | 1.x, 2.x |
-| 04 | `DrHardDisk_UX_v3.2.md` | UX design specs, color tokens, typography | 1.x, 2.x |
-| 05 | `DrHardDisk_TAD_v4.2.md` | Technical Architecture — component code specs | 1.x, 2.x |
+| 03 | `Datacodex_PRD_v4.md` | Product requirements | 1.x, 2.x |
+| 04 | `Datacodex_UX_v3.2.md` | UX design specs, color tokens, typography | 1.x, 2.x |
+| 05 | `Datacodex_TAD_v4.2.md` | Technical Architecture — component code specs | 1.x, 2.x |
 | 06 | `SEO_Jeddah_Market_Strategy_v4.1.md` | SEO keywords, market analysis | 3.x |
 | 07 | `Content_Production_Plan_v1.3.md` | Article topics, content calendar | 2.x |
 | 08 | `Content_Tool_Spec_v1.0.md` | Content creation tool specifications | 2.x |
 | 09 | `Homepage_Site_Blueprint.md` | Site structure, NavBar, Footer, page layouts | 1.x |
 | KB_01 | `Alfares_Profile_Location.md` | Physical facility data | 1.2 (location.ts) |
-| KB_02 | `Dr_Hard Disk_Profile_Location.md` | Brand identity data | 1.2 (location.ts) |
+| KB_02 | `Datacodex_Profile_Location.md` | Brand identity data | 1.2 (location.ts) |
 | KB_03 | `DataRecovery_Technical.md` | Technical knowledge base | 2.x, 3.x |
 
 ---
 
 ## 📋 Plan Files Index
+
+> **ملاحظة هامة (2026-02-21):** تم الانتقال إلى أداة `Spec-Kit`.
+> المجلد القديم `plans/` سيظل كأرشيف للمراحل السابقة.
+> جميع الخطط المستقبلية ستتم عبر مسار `specs/[feature-name]/`.
+
+### أرشيف الخطط القديمة (Legacy Plans):
 
 | # | Plan File | Phase | Status |
 |:--|:----------|:------|:------:|
@@ -356,4 +398,26 @@ from Content Collections. This is the first phase that depends on the Content La
 | 03 | `plans/03-page-templates.md` | Phase 1.3 | ✅ |
 | 04 | `plans/04-global-ui.md` | Phase 1.4 | 🔄 |
 | 05 | `plans/05-article-template.md` | Phase 1.5 | ⏳ Not written |
-| 06 | `plans/06-article-listing.md` | Phase 1.6 | ⏳ Not written |
+| 06 | `plans/06-install-speckit.md` | Phase 1.6 | ✅ |
+
+### خطط Spec-Kit الحالية (Current Specs):
+
+| الميزة / المرحلة | المحطة الحالية (Gate) | مسار المواصفات (Spec Path) |
+|------------------|-----------------------|----------------------------|
+| Phase 1.7 (Article Listing)| ✅ Built | `specs/001-article-listing/` (Active) |
+| Phase 2.1 (First 5 Articles)| ✅ Built | `content/posts/*.mdx` (No separate spec needed) |
+| Phase 2.2 (English Twins)| ✅ Built | `content/posts/en/*.mdx` (No separate spec needed) |
+| Phase 2.3 (About Page)| ✅ Built | `plans/09-about-page.md` (Completed via standard plan) |
+| Phase 2.4 (Service Pages)| ✅ Built | `plans/11-service-pages-english.md` (Completed) |
+| Phase 2.5 (Case Studies)| ⏳ Pending Spec | `specs/006-case-studies/` (Planned) |
+| Phase 2.6 (Local Page)| ⏳ Pending Spec | `specs/007-local-page/` (Planned) |
+| Phase 2.7 (Legal Pages)| ⏳ Pending Spec | `specs/008-legal-pages/` (Planned) |
+| Phase 2.8 (MDX Components)| ⏳ Pending Spec | `specs/009-mdx-components/` (Planned) |
+| Phase 2.9 (Homepage Enhancements)| ⏳ Pending Spec | `specs/010-homepage-enhancements/` (Planned) |
+| Phase 3.1 (SEO: Technical)| ⏳ Pending Spec | `specs/011-seo-technical/` (Planned) |
+| Phase 3.2 (SEO: On-Page)| ⏳ Pending Spec | `specs/012-seo-onpage/` (Planned) |
+| Phase 3.3 (SEO: Local)| ⏳ Pending Spec | `specs/013-seo-local/` (Planned) |
+| Phase 3.4 (Performance)| ⏳ Pending Spec | `specs/014-performance/` (Planned) |
+| Phase 4.1 (Deployment: Staging)| ⏳ Pending Spec | `specs/015-deploy-staging/` (Planned) |
+| Phase 4.2 (Deployment: Production)| ⏳ Pending Spec | `specs/016-deploy-production/` (Planned) |
+| Phase 4.3 (Launch Checklist)| ⏳ Pending Spec | `specs/017-launch-checklist/` (Planned) |

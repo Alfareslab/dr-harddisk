@@ -5,7 +5,7 @@
 ```markdown
 # 📂 00_Project_Master_Index.md
 
-> **Project Name:** Dr. Hard Disk
+> **Project Name:** Datacodex
 > **Status:** 🟢 Planning Phase (Ready for Docs Generation)
 > **Classification:** Medium Complexity (Content-Driven + CMS Integration) [Ref: Source 11]
 > **Last Updated:** 2025-05-20
@@ -16,7 +16,7 @@
 
 | Attribute | Detail |
 | :--- | :--- |
-| **Project Name** | **Dr. Hard Disk** |
+| **Project Name** | **Datacodex** |
 | **Project Type** | Authority Personal Brand & Lead Generation Funnel |
 | **Core Objective** | Establishing technical authority in Data Recovery & funneling leads to "Al-Fares Center" in Jeddah. |
 | **Tech Stack** | **Astro** (Framework), **Keystatic** (Local-First CMS), **Vercel** (Hosting/Edge Network). |
@@ -34,9 +34,9 @@ According to **"Projects Methodology v1.0"** (Source 7) for **Medium Projects**,
 | :--- | :--- | :--- | :--- |
 | **`01_Project_Vision.md`** | Defines the "Why", "Who", and the core Value Proposition (Engineering Authority vs Technician). | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 1-6) |
 | **`02_Risk_Assessment.md`** | Analysis of SEO Cannibalization, Vercel Limits, and Content Duplication risks. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 3, 26, 29) |
-| **`03_DrHardDisk_PRD.md`** | Product Requirements: Trust signals, Search functionality, CTA logic, and Sitemap. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 4, 18, 59) |
-| **`04_DrHardDisk_UX.md`** | Design specs: Typography (Tajawal), Colors (Trust Blue), and UI layout based on AstroWind. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 5, 47, 62) |
-| **`05_DrHardDisk_TAD.md`** | Technical Architecture: Folder structure, Schema Markup (JSON-LD), and Integrations. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 7, 20, 28) |
+| **`03_Datacodex_PRD.md`** | Product Requirements: Trust signals, Search functionality, CTA logic, and Sitemap. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 4, 18, 59) |
+| **`04_Datacodex_UX.md`** | Design specs: Typography (Tajawal), Colors (Trust Blue), and UI layout based on AstroWind. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 5, 47, 62) |
+| **`05_Datacodex_TAD.md`** | Technical Architecture: Folder structure, Schema Markup (JSON-LD), and Integrations. | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 7, 20, 28) |
 | **`06_Agent_Rules.md`** | The Coding Constitution: Strict rules for the AI Agent (e.g., No React heavy libs, No copying center content). | ⏳ **Pending** | ✅ **Raw Data Available** (Sources 8, 33, 41) |
 
 ---
@@ -59,6 +59,6 @@ We will generate the documents in this logical order to build a solid foundation
 *   **CMS Decision:** Selected **Keystatic** (Best for local image handling & Git-based workflow).
 *   **Hosting Decision:** Selected **Vercel** (Dubai Edge Network support for Jeddah latency).
 *   **Video Strategy:** **Lazy Loading / Facades** (Strictly no direct heavy iframes).
-*   **SEO Strategy:** **Entity Separation** (Dr. Hard Disk = Person, Al-Fares = Organization).
+*   **SEO Strategy:** **Entity Separation** (Datacodex = Person, Al-Fares = Organization).
 
 ```

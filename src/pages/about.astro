@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import { brand, currentLocation } from "../config/location";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": brand.name,
+  "alternateName": brand.nameEn,
+  "jobTitle": "Data Recovery Specialist",
+  "description": "Arabic knowledge base specialized in data recovery",
+  "knowsAbout": ["Data Recovery", "HDD Repair", "RAID Recovery", "SSD Recovery"],
+  "url": `${brand.siteUrl}/about/`,
+  "worksFor": {
+    "@type": "LocalBusiness",
+    "name": currentLocation.facilityName.en,
+    "address": `${currentLocation.street.en}, ${currentLocation.district.en}, ${currentLocation.city.en}`
+  }
+};
+---
+
+<BaseLayout
+  title={`عن ${brand.name} — ${brand.tagline.ar}`}
+  description="تعرّف على Datacodex — قاعدة معرفية متخصصة في استعادة البيانات بخبرة +8 سنوات وأدوات احترافية."
+  alternateUrlEn="/en/about/"
+>
+  
+  <div class="max-w-4xl mx-auto px-4 py-16 md:py-24">
+    {/* ─── 1. Hero Header ─── */}
+    <header class="text-center mb-16">
+      <h1 class="text-[#0b4f6c] font-bold text-4xl md:text-5xl mb-4">
+        عن {brand.name}
+      </h1>
+      <p class="text-gray-600 text-lg md:text-xl">
+        {brand.tagline.ar}
+      </p>
+    </header>
+
+    {/* ─── 2. Brand Story ─── */}
+    <section class="prose prose-lg max-w-3xl mx-auto text-gray-700 mb-16 px-4 md:px-0 leading-relaxed text-justify">
+      <p>
+        <strong>{brand.name}</strong> هي منصة معرفية متخصصة في علوم استعادة البيانات والتعامل مع وسائط التخزين التالفة. بدأت رحلتنا منذ أكثر من <span class="text-[#0b4f6c] font-bold">8 سنوات</span> من الشغف التقني والبحث المستمر في أعمق طبقات تخزين البيانات.
+      </p>
+      <p>
+        لقد تجاوزنا دورنا كمجرد مقدمي خدمة، لنصبح <strong>المرجع العربي الأول</strong> الذي يمكن الوثوق به لفهم أسباب الفقدان وكيفية استرجاع البيانات بأمان تام. عملنا سابقاً في إدارة عمليات استعادة البيانات في مصر، والآن نقدم خبراتنا عبر مختبرات شريكة ومختارة بعناية في المملكة العربية السعودية.
+      </p>
+      <p>
+        نحن لا نعتمد على الكلمات التسويقية الرنانة، بل نلتزم بتقديم <strong>شفافية مطلقة</strong> ومعلومات تقنية دقيقة تُمكنك من اتخاذ القرار الصحيح.
+      </p>
+    </section>
+
+    {/* ─── 3. Tools & Equipment ─── */}
+    <section class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm mb-16">
+      <h2 class="text-[#0b4f6c] font-bold text-2xl mb-8 text-center">أدوات وتقنيات المعمل</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">🛠️</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">PC-3000 Portable Pro</h3>
+            <p class="text-gray-600 text-sm">النظام الأقوى عالمياً من شركة ACE Lab للتعامل المبتكر مع الحالات المستعصية واستخراج البيانات من الأعطال المعقدة.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">🔬</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">Clean Room Capability</h3>
+            <p class="text-gray-600 text-sm">بيئة غرف نظيفة مجهزة (Clean Room) لفتح الأقراص الصلبة (HDD) والتعامل مع الأعطال الميكانيكية الحساسة دون تعريض الأطباق للتلوث.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">⚙️</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">MRT Lab & CDev</h3>
+            <p class="text-gray-600 text-sm">مجموعة من أدوات قراءة الفيرموير (Firmware) وتجاوز مشاكل الترجمة (Translators) في الأقراص الصلبة ووحدات التخزين الحديثة.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">💻</div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-2">Software Solutions</h3>
+            <p class="text-gray-600 text-sm">نستخدم طيفاً واسعاً من البرمجيات المتقدمة مثل R-Studio لاستعادة الملفات المنطقية (Logical) وإعادة بناء هياكل RAID المعقدة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── 4. Privacy Protocol ─── */}
+    <section class="bg-[#F9FAFB] border-2 border-gray-200 rounded-2xl p-8 mb-16">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div class="text-5xl shrink-0">🛡️</div>
+        <div>
+          <h2 class="text-gray-900 font-bold text-2xl mb-3">بروتوكول "الاستعادة العمياء"</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            الخصوصية هي المعيار الأول لدينا. نحن نطبق سياسة صارمة تُعرف بـ <strong>"الاستعادة العمياء" (Blind Recovery)</strong>. هذه المنهجية تضمن استعادة البيانات ككتل وهياكل (Hex & Directory Trees) دون الحاجة لفتح الملفات الشخصية أو معاينتها.
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1">
+            <li>آلية فحص تعتمد على البنية التحتية، لا المحتوى.</li>
+            <li>عدم الاحتفاظ بأي نسخ احتياطية للملفات بعد تسليمها.</li>
+            <li>تشهير البيانات (Sanitization) للأقراص البديلة فور الانتهاء.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* ─── 5. Success Rates ─── */}
+    <section class="mb-16">
+      <h2 class="text-[#0b4f6c] font-bold text-2xl mb-6 text-center">أرقام ونسب النجاح (واقعية ومثبتة)</h2>
+      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">نحن في {brand.name} لا نؤمن بوعود "استعادة 100%". لغة الأرقام لدينا تعكس الواقع التقني والحالات التي نتعامل معها.</p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-white border border-green-100 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-green-600 font-bold text-4xl mb-2">~95%</div>
+          <h3 class="font-bold text-gray-900 mb-1">الأعطال المنطقية (Logical)</h3>
+          <p class="text-sm text-gray-500">حذف بالخطأ، فورمات، أو تلف نظام الملفات</p>
+        </div>
+        <div class="bg-white border border-amber-100 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-amber-600 font-bold text-4xl mb-2">~85%</div>
+          <h3 class="font-bold text-gray-900 mb-1">الأعطال المادية (Physical)</h3>
+          <p class="text-sm text-gray-500">أصوات طقطقة، تلف الرؤوس (Heads)، أو أعطال الموتور</p>
+        </div>
+        <div class="bg-white border border-blue-100 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-blue-600 font-bold text-4xl mb-2">~75%</div>
+          <h3 class="font-bold text-gray-900 mb-1">مصفوفات الخوادم (RAID)</h3>
+          <p class="text-sm text-gray-500">انهيار خوادم NAS أو فشل أكثر من قرص</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</BaseLayout>

@@ -1,4 +1,4 @@
-# 🗺️ Phase 1.4: Global UI — Dr. Hard Disk
+# 🗺️ Phase 1.4: Global UI — Datacodex
 > **Version:** 1.0.0
 > **Date:** 2026-02-19
 > **Methodology:** Multi-Model Development
@@ -142,8 +142,8 @@ This must be:
 
 **Logo Section:**
 - Emoji: `💿` (matching brand identity)
-- Text: `brand.name` ("Dr. Hard Disk")
-- Arabic sub-text: `brand.nameAr` ("د.هارد ديسك")
+- Text: `brand.name` ("Datacodex")
+- Arabic sub-text: `brand.nameAr` ("Datacodex")
 - Link: `/` (always points to Arabic homepage)
 - No `<img>` — text-only logo with emoji
 
@@ -154,7 +154,7 @@ This must be:
 | الرئيسية | `/` | Homepage |
 | المقالات | `/posts/` | Future content (link exists now) |
 | تواصل | `/contact/` | Contact page |
-| عن Dr. Hard Disk | `/about/` | Future page (link exists now) |
+| عن Datacodex | `/about/` | Future page (link exists now) |
 
 **Navigation Links (English — LTR):**
 
@@ -208,7 +208,7 @@ interface Props {
 
 **🔄 Prompt for Phase A:**
 ```text
-Context: Dr. Hard Disk — Astro v5 + Tailwind v4 + Cloudflare SSG.
+Context: Datacodex — Astro v5 + Tailwind v4 + Cloudflare SSG.
 Branch: feature/phase-1.4-global-ui (create from main FIRST).
 Read: plans/04-global-ui.md Phase A.
 Implement: src/components/layout/NavBar.astro
@@ -243,8 +243,8 @@ After implementation:
 │                                                          │
 │  ┌─────────────── Brand Zone (permanent) ──────────────┐│
 │  │                                                      ││
-│  │  💿 Dr. Hard Disk                                    ││
-│  │  د.هارد ديسك                                        ││
+│  │  💿 Datacodex                                    ││
+│  │  Datacodex                                        ││
 │  │                                                      ││
 │  │  brand.tagline (bilingual)                           ││
 │  │                                                      ││
@@ -253,7 +253,7 @@ After implementation:
 │  └──────────────────────────────────────────────────────┘│
 │                                                          │
 │  ── Copyright ──────────────────────────────────────────│
-│  © 2026 Dr. Hard Disk. All rights reserved.             │
+│  © 2026 Datacodex. All rights reserved.             │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -261,8 +261,8 @@ After implementation:
 #### Implementation Details:
 
 **Brand Section:**
-- Logo: `💿` emoji + `brand.name` ("Dr. Hard Disk")
-- Arabic name: `brand.nameAr` ("د.هارد ديسك")
+- Logo: `💿` emoji + `brand.name` ("Datacodex")
+- Arabic name: `brand.nameAr` ("Datacodex")
 - Tagline: `brand.tagline.ar` / `brand.tagline.en` (depending on `lang` prop)
 - Social media icons (text-based links, no SVGs in this phase):
 
@@ -273,7 +273,7 @@ After implementation:
 | Linktree | `currentLocation.socialMedia.linktree` | Linktree |
 
 **Copyright:**
-- Text: `© 2026 Dr. Hard Disk.` + bilingual "All rights reserved" / "جميع الحقوق محفوظة"
+- Text: `© 2026 Datacodex.` + bilingual "All rights reserved" / "جميع الحقوق محفوظة"
 - Version display: `brand.version` (per constitution §Semantic Versioning)
 
 **What This Footer Does NOT Have (deferred):**
@@ -313,7 +313,7 @@ interface Props {
 
 **🔄 Prompt for Phase B:**
 ```text
-Context: Dr. Hard Disk — Astro v5 + Tailwind v4.
+Context: Datacodex — Astro v5 + Tailwind v4.
 Branch: feature/phase-1.4-global-ui (already exists from Phase A).
 Read: plans/04-global-ui.md Phase B.
 Implement: src/components/layout/Footer.astro
@@ -418,7 +418,7 @@ After implementation:
 
 **🔄 Prompt for Phase C:**
 ```
-Context: Dr. Hard Disk — Astro v5 + Tailwind v4.
+Context: Datacodex — Astro v5 + Tailwind v4.
 Branch: feature/phase-1.4-global-ui.
 Read: plans/04-global-ui.md Phase C.
 Implement: src/components/ui/FloatingWhatsApp.astro
@@ -513,7 +513,7 @@ strictly limited to:
 
 **🔄 Prompt for Phase D:**
 ```
-Context: Dr. Hard Disk — Astro v5 + Tailwind v4.
+Context: Datacodex — Astro v5 + Tailwind v4.
 Branch: feature/phase-1.4-global-ui.
 Read: plans/04-global-ui.md Phase D.
 Task: Integrate NavBar, Footer, and FloatingWhatsApp into BaseLayout.astro.
@@ -620,7 +620,7 @@ With the following structure:
 
 **🔄 Prompt for Phase E:**
 ```
-Context: Dr. Hard Disk — Phase 1.4 Global UI.
+Context: Datacodex — Phase 1.4 Global UI.
 Branch: feature/phase-1.4-global-ui (should be pushed already).
 Read: plans/04-global-ui.md Phase E.
 
@@ -689,8 +689,8 @@ Task:
 | File | Section | Used For |
 |:-----|:--------|:---------|
 | `09_Homepage_Site_Blueprint.md` | §2.1, §2.2, §2.3 | NavBar spec, floating button, footer layout |
-| `04_DrHardDisk_UX_v3.2.md` | §5.6 | Footer visual spec, Brand Zone / Local Zone |
-| `05_DrHardDisk_TAD_v4.2.md` | §4.2, §4.10 | FloatingWhatsApp code, Footer/LocalLayer |
+| `04_Datacodex_UX_v3.2.md` | §5.6 | Footer visual spec, Brand Zone / Local Zone |
+| `05_Datacodex_TAD_v4.2.md` | §4.2, §4.10 | FloatingWhatsApp code, Footer/LocalLayer |
 | `master-constitution.md` | Brand/Location rules | No Panic UI, RTL-First, Brand ≠ Location |
 | `src/config/location.ts` | — | Brand + currentLocation data source |
 | `src/layouts/BaseLayout.astro` | — | Root layout (target for integration) |

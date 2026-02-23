@@ -1,6 +1,6 @@
 
 
-# Dr. Hard Disk — Content Production Plan (دليل إنتاج المحتوى)
+# Datacodex — Content Production Plan (دليل إنتاج المحتوى)
 
 > **Document:** `07_Content_Production_Plan.md`
 > **Version:** 1.3 — Encyclopedic Knowledge Edition
@@ -9,7 +9,7 @@
 > **Content Engine:** NotebookLM (Source-Grounded Generation)
 > **Content Philosophy:** الموسوعة المعرفية — المحتوى هو المنتج، والثقة تأتي من المعلومة لا من الإلحاح.
 > **Dependencies:**
-> - `05_DrHardDisk_TAD_v4.2.md` → File structure & Content Schema
+> - `05_Datacodex_TAD_v4.2.md` → File structure & Content Schema
 > - `06_SEO_Jeddah_Market_Strategy_v3.md` → Keywords & content calendar
 > - `KB_03_DataRecovery_Technical.md` → Technical accuracy reference
 > - `08_Content_Tool_Spec_v1.md` → Content Generator Tool specification
@@ -139,7 +139,7 @@
 
 ## 2. The Technical Spec
 
-> **Source:** `05_DrHardDisk_TAD_v4.2.md` — Section 2 (Folder Structure) & Section 3 (Content Schema)
+> **Source:** `05_Datacodex_TAD_v4.2.md` — Section 2 (Folder Structure) & Section 3 (Content Schema)
 > **Strategy:** Twin-File — each language lives in a separate `.mdx` file linked via `translationID`
 
 ---
@@ -424,7 +424,7 @@ featured: false
 Paste this in NotebookLM's **"Customize Response"** section:
 
 ```
-You are the Senior Technical Content Writer for "Dr. Hard Disk" (د.هارد ديسك),
+You are the Senior Technical Content Writer for "Datacodex" (Datacodex),
 a specialized data recovery knowledge platform.
 
 YOUR CONTENT PHILOSOPHY:
@@ -497,7 +497,7 @@ TONE EXAMPLES:
 ✅ "تشغيل الهارد في هذه الحالة قد يزيد الضرر"
 ❌ "لو ما اتصلتش دلوقتي هتخسر بياناتك للأبد!"
 
-✅ "Dr. Hard Disk — خبرة أكثر من 8 سنوات في استعادة البيانات"
+✅ "Datacodex — خبرة أكثر من 8 سنوات في استعادة البيانات"
 ❌ "أنا أحمد، عندي خبرة 8 سنوات وأنا الأفضل في جدة"
 ```
 
@@ -719,7 +719,7 @@ The following patterns are **EXPLICITLY BANNED** from all content:
 | بدلاً من | استخدم |
 |:---------|:-------|
 | "اتصل الآن!" | — (لا بديل — GentleNote يتولى هذا تلقائياً) |
-| "أفضل مركز" | "Dr. Hard Disk متخصص في..." |
+| "أفضل مركز" | "Datacodex متخصص في..." |
 | "عروضنا الحصرية" | — (ممنوع — لا بديل) |
 | "احجز فحص مجاني" | — (ممنوع — لا بديل في المقال) |
 | "اكتشف المزيد عن خدماتنا" | "تعرف على المشكلة" / "اقرأ المزيد" |
@@ -760,12 +760,12 @@ The following patterns are **EXPLICITLY BANNED** from all content:
 > **[v1.3] Strengthened to reflect encyclopedic identity.**
 
 **الهوية:**
-نكتب بصوت **Dr. Hard Disk** — خبير واثق ومطمئن، وليس بائع.
+نكتب بصوت **Datacodex** — خبير واثق ومطمئن، وليس بائع.
 
 **القواعد:**
 
 **1. نستخدم صيغة البراند القوي:**
-- ✅ "Dr. Hard Disk — خبرة أكثر من 8 سنوات"
+- ✅ "Datacodex — خبرة أكثر من 8 سنوات"
 - ❌ "أنا أحمد، عندي خبرة 8 سنوات"
 
 **2. نُعلّم ولا نروّج:**
@@ -834,16 +834,16 @@ The following patterns are **EXPLICITLY BANNED** from all content:
 ---
 
 **HDD + Clicking:**
-> 💡 لو بتسمع صوت طقطقة دلوقتي، ما تحاولش تشغل الهارد تاني. Dr. Hard Disk متخصص في الحالات دي. تواصل عبر واتساب أو زورنا في [المكان].
+> 💡 لو بتسمع صوت طقطقة دلوقتي، ما تحاولش تشغل الهارد تاني. Datacodex متخصص في الحالات دي. تواصل عبر واتساب أو زورنا في [المكان].
 
 **HDD + Not Detected:**
-> 💡 لو الكمبيوتر مش شايف الهارد، ما تحاولش تفكه بنفسك. Dr. Hard Disk يقدر يفحصه بأجهزة متخصصة. تواصل عبر واتساب أو زورنا في [المكان].
+> 💡 لو الكمبيوتر مش شايف الهارد، ما تحاولش تفكه بنفسك. Datacodex يقدر يفحصه بأجهزة متخصصة. تواصل عبر واتساب أو زورنا في [المكان].
 
 **Deleted/Format (symptoms: deleted-files أو formatted-drive):**
-> 💡 لو عملت فورمات بالغلط، ما تكتبش أي حاجة على القرص. Dr. Hard Disk يقدر يساعدك. تواصل عبر واتساب أو زورنا في [المكان].
+> 💡 لو عملت فورمات بالغلط، ما تكتبش أي حاجة على القرص. Datacodex يقدر يساعدك. تواصل عبر واتساب أو زورنا في [المكان].
 
 **SSD:**
-> 💡 مشاكل الـ SSD غالباً بتحتاج أدوات متخصصة. Dr. Hard Disk عنده الأجهزة المناسبة. تواصل عبر واتساب أو زورنا في [المكان].
+> 💡 مشاكل الـ SSD غالباً بتحتاج أدوات متخصصة. Datacodex عنده الأجهزة المناسبة. تواصل عبر واتساب أو زورنا في [المكان].
 
 **RAID:**
 > 💡 لو السيرفر وقع، ما تحاولش تعمل rebuild بنفسك. كل خطوة غلط بتقلل فرص الاستعادة. تواصل عبر واتساب أو زورنا في [المكان].
@@ -852,7 +852,7 @@ The following patterns are **EXPLICITLY BANNED** from all content:
 > 💡 لو الفلاشة أو الكارت مش شغالين، ما تعملش فورمات. فيه فرصة للاستعادة. تواصل عبر واتساب أو زورنا في [المكان].
 
 **General (fallback):**
-> 💡 لو محتاج مساعدة متخصصة في استعادة البيانات، Dr. Hard Disk موجود. تواصل عبر واتساب أو زورنا في [المكان].
+> 💡 لو محتاج مساعدة متخصصة في استعادة البيانات، Datacodex موجود. تواصل عبر واتساب أو زورنا في [المكان].
 
 ---
 
@@ -913,7 +913,7 @@ The following patterns are **EXPLICITLY BANNED** from all content:
 
 **Allowed in content body:**
 ```
-✅ "Dr. Hard Disk متخصص في..." (brand name — not location)
+✅ "Datacodex متخصص في..." (brand name — not location)
 ✅ "الأسلوب التقني المتبع..." (neutral reference to process)
 ✅ "الأجهزة المتخصصة مثل PC-3000..." (equipment — not place)
 ```
@@ -1232,7 +1232,7 @@ const reels = [
 | Accuracy Reference | `KB_03_DataRecovery_Technical.md` |
 | SEO Reference | `06_SEO_Jeddah_Market_Strategy_v3.md` |
 | Internal Linking | `08_Internal_Linking_Map.md` (separate document) |
-| Technical Architecture | `05_DrHardDisk_TAD_v4.2.md` |
+| Technical Architecture | `05_Datacodex_TAD_v4.2.md` |
 | Content Tool Spec | `08_Content_Tool_Spec_v1.md` |
 | Sales Language | **ممنوعة تماماً** في المقالات والخدمات وقصص النجاح |
 | Location Mentions | **ممنوعة تماماً** في المحتوى التقني (GentleNote يتولاها) |

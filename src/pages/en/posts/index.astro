@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getPublishedPosts } from '../../../utils/content';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import CategoryFilter from '../../../components/CategoryFilter.astro';
+
+// Enable prerendering (SSG)
+export const prerender = true;
+
+const allPosts = await getPublishedPosts();
+// English posts have lang == 'en'
+const englishPosts = allPosts.filter(post => post.data.lang === 'en');
+
+// Extract unique categories
+const categories = [...new Set(englishPosts.map(post => post.data.category))];
+---
+
+<BaseLayout 
+  title="Knowledge Base | Datacodex" 
+  description="Browse our comprehensive library of articles on data recovery, hard drive failures, and protection tips by Datacodex."
+  lang="en"
+>
+  <div class="bg-slate-50 min-h-screen py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-4">
+          Knowledge Base
+        </h1>
+        <p class="text-lg leading-8 text-slate-600">
+          Everything you need to know about data recovery, handling hardware failures, and securing your files against loss.
+        </p>
+      </div>
+
+      <!-- Filters -->
+      {categories.length > 0 && (
+        <div class="flex justify-center">
+          <CategoryFilter categories={categories} locale="en" />
+        </div>
+      )}
+
+      <!-- Articles Grid -->
+      {englishPosts.length > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {englishPosts.map(post => (
+            <ArticleCard post={post} locale="en" />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20 bg-white rounded-2xl shadow-sm border border-slate-100">
+          <p class="text-slate-500 text-lg font-medium">No articles published yet.</p>
+        </div>
+      )}
+
+    </div>
+  </div>
+</BaseLayout>

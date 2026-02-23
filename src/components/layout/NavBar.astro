@@ -8,18 +8,29 @@ import { brand } from '../../config/location';
 
 interface Props {
   lang?: "ar" | "en";
+  alternateUrlAr?: string;
+  alternateUrlEn?: string;
 }
 
-const { lang = 'ar' } = Astro.props;
+const { lang = 'ar', alternateUrlAr, alternateUrlEn } = Astro.props;
 
 const isAr = lang === 'ar';
+
+// Default basic logic fallback:
+const currentPath = Astro.url.pathname;
+const defaultArUrl = currentPath.startsWith('/en/') ? currentPath.replace(/^\/en\//, '/') : currentPath;
+const defaultEnUrl = currentPath.startsWith('/en/') ? currentPath : '/en/' + currentPath.replace(/^\//, '');
+
+const finalArUrl = alternateUrlAr || defaultArUrl;
+const finalEnUrl = alternateUrlEn || defaultEnUrl;
 
 // Links Configuration
 const navLinks = [
   { label: isAr ? 'الرئيسية' : 'Home', href: isAr ? '/' : '/en/' },
   { label: isAr ? 'المقالات' : 'Articles', href: isAr ? '/posts/' : '/en/posts/' },
+  { label: isAr ? 'الخدمات' : 'Services', href: isAr ? '/services/hdd-data-recovery/' : '/en/services/hdd-data-recovery/' },
   { label: isAr ? 'تواصل' : 'Contact', href: '/contact/' }, // Contact page handles its own lang
-  { label: isAr ? 'عن Dr. Hard Disk' : 'About', href: isAr ? '/about/' : '/en/about/' },
+  { label: isAr ? 'عن Datacodex' : 'About', href: isAr ? '/about/' : '/en/about/' },
 ];
 ---
 
@@ -33,16 +44,12 @@ const navLinks = [
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     
     <!-- Logo Section -->
-    <a href={isAr ? '/' : '/en/'} class="flex items-center gap-2 z-50 group hover:opacity-90 transition-opacity">
-      <span class="text-2xl filter drop-shadow-sm">💿</span>
-      <div class="flex flex-col">
-        <span class="font-heading font-bold text-lg leading-none text-primary-900">
-          {brand.nameEn}
-        </span>
-        <span class="font-heading text-xs text-primary-600">
-          {brand.name}
-        </span>
-      </div>
+    <a href={isAr ? '/' : '/en/'} class="flex items-center z-50 group hover:opacity-90 transition-opacity">
+      <img 
+        src="/images/logo.png" 
+        alt="Datacodex Logo" 
+        class="w-48 sm:w-56 aspect-[21/9] object-contain" 
+      />
     </a>
 
     <!-- Mobile Menu Toggle (CSS-Only) -->
@@ -86,7 +93,7 @@ const navLinks = [
       <!-- Language Switcher -->
       <div class="flex items-center gap-2">
         <a 
-          href="/" 
+          href={finalArUrl} 
           class:list={[
             "px-2 py-1 text-xs rounded border transition-colors",
             isAr 
@@ -97,7 +104,7 @@ const navLinks = [
           AR
         </a>
         <a 
-          href="/en/" 
+          href={finalEnUrl} 
           class:list={[
             "px-2 py-1 text-xs rounded border transition-colors",
             !isAr 
